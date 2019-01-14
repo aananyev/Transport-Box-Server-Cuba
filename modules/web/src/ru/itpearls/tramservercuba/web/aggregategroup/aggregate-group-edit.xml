@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="ru.itpearls.tramservercuba.web.aggregategroup.AggregateGroupEdit"
+        datasource="aggregateGroupDs"
+        focusComponent="fieldGroup"
+        messagesPack="ru.itpearls.tramservercuba.web.aggregategroup">
+    <dsContext>
+        <datasource id="aggregateGroupDs"
+                    class="ru.itpearls.tramservercuba.entity.AggregateGroup"
+                    view="_local"/>
+        <collectionDatasource id="groupsDs"
+                              class="ru.itpearls.tramservercuba.entity.AggregateGroup"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from tramservercuba$AggregateGroup e
+where e.id <> :ds$aggregateGroupDs]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <label htmlEnabled="true"
+               value="msg://editTitleLabel"/>
+        <fieldGroup id="fieldGroup"
+                    datasource="aggregateGroupDs">
+            <column width="250px">
+                <field property="name"/>
+                <field property="code"/>
+                <field property="description"/>
+                <field optionsDatasource="groupsDs"
+                       property="baseType"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

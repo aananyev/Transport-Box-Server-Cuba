@@ -1,0 +1,1 @@
+alter table TRAMSERVERCUBA_TRANSPORT_MODEL alter column MAINTENANCE_REGULATION_ID drop not null ;

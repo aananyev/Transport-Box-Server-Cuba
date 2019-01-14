@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="ru.itpearls.tramservercuba.web.aggregatemodelprovider.AggregateModelProviderEdit"
+        datasource="aggregateModelProviderDs"
+        focusComponent="fieldGroup"
+        messagesPack="ru.itpearls.tramservercuba.web.aggregatemodelprovider">
+    <dsContext>
+        <datasource id="aggregateModelProviderDs"
+                    class="ru.itpearls.tramservercuba.entity.AggregateModelProvider"
+                    view="edit"/>
+        <collectionDatasource id="providersDs"
+                              class="ru.itpearls.tramservercuba.entity.Provider"
+                              view="_local">
+            <query>
+                <![CDATA[select e from tramservercuba$Provider e where e.deliverAggregates = true
+                or e.deliverAccessories = true]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <hbox spacing="true" margin="true">
+            <label value="msg://ru.itpearls.tramservercuba.entity/AggregateModelProvider.provider"/>
+            <lookupField datasource="aggregateModelProviderDs"
+                      property="provider" optionsDatasource="providersDs" width="420px"/>
+        </hbox>
+        <groupBox caption="msg://activityCpation" width="500px">
+            <hbox margin="true"
+                  spacing="true">
+                <checkBox datasource="aggregateModelProviderDs"
+                          property="isDeliver"/>
+                <label value="msg://ru.itpearls.tramservercuba.entity/AggregateModelProvider.isDeliver"/>
+                <checkBox datasource="aggregateModelProviderDs"
+                          property="isProducer"/>
+                <label value="msg://ru.itpearls.tramservercuba.entity/AggregateModelProvider.isProducer"/>
+            </hbox>
+        </groupBox>
+        <hbox>
+            <checkBox datasource="aggregateModelProviderDs"
+                      property="isMain"/>
+            <label value="msg://ru.itpearls.tramservercuba.entity/AggregateModelProvider.isMain"/>
+        </hbox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

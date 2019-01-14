@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="ru.itpearls.tramservercuba.web.generatedcode.GeneratedCodeBrowse"
+        focusComponent="generatedCodesTable"
+        lookupComponent="generatedCodesTable"
+        messagesPack="ru.itpearls.tramservercuba.web.generatedcode">
+    <dsContext>
+        <collectionDatasource id="generatedCodesDs"
+                              class="ru.itpearls.tramservercuba.entity.GeneratedCode"
+                              view="_local">
+            <query>
+                <![CDATA[select e from tramservercuba$GeneratedCode e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="generatedCodesTable"
+            spacing="true">
+        <table id="generatedCodesTable"
+               width="100%">
+            <actions>
+                <action id="edit"/>
+            </actions>
+            <columns>
+                <column id="localizedEntityName"/>
+                <column id="currentValue"/>
+            </columns>
+            <rows datasource="generatedCodesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="editBtn"
+                        action="generatedCodesTable.edit"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>

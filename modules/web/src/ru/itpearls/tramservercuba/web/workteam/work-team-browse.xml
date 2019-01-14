@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="ru.itpearls.tramservercuba.web.workteam.WorkTeamBrowse"
+        focusComponent="workTeamsTable"
+        lookupComponent="workTeamsTable"
+        messagesPack="ru.itpearls.tramservercuba.web.workteam">
+    <dsContext>
+        <collectionDatasource id="workTeamsDs"
+                              class="ru.itpearls.tramservercuba.entity.WorkTeam"
+                              view="edit">
+            <query>
+                <![CDATA[select e from tramservercuba$WorkTeam e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="workTeamsTable"
+            spacing="true">
+        <label htmlEnabled="true"
+               value="msg://browseTitleLabel"/>
+        <table id="workTeamsTable"
+               width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="depo.depoWithRegion"
+                        caption="msg://depoCaption"/>
+                <column id="name"/>
+            </columns>
+            <rows datasource="workTeamsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="workTeamsTable.create"/>
+                <button id="editBtn"
+                        action="workTeamsTable.edit"/>
+                <button id="removeBtn"
+                        action="workTeamsTable.remove"/>
+                <popupButton id="excelBtn"
+                             caption="msg://excelAction">
+                    <actions>
+                        <action id="transportItemsTable.importExcel"
+                                caption="msg://importExcelAction"
+                                invoke="excelImportActionInvoke"/>
+                        <action id="transportItemsTable.excel"
+                                caption="msg://exportExcelAction"
+                                invoke="excelExportActionInvoke"/>
+                    </actions>
+                </popupButton>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>

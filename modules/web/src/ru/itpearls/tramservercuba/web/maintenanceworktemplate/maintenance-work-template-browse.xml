@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="ru.itpearls.tramservercuba.web.maintenanceworktemplate.MaintenanceWorkTemplateBrowse"
+        focusComponent="maintenanceWorkTemplatesTable"
+        lookupComponent="maintenanceWorkTemplatesTable"
+        messagesPack="ru.itpearls.tramservercuba.web.maintenanceworktemplate">
+    <dsContext>
+        <collectionDatasource id="maintenanceWorkTemplatesDs"
+                              class="ru.itpearls.tramservercuba.entity.MaintenanceWorkTemplate"
+                              view="browse">
+            <query>
+                <![CDATA[select e from tramservercuba$MaintenanceWorkTemplate e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="1300"/>
+    <layout expand="maintenanceWorkTemplatesTable"
+            spacing="true">
+        <label htmlEnabled="true"
+               value="msg://browseTitleLabel"/>
+        <filter id="filter"
+                applyTo="maintenanceWorkTemplatesTable"
+                datasource="maintenanceWorkTemplatesDs"
+                editable="false">
+            <properties include=".*"/>
+        </filter>
+        <table id="maintenanceWorkTemplatesTable"
+               width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="code"/>
+                <column id="name"/>
+                <column id="aggregateType.name"
+                        caption="msg://aggregateTypeColumnCaption"/>
+                <column id="aggregateType.code"
+                        caption="msg://aggregateTypeCodeColumnCaption"/>
+                <column id="workClass"/>
+                <column id="state"/>
+                <column id="description" collapsed="true"/>
+            </columns>
+            <rows datasource="maintenanceWorkTemplatesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="maintenanceWorkTemplatesTable.create"/>
+                <button id="editBtn"
+                        action="maintenanceWorkTemplatesTable.edit"/>
+                <button id="removeBtn"
+                        action="maintenanceWorkTemplatesTable.remove"/>
+                <popupButton id="excelBtn"
+                             caption="msg://excelAction"
+                             icon="icons/excel.png">
+                    <actions>
+                        <action id="maintenanceWorkTemplatesTable.importExcel"
+                                caption="msg://importExcelAction"
+                                invoke="excelImportActionInvoke"/>
+                    </actions>
+                </popupButton>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>

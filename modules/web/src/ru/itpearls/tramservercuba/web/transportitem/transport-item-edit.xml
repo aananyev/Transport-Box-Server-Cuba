@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="ru.itpearls.tramservercuba.web.transportitem.TransportItemEdit"
+        datasource="transportItemDs"
+        messagesPack="ru.itpearls.tramservercuba.web.transportitem">
+    <dsContext>
+        <datasource id="transportItemDs"
+                    class="ru.itpearls.tramservercuba.entity.TransportItem"
+                    view="edit">
+            <groupDatasource id="transportItemEquipmentsDs"
+                             property="transportItemEquipments"/>
+        </datasource>
+        <collectionDatasource id="modelsDs"
+                              class="ru.itpearls.tramservercuba.entity.TransportModel"
+                              view="transportItem-lookup">
+            <query>
+                <![CDATA[select e from tramservercuba$TransportModel e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="providersDs"
+                              class="ru.itpearls.tramservercuba.entity.Provider"
+                              view="_local">
+            <query>
+                <![CDATA[select e from tramservercuba$Provider e where exists
+(select p from tramservercuba$TransportModelProvider p
+where p.provider.id = e.id and p.model.id = :ds$modelsDs)]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="depoesDs"
+                              class="ru.itpearls.tramservercuba.entity.Depo"
+                              view="edit">
+            <query>
+                <![CDATA[select e from tramservercuba$Depo e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="historyRepairsDs"
+                              class="ru.itpearls.tramservercuba.entity.Repair"
+                              view="browse">
+            <query>
+                <![CDATA[select e from tramservercuba$Repair e
+where e.transportItem.id = :ds$transportItemDs
+order by e.startDate desc]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="identifiedFaultsDs"
+                              class="ru.itpearls.tramservercuba.entity.IdentifiedFaults"
+                              view="browse">
+            <query>
+                <![CDATA[select e from tramservercuba$IdentifiedFaults e
+where e.repair.transportItem.id = :ds$transportItemDs
+order by e.identifiedDate desc]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="aggregateItemChangesDs"
+                              class="ru.itpearls.tramservercuba.entity.AggregateItemChange"
+                              view="browse">
+            <query>
+                <![CDATA[select e from tramservercuba$AggregateItemChange e
+where e.repair.transportItem.id = :ds$transportItemDs
+order by e.operationDate desc]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="transportItemTabSheet"
+            spacing="true">
+        <label htmlEnabled="true"
+               value="msg://editTitleLabel"/>
+        <tabSheet id="transportItemTabSheet">
+            <tab id="detailsTab"
+                 caption="msg://detailsTabCaption"
+                 margin="true"
+                 spacing="true">
+                <fieldGroup id="detailsFieldGroup"
+                            datasource="transportItemDs">
+                    <column width="250px">
+                        <field id="modelField"
+                               caption="msg://modelLabel"
+                               captionProperty="modelTitleForTransportItem"
+                               optionsDatasource="modelsDs"
+                               property="model"/>
+                        <field property="factoryNumber"/>
+                        <field captionProperty="depoWithRegion"
+                               optionsDatasource="depoesDs"
+                               property="depo"/>
+                        <field property="workNumber"/>
+                        <field optionsDatasource="providersDs"
+                               property="provider"/>
+                    </column>
+                </fieldGroup>
+            </tab>
+            <tab id="equipmentTab"
+                 caption="msg://equipmentTabCaption"
+                 expand="transportItemEquipmentsTable"
+                 margin="true"
+                 spacing="true">
+                <label datasource="transportItemDs"
+                       htmlEnabled="true"
+                       property="numbersWithModelAdnModification"
+                       stylename="h2"/>
+                <groupTable id="transportItemEquipmentsTable"
+                            height="400px"
+                            width="100%">
+                    <actions>
+                        <action id="remove"/>
+                    </actions>
+                    <columns>
+                        <group>
+                            <column id="system"/>
+                        </group>
+                        <column id="aggregateItem.model.type.name"
+                                caption="msg://elementTypeCaption"/>
+                        <column id="transportItem.factoryNumber"
+                                caption="msg://transportItemFactoryNumberCaption"
+                                collapsed="true"/>
+                        <column id="aggregateItem.model.code"
+                                caption="msg://modelCodeCaption"/>
+                        <column id="aggregateItem.provider.code"
+                                caption="msg://providerCodeCaption"
+                                collapsed="true"/>
+                        <column id="aggregateItem.number"
+                                caption="msg://factoryNumberCaption"
+                                collapsed="true"/>
+                    </columns>
+                    <rows datasource="transportItemEquipmentsDs"/>
+                    <rowsCount/>
+                    <buttonsPanel id="buttonsPanel"
+                                  alwaysVisible="true">
+                        <button id="removeBtn"
+                                action="transportItemEquipmentsTable.remove"/>
+                        <button id="updateFromModel"
+                                caption="msg://updateFromModeCaption"
+                                invoke="updateFromModelAction"/>
+                        <button id="cleanEquipment"
+                                caption="msg://cleanEquipmentCaption"
+                                invoke="cleanEquipmentAction" visible="false"/>
+                        <button id="finishEquipment"
+                                caption="msg://finishEquipmentCaption"
+                                invoke="finishEquipmentAction"/>
+                        <popupButton id="excelBtn"
+                                     caption="msg://excelAction"
+                                     icon="icons/excel.png">
+                            <actions>
+                                <action id="transportItemEquipmentsTable.importExcel"
+                                        caption="msg://importExcelAction"
+                                        invoke="excelImportActionInvoke"/>
+                            </actions>
+                        </popupButton>
+                        <hbox>
+                            <label value="msg://showUnfilled"/>
+                            <checkBox id="showUnfilledCheckBox"/>
+                        </hbox>
+                    </buttonsPanel>
+                </groupTable>
+            </tab>
+            <tab id="techMaintenanceTab"
+                 caption="msg://techMaintenanceTabCaption"
+                 expand="historyRepairsTable"
+                 margin="true"
+                 spacing="true">
+                <label datasource="transportItemDs"
+                       htmlEnabled="true"
+                       property="numbersWithModelAdnModification"
+                       stylename="h2"/>
+                <filter id="filter"
+                        applyTo="historyRepairsTable"
+                        datasource="historyRepairsDs"
+                        editable="false">
+                    <properties include=".*"/>
+                </filter>
+                <hbox spacing="true">
+                    <label value="msg://everydayRepairsLabel1"/>
+                    <label id="everydayRepairsCount"
+                           stylename="bold"/>
+                    <label value="msg://everydayRepairsLabel2"/>
+                    <label id="everydayRepairsLastDate"
+                           stylename="bold"/>
+                </hbox>
+                <table id="historyRepairsTable"
+                       width="100%">
+                    <columns>
+                        <column id="depo.depoWithRegion"/>
+                        <column id="startDate"/>
+                        <column id="milage"/>
+                        <column id="allMaintenanceKinds"/>
+                        <column id="finishDate"/>
+                        <column id="state"/>
+                        <column id="stateColor"
+                                generator="generateRepairStateColorCell"
+                                caption="msg://stateColorCaption"/>
+                        <column id="workTeam"/>
+                    </columns>
+                    <rows datasource="historyRepairsDs"/>
+                </table>
+            </tab>
+            <tab id="aggregateChangesTab"
+                 caption="msg://aggregateChangesTabCaption"
+                 margin="true"
+                 spacing="true"
+                 expand="aggregateItemChangesTable">
+                <label datasource="transportItemDs"
+                       htmlEnabled="true"
+                       property="numbersWithModelAdnModification"
+                       stylename="h2"/>
+                <table id="aggregateItemChangesTable"
+                       editable="true"
+                       width="100%">
+                    <columns>
+                        <column id="operationDate"/>
+                        <column id="repair.milage"/>
+                        <column id="aggregateItemNew.model.type"/>
+                        <column id="description"/>
+                        <column id="aggregateItemOld.model"
+                                caption="msg://aggregateItemOldCaption"/>
+                        <column id="aggregateItemOld.model.code"/>
+                        <column id="aggregateItemOld.number"/>
+                        <column id="count"/>
+                        <column id="aggregateItemNew.model"
+                                caption="msg://aggregateItemNewCaption"/>
+                        <column id="aggregateItemNew.model.code"/>
+                        <column id="aggregateItemNew.number"/>
+                    </columns>
+                    <rows datasource="aggregateItemChangesDs"/>
+                </table>
+            </tab>
+            <tab id="identifiedFaultsTab"
+                 caption="msg://identifiedFaultsTabCaption"
+                 margin="true"
+                 spacing="true"
+                 expand="identifiedFaultsTable">
+                <label datasource="transportItemDs"
+                       htmlEnabled="true"
+                       property="numbersWithModelAdnModification"
+                       stylename="h2"/>
+                <filter id="identifiedFaultsFilter"
+                        applyTo="identifiedFaultsTable"
+                        datasource="identifiedFaultsDs"
+                        editable="false">
+                    <properties include=".*"/>
+                </filter>
+                <table id="identifiedFaultsTable"
+                       width="100%">
+                    <columns>
+                        <column id="identifiedDate"/>
+                        <column id="description"/>
+                        <column id="isWarranty"/>
+                        <column id="state"/>
+                        <column id="identifiedFaultsStateColor"
+                                caption="msg://stateColorCaption"
+                                generator="generateIdentifiedFaultsStateColorCell"/>
+                        <column id="disposalDate"/>
+                    </columns>
+                    <rows datasource="identifiedFaultsDs"/>
+                </table>
+            </tab>
+        </tabSheet>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+    <view class="ru.itpearls.tramservercuba.entity.TransportType"
+          extends="_local"
+          name="transportType-browse">
+        <property name="models"
+                  view="_minimal">
+        </property>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.TransportType"
+          extends="_local"
+          name="edit">
+        <property name="models"
+                  view="_minimal">
+        </property>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.TransportModel"
+          extends="_local"
+          name="transportModel-browse">
+        <property name="parent"
+                  view="_minimal"/>
+        <property name="type"
+                  view="_minimal"/>
+        <property name="baseModel"
+                  view="_minimal"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.TransportModel"
+          extends="_local"
+          name="edit">
+        <property name="parent"
+                  view="_minimal"/>
+        <property name="type"
+                  view="_minimal"/>
+        <property name="baseModel"
+                  view="_minimal">
+            <property name="code"/>
+        </property>
+        <property name="equipments"
+                  view="_minimal">
+            <property name="system"
+                      view="_minimal"/>
+            <property name="aggregate"
+                      view="_minimal">
+                <property name="type"
+                          view="_minimal"/>
+                <property name="group"
+                          view="_minimal"/>
+                <property name="modification"/>
+                <property name="description"/>
+                <property name="code"/>
+            </property>
+            <property name="count"/>
+            <property name="mainEquipment"
+                      view="_minimal">
+                <property name="aggregate"
+                          view="_local"/>
+            </property>
+            <property name="isMain"/>
+        </property>
+        <property name="transportProviders"
+                  view="edit"/>
+        <property name="maintenanceRegulation"
+                  view="_minimal">
+            <property name="maintenanceActionItems"
+                      view="_minimal">
+                <property name="name"/>
+                <property name="dateKind"/>
+                <property name="periodTimeKind"/>
+                <property name="periodCount"/>
+                <property name="dateCount"/>
+                <property name="periodKind"/>
+                <property name="description"/>
+                <property name="maintenanceKind"
+                          view="_minimal"/>
+                <property name="periodCaption"/>
+                <property name="dateCaption"/>
+            </property>
+        </property>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.TransportModel"
+          extends="_local"
+          name="transportItem-lookup">
+        <property name="type"
+                  view="_local"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.TransportModel"
+          extends="_local"
+          name="baseModel-lookup">
+        <property name="type"
+                  view="_local"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.TransportTypeBaseEntity"
+          extends="_local"
+          name="tramBaseEntity-browse">
+        <property name="parent"
+                  view="_local"/>
+        <property name="modelModification"/>
+        <property name="modelBaseModel"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.TransportItem"
+          extends="_local"
+          name="browse">
+        <property name="model"
+                  view="transportItem-lookup">
+            <property name="maintenanceRegulation"
+                      view="_minimal">
+                <property name="maintenanceActionItems"
+                          view="_minimal">
+                    <property name="maintenanceActionItemWorks"
+                              view="_minimal">
+                        <property name="actionItem"
+                                  view="_minimal"/>
+                        <property name="workTemplate"
+                                  view="_minimal">
+                            <property name="workClass"/>
+                            <property name="code"/>
+                        </property>
+                    </property>
+                    <property name="maintenanceKind"
+                              view="_minimal">
+                        <property name="code"/>
+                    </property>
+                </property>
+            </property>
+        </property>
+        <property name="provider"
+                  view="_local"/>
+        <property name="depo"
+                  view="_local">
+            <property name="regionalDepartment"
+                      view="_minimal">
+                <property name="region"/>
+            </property>
+            <property name="depoWithRegion"/>
+        </property>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.TransportItem"
+          extends="_local"
+          name="edit">
+        <property name="model"
+                  view="transportItem-lookup">
+            <property name="equipments"
+                      view="edit"/>
+        </property>
+        <property name="provider"
+                  view="_minimal"/>
+        <property name="depo"
+                  view="_minimal">
+            <property name="regionalDepartment"
+                      view="_minimal">
+                <property name="region"/>
+            </property>
+            <property name="code"/>
+            <property name="depoWithRegion"/>
+        </property>
+        <property name="transportItemEquipments"
+                  view="edit"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.AggregateModel"
+          extends="_local"
+          name="aggregateModel-browse">
+        <property name="group"
+                  view="_minimal"/>
+        <property name="type"
+                  view="_minimal"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.AggregateModel"
+          extends="_local"
+          name="edit">
+        <property name="group"
+                  view="_minimal"/>
+        <property name="parent"
+                  view="_minimal"/>
+        <property name="type"
+                  view="_local"/>
+        <property name="aggregateModelProviders"
+                  view="edit"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.AggregateTypeBaseEntity"
+          extends="_local"
+          name="aggregateTypeBaseEntity-browse">
+        <property name="parent"
+                  view="_local"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.AggregateGroup"
+          extends="_local"
+          name="edit">
+        <property name="baseType"
+                  view="_minimal"/>
+        <property name="parent"
+                  view="edit"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.AggregateGroup"
+          extends="_local"
+          name="_local">
+        <property name="baseType"
+                  view="_minimal"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.TransportModelProvider"
+          extends="_local"
+          name="browse">
+        <property name="provider"
+                  view="_local"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.TransportModelProvider"
+          extends="_local"
+          name="edit">
+        <property name="model"
+                  view="_local"/>
+        <property name="provider"
+                  view="_local"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.TransportEquipment"
+          extends="_local"
+          name="browse">
+        <property name="system"
+                  view="_local"/>
+        <property name="aggregate"
+                  view="edit"/>
+        <property name="mainEquipment"
+                  view="_local"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.MaintenanceWorkTemplate"
+          extends="_local"
+          name="browse">
+        <property name="aggregateType"
+                  view="_local"/>
+        <property name="instruction"
+                  view="browse"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.MaintenanceWorkTemplate"
+          extends="_local"
+          name="edit">
+        <property name="aggregateType"
+                  view="_local"/>
+        <property name="instruction"
+                  view="browse"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.MaintenanceActionItem"
+          extends="_local"
+          name="edit">
+        <property name="maintenanceKind"
+                  view="_local"/>
+        <property name="maintenanceRegulation"
+                  view="_local"/>
+        <property name="maintenanceActionItemWorks"
+                  view="edit"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.MaintenanceActionItem"
+          extends="_local"
+          name="browse">
+        <property name="maintenanceKind"
+                  view="_local"/>
+        <property name="maintenanceRegulation"
+                  view="_minimal"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.MaintenanceActionItemWork"
+          extends="_local"
+          name="edit">
+        <property name="workTemplate"
+                  view="_local">
+            <property name="aggregateType"
+                      view="_local"/>
+            <property name="instruction"
+                      view="browse"/>
+        </property>
+        <property name="actionItem"
+                  view="_minimal">
+            <property name="name"/>
+            <property name="maintenanceRegulation"
+                      view="_minimal"/>
+        </property>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.Depo"
+          extends="_local"
+          name="edit">
+        <property name="regionalDepartment"
+                  view="_local"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.RegionalDepartment"
+          extends="_local"
+          name="edit">
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.AggregateType"
+          extends="_local"
+          name="edit">
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.WorkTeam"
+          extends="_local"
+          name="edit">
+        <property name="depo"
+                  view="_local">
+            <property name="regionalDepartment"
+                      view="_minimal"/>
+            <property name="depoWithRegion"/>
+        </property>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.MaintenanceRegulation"
+          extends="_local"
+          name="edit">
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.Employee"
+          extends="_local"
+          name="edit">
+        <property name="workTeam"
+                  view="_local"/>
+        <property name="user"
+                  view="_local"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.Provider"
+          extends="_local"
+          name="edit">
+    </view>
+    <view class="com.haulmont.cuba.security.entity.User"
+          extends="_local"
+          name="edit"/>
+    <view class="ru.itpearls.tramservercuba.entity.MaintenanceKind"
+          extends="_local"
+          name="edit"/>
+    <view class="ru.itpearls.tramservercuba.entity.AggregateModelProvider"
+          extends="_local"
+          name="edit">
+        <property name="provider"
+                  view="edit"/>
+        <property name="aggregateModel"
+                  view="_local"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.TransportEquipment"
+          extends="_local"
+          name="edit">
+        <property name="model"
+                  view="_local"/>
+        <property name="aggregate"
+                  view="_local"/>
+        <property name="system"
+                  view="_local"/>
+        <property name="mainEquipment"
+                  view="_local"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.TransportModelAggregateSystem"
+          extends="_local"
+          name="edit"/>
+    <view class="ru.itpearls.tramservercuba.entity.TransportItemEquipment"
+          extends="_local"
+          name="edit">
+        <property name="system"
+                  view="_local"/>
+        <property name="aggregateItem"
+                  view="edit">
+            <property name="model"
+                      view="edit">
+                <property name="group"
+                          view="_minimal">
+                    <property name="code"/>
+                </property>
+            </property>
+        </property>
+        <property name="transportItem"
+                  view="_minimal"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.AggregateItem"
+          extends="_local"
+          name="edit">
+        <property name="model"
+                  view="edit"/>
+        <property name="provider"
+                  view="edit"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.AggregateTypeBaseEntity"
+          extends="_local"
+          name="edit">
+        <property name="parent"
+                  view="_minimal"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.Repair"
+          extends="_local"
+          name="browse">
+        <property name="depo"
+                  view="_local">
+            <property name="regionalDepartment"
+                      view="_minimal">
+                <property name="region"/>
+            </property>
+            <property name="depoWithRegion"/>
+        </property>
+        <property name="transportItem"
+                  view="_local">
+            <property name="provider"
+                      view="_minimal"/>
+            <property name="model"
+                      view="_minimal">
+                <property name="baseModel"
+                          view="_minimal"/>
+            </property>
+            <property name="modelWithModification"/>
+        </property>
+        <property name="workTeam"
+                  view="_minimal"/>
+        <property name="maintenanceKind"
+                  view="_minimal">
+            <property name="code"/>
+            <property name="featureOfUse"/>
+        </property>
+        <property name="repairItems"
+                  view="_minimal">
+            <property name="maintenanceActionItemWork"
+                      view="_minimal">
+                <property name="actionItem"
+                          view="_minimal">
+                    <property name="maintenanceKind"
+                              view="_minimal">
+                        <property name="code"/>
+                        <property name="featureOfUse"/>
+                    </property>
+                </property>
+            </property>
+        </property>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.Repair"
+          extends="_local"
+          name="edit">
+        <property name="depo"
+                  view="_minimal">
+            <property name="regionalDepartment"
+                      view="_minimal"/>
+            <property name="depoWithRegion"/>
+        </property>
+        <property name="transportItem"
+                  view="_minimal">
+            <property name="model"
+                      view="_minimal">
+                <property name="modification"/>
+                <property name="maintenanceRegulation"
+                          view="_minimal">
+                    <property name="maintenanceActionItems"
+                              view="_minimal">
+                        <property name="maintenanceKind"
+                                  view="_minimal">
+                            <property name="code"/>
+                        </property>
+                        <property name="maintenanceActionItemWorks"
+                                  view="_minimal">
+                            <property name="workTemplate"
+                                      view="_minimal">
+                                <property name="workClass"/>
+                                <property name="code"/>
+                            </property>
+                            <property name="actionItem"
+                                      view="_minimal"/>
+                        </property>
+                    </property>
+                </property>
+            </property>
+            <property name="provider"
+                      view="_minimal"/>
+            <property name="depo"
+                      view="_minimal"/>
+        </property>
+        <property name="workTeam"
+                  view="_minimal">
+            <property name="depo"
+                      view="_minimal"/>
+        </property>
+        <property name="maintenanceKind"
+                  view="_minimal">
+            <property name="code"/>
+            <property name="featureOfUse"/>
+        </property>
+        <property name="identifiedFaults"
+                  view="_minimal">
+            <property name="code"/>
+            <property name="repair"
+                      view="_minimal"/>
+            <property name="identifiedDate"/>
+            <property name="description"/>
+            <property name="isWarranty"/>
+            <property name="disposalDate"/>
+            <property name="state"/>
+        </property>
+        <property name="repairItems"
+                  view="_minimal">
+            <property name="code"/>
+            <property name="repair"
+                      view="_minimal"/>
+            <property name="state"/>
+            <property name="comment"/>
+            <property name="maintenanceActionItemWork"
+                      view="_minimal"/>
+            <property name="isWarranty"/>
+            <property name="startDate"/>
+            <property name="finishDate"/>
+            <property name="internalPerformer"
+                      view="_minimal">
+                <property name="number"/>
+            </property>
+            <property name="externalPerformer"
+                      view="_minimal">
+                <property name="code"/>
+            </property>
+        </property>
+        <property name="aggregateItemChanges"
+                  view="_minimal">
+            <property name="code"/>
+            <property name="repair"
+                      view="_minimal">
+                <property name="code"/>
+            </property>
+            <property name="operationDate"/>
+            <property name="aggregateItemNew"
+                      view="_minimal">
+                <property name="code"/>
+                <property name="model"
+                          view="_local">
+                    <property name="type"/>
+                </property>
+            </property>
+            <property name="aggregateItemOld"
+                      view="_minimal">
+                <property name="code"/>
+                <property name="model"
+                          view="_local"/>
+            </property>
+            <property name="description"/>
+            <property name="count"/>
+            <property name="transportItemEquipment"
+                      view="_minimal">
+                <property name="aggregateItem"
+                          view="_minimal"/>
+            </property>
+        </property>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.IdentifiedFaults"
+          extends="_local"
+          name="edit">
+        <property name="repair"
+                  view="_minimal">
+            <property name="transportItem"
+                      view="_minimal">
+                <property name="model"
+                          view="_minimal">
+                    <property name="modification"/>
+                </property>
+                <property name="modelWithModification"/>
+            </property>
+            <property name="milage"/>
+            <property name="maintenanceKind"
+                      view="_minimal">
+                <property name="code"/>
+            </property>
+        </property>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.IdentifiedFaults"
+          extends="_local"
+          name="browse">
+        <property name="repair"
+                  view="_minimal"/>
+    </view>
+    <view class="com.haulmont.cuba.security.entity.Role"
+          extends="_local"
+          name="edit">
+    </view>
+    <view class="com.haulmont.cuba.security.entity.Group"
+          extends="_local"
+          name="edit">
+    </view>
+    <view class="com.haulmont.cuba.security.entity.User"
+          extends="_local"
+          name="edit2">
+        <property name="group">
+            <property name="name"/>
+        </property>
+    </view>
+    <view class="com.haulmont.cuba.security.entity.Group"
+          extends="edit"
+          name="edit">
+        <property name="parent"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.RepairItem"
+          extends="_local"
+          name="edit">
+        <property name="repair"
+                  view="_local"/>
+        <property name="internalPerformer"
+                  view="_local"/>
+        <property name="externalPerformer"
+                  view="_local"/>
+        <property name="maintenanceActionItemWork"
+                  view="_local"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.IdentifiedFaults"
+          extends="_local"
+          name="edit">
+        <property name="repair"
+                  view="_minimal"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.AggregateItemChange"
+          extends="_local"
+          name="edit">
+        <property name="repair"
+                  view="_minimal">
+            <property name="transportItem"
+                      view="_minimal">
+                <property name="model"
+                          view="_minimal">
+                    <property name="modification"/>
+                </property>
+                <property name="modelWithModification"/>
+            </property>
+            <property name="milage"/>
+        </property>
+        <property name="aggregateItemOld"
+                  view="_minimal">
+            <property name="model"
+                      view="_minimal">
+                <property name="type"
+                          view="_minimal"/>
+                <property name="code"/>
+                <property name="group"
+                          view="_minimal">
+                    <property name="code"/>
+                </property>
+                <property name="modification"/>
+                <property name="modelTitleForEquipmentItem"/>
+            </property>
+        </property>
+        <property name="aggregateItemNew"
+                  view="_minimal">
+            <property name="model"
+                      view="_minimal">
+                <property name="type"
+                          view="_minimal"/>
+                <property name="code"/>
+                <property name="group"
+                          view="_minimal">
+                    <property name="code"/>
+                </property>
+                <property name="modification"/>
+                <property name="modelTitleForEquipmentItem"/>
+            </property>
+        </property>
+        <property name="transportItemEquipment"
+                  view="_minimal">
+            <property name="aggregateItem"
+                      view="_minimal"/>
+        </property>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.AggregateItemChange"
+          extends="_local"
+          name="browse">
+        <property name="repair"
+                  view="_minimal">
+            <property name="transportItem"
+                      view="_minimal"/>
+            <property name="milage"/>
+        </property>
+        <property name="aggregateItemOld"
+                  view="_minimal">
+            <property name="model"
+                      view="_minimal">
+                <property name="type"
+                          view="_minimal"/>
+                <property name="code"/>
+                <property name="group"
+                          view="_minimal">
+                    <property name="code"/>
+                </property>
+                <property name="modification"/>
+                <property name="modelTitleForEquipmentItem"/>
+            </property>
+        </property>
+        <property name="aggregateItemNew"
+                  view="_minimal">
+            <property name="model"
+                      view="_minimal">
+                <property name="type"
+                          view="_minimal"/>
+                <property name="code"/>
+                <property name="group"
+                          view="_minimal">
+                    <property name="code"/>
+                </property>
+                <property name="modification"/>
+                <property name="modelTitleForEquipmentItem"/>
+            </property>
+        </property>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.AggregateModel"
+          extends="_local"
+          name="aggregateModel-combo">
+        <property name="group"
+                  view="_minimal">
+            <property name="code"/>
+        </property>
+    </view>
+</views>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="ru.itpearls.tramservercuba.web.transporttypebaseentity.TransportTypeBaseEntityBrowse"
+        focusComponent="transportTypeBaseEntitiesTable"
+        lookupComponent="transportTypeBaseEntitiesTable"
+        messagesPack="ru.itpearls.tramservercuba.web.transporttypebaseentity">
+    <dsContext>
+        <hierarchicalDatasource id="transportTypeBaseEntitiesDs"
+                                class="ru.itpearls.tramservercuba.entity.TransportTypeBaseEntity"
+                                hierarchyProperty="parent"
+                                view="tramBaseEntity-browse">
+            <query>
+                <![CDATA[select e from tramservercuba$TransportTypeBaseEntity e]]>
+            </query>
+        </hierarchicalDatasource>
+    </dsContext>
+    <layout expand="transportTypeBaseEntitiesTable"
+            spacing="true">
+        <label htmlEnabled="true"
+               value="msg://browseTitleLabel"/>
+        <treeTable id="transportTypeBaseEntitiesTable"
+                   width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="description"/>
+                <column id="actions"
+                        align="CENTER"
+                        caption="msg://actionsColumnCaption"
+                        generator="actionGenerator"/>
+                <column id="code"
+                        collapsed="true"/>
+                <column id="parent.code"
+                        caption="msg://parentCaption"
+                        collapsed="true"/>
+                <column id="modelModification"
+                        collapsed="true"/>
+                <column id="modelBaseModel"
+                        collapsed="true"/>
+            </columns>
+            <rows datasource="transportTypeBaseEntitiesDs"/>
+            <rowsCount/>
+            <buttonsPanel>
+                <button id="addTypeBtn"
+                        caption="msg://addTypeBtnCaption"
+                        icon="icons/add.png"
+                        invoke="addTypeAction"/>
+                <popupButton id="excelBtn"
+                             caption="msg://excelAction"
+                             icon="icons/excel.png">
+                    <actions>
+                        <action id="transportItemsTable.importTypeExcel"
+                                caption="msg://importTypeExcelAction"
+                                invoke="excelImportTypeActionInvoke"/>
+                        <action id="transportItemsTable.importModelExcel"
+                                caption="msg://importModelExcelAction"
+                                invoke="excelImportModelActionInvoke"/>
+                    </actions>
+                </popupButton>
+            </buttonsPanel>
+        </treeTable>
+    </layout>
+</window>

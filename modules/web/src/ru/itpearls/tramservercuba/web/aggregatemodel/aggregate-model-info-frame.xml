@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        class="ru.itpearls.tramservercuba.web.aggregatemodel.AggregateModelInfoFrame"
+        messagesPack="ru.itpearls.tramservercuba.web.aggregatemodel">
+    <dsContext>
+        <datasource id="aggregateModelDs"
+                    class="ru.itpearls.tramservercuba.entity.AggregateModel"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout margin="true"
+            spacing="true">
+        <label height="50"
+               stylename="h2"
+               value="msg://infoCaption"/>
+        <fieldGroup id="fieldGroup"
+                    datasource="aggregateModelDs">
+            <column width="250px">
+                <field editable="false"
+                       property="code"/>
+                <field editable="false"
+                       property="group" caption="msg://belongsCaption"/>
+                <field property="aggregateKind"
+                       editable="false"/>
+                <field property="type"
+                       editable="false" caption="msg://typeCaption"/>
+                <field editable="false"
+                       property="name" caption="msg://modelCaption"/>
+                <field property="modification"
+                       editable="false"/>
+                <field editable="false"
+                       property="description"/>
+            </column>
+        </fieldGroup>
+        <hbox spacing="true">
+            <button caption="msg://editBtnAction"
+                    invoke="editBtnAction"/>
+        </hbox>
+    </layout>
+</window>

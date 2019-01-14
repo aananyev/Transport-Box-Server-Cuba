@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             version="2.0">
+    <persistence-unit name="TramServerCuba"
+                      transaction-type="RESOURCE_LOCAL">
+        <class>ru.itpearls.tramservercuba.entity.TransportTypeBaseEntity</class>
+        <class>ru.itpearls.tramservercuba.entity.TransportModel</class>
+        <class>ru.itpearls.tramservercuba.entity.TransportType</class>
+        <class>ru.itpearls.tramservercuba.entity.TransportItem</class>
+        <class>ru.itpearls.tramservercuba.entity.Provider</class>
+        <class>ru.itpearls.tramservercuba.entity.AggregateTypeBaseEntity</class>
+        <class>ru.itpearls.tramservercuba.entity.AggregateModel</class>
+        <class>ru.itpearls.tramservercuba.entity.AggregateGroup</class>
+        <class>ru.itpearls.tramservercuba.entity.TransportModelProvider</class>
+        <class>ru.itpearls.tramservercuba.entity.AggregateType</class>
+        <class>ru.itpearls.tramservercuba.entity.TransportModelAggregateSystem</class>
+        <class>ru.itpearls.tramservercuba.entity.TransportEquipment</class>
+        <class>ru.itpearls.tramservercuba.entity.MaintenanceKind</class>
+        <class>ru.itpearls.tramservercuba.entity.MaintenanceWorkTemplate</class>
+        <class>ru.itpearls.tramservercuba.entity.MaintenanceRegulation</class>
+        <class>ru.itpearls.tramservercuba.entity.MaintenanceActionItem</class>
+        <class>ru.itpearls.tramservercuba.entity.GeneratedCode</class>
+        <class>ru.itpearls.tramservercuba.entity.MaintenanceActionItemWork</class>
+        <class>ru.itpearls.tramservercuba.entity.RegionalDepartment</class>
+        <class>ru.itpearls.tramservercuba.entity.Depo</class>
+        <class>ru.itpearls.tramservercuba.entity.WorkTeam</class>
+        <class>ru.itpearls.tramservercuba.entity.Employee</class>
+        <class>ru.itpearls.tramservercuba.entity.AggregateModelProvider</class>
+        <class>ru.itpearls.tramservercuba.entity.AggregateItem</class>
+        <class>ru.itpearls.tramservercuba.entity.TransportItemEquipment</class>
+        <class>ru.itpearls.tramservercuba.entity.Repair</class>
+        <class>ru.itpearls.tramservercuba.entity.RepairItem</class>
+        <class>ru.itpearls.tramservercuba.entity.IdentifiedFaults</class>
+        <class>ru.itpearls.tramservercuba.entity.AggregateItemChange</class>
+    </persistence-unit>
+</persistence>

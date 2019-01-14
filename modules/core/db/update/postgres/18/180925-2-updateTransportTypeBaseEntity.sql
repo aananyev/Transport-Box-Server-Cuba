@@ -1,0 +1,3 @@
+alter table TRAMSERVERCUBA_TRANSPORT_TYPE_BASE_ENTITY add column CODE varchar(50) ^
+update TRAMSERVERCUBA_TRANSPORT_TYPE_BASE_ENTITY set CODE = '' where CODE is null ;
+alter table TRAMSERVERCUBA_TRANSPORT_TYPE_BASE_ENTITY alter column CODE set not null ;

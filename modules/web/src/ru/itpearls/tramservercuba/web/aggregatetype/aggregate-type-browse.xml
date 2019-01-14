@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="ru.itpearls.tramservercuba.web.aggregatetype.AggregateTypeBrowse"
+        focusComponent="aggregateTypesTable"
+        lookupComponent="aggregateTypesTable"
+        messagesPack="ru.itpearls.tramservercuba.web.aggregatetype">
+    <dsContext>
+        <groupDatasource id="aggregateTypesDs"
+                         class="ru.itpearls.tramservercuba.entity.AggregateType"
+                         view="_local">
+            <query>
+                <![CDATA[select e from tramservercuba$AggregateType e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="aggregateTypesTable"
+            spacing="true">
+        <label htmlEnabled="true"
+               value="msg://browseTitleLabel"/>
+        <table id="aggregateTypesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="code"/>
+            </columns>
+            <rows datasource="aggregateTypesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="aggregateTypesTable.create"/>
+                <button id="editBtn"
+                        action="aggregateTypesTable.edit"/>
+                <button id="removeBtn"
+                        action="aggregateTypesTable.remove"/>
+                <popupButton id="excelBtn"
+                             caption="msg://excelAction">
+                    <actions>
+                        <action id="transportItemsTable.excel"
+                                caption="msg://exportExcelAction"
+                                invoke="excelExportActionInvoke"/>
+                        <action id="transportItemsTable.importExcel"
+                                caption="msg://importExcelAction"
+                                invoke="excelImportActionInvoke"/>
+                    </actions>
+                </popupButton>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>

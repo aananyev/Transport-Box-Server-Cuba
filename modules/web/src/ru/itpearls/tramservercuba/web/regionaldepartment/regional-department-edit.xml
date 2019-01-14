@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="ru.itpearls.tramservercuba.web.regionaldepartment.RegionalDepartmentEdit"
+        datasource="regionalDepartmentDs"
+        focusComponent="fieldGroup"
+        messagesPack="ru.itpearls.tramservercuba.web.regionaldepartment">
+    <dsContext>
+        <datasource id="regionalDepartmentDs"
+                    class="ru.itpearls.tramservercuba.entity.RegionalDepartment"
+                    view="_local"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <label htmlEnabled="true"
+               value="msg://browseTitleLabel"/>
+        <fieldGroup id="fieldGroup"
+                    datasource="regionalDepartmentDs">
+            <column width="250px">
+                <field property="name"/>
+                <field property="region"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

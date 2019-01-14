@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="ru.itpearls.tramservercuba.web.transportequipment.TransportEquipmentBrowse"
+        focusComponent="transportEquipmentsTable"
+        lookupComponent="transportEquipmentsTable"
+        messagesPack="ru.itpearls.tramservercuba.web.transportequipment">
+    <dsContext>
+        <groupDatasource id="transportEquipmentsDs"
+                         class="ru.itpearls.tramservercuba.entity.TransportEquipment"
+                         view="browse">
+            <query>
+                <![CDATA[select e from tramservercuba$TransportEquipment e]]>
+                <filter>
+                    <and>
+                        <c>e.model.id = :param$transportModel</c>
+                        <or>
+                            <c>e.mainEquipment.id = :param$mainEquipment</c>
+                            <c>e.id = :param$mainEquipment2</c>
+                        </or>
+                    </and>
+                </filter>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout spacing="true">
+        <table id="transportEquipmentsTable"
+                    height="100%"
+                    width="100%">
+            <columns>
+                <column id="aggregate.type"/>
+                <column id="aggregate"/>
+                <column id="aggregate.modification"/>
+                <column id="isMain"/>
+                <column id="aggregate.description"/>
+            </columns>
+            <rows datasource="transportEquipmentsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="multiplyAddBtn"
+                        caption="msg://multiplyAddActionCaption"
+                        icon="icons/create.png"
+                        invoke="multiplyAddAction"/>
+                <button id="removeBtn"
+                        caption="msg://removeActionCaption"
+                        icon="icons/remove.png"
+                        invoke="removeAction"/>
+                <button id="setMainBtn"
+                        caption="msg://setMainActionCaption"
+                        invoke="setMainAction"/>
+                <button id="saveBtn"
+                        caption="msg://saveActionCaption"
+                        invoke="saveAction"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        class="ru.itpearls.tramservercuba.web.transporttype.TransportTypeInfoFrame"
+        messagesPack="ru.itpearls.tramservercuba.web.transporttype">
+    <dsContext>
+        <datasource id="transportTypeDs"
+                    class="ru.itpearls.tramservercuba.entity.TransportType"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout margin="true"
+            spacing="true">
+        <label height="50"
+               stylename="h2"
+               value="msg://infoCaption"/>
+        <fieldGroup id="fieldGroup"
+                    datasource="transportTypeDs">
+            <column width="250px">
+                <field editable="false"
+                       property="name"/>
+                <field property="code"
+                       editable="false"/>
+            </column>
+        </fieldGroup>
+        <hbox spacing="true">
+            <button caption="msg://editBtnAction"
+                    invoke="editBtnAction"/>
+        </hbox>
+    </layout>
+</window>

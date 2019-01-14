@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <item id="transportItemsManagement"
+          insertBefore="administration"
+          screen="tramservercuba$TransportItem.browse"/>
+    <item id="repairs"
+          insertBefore="administration"
+          screen="tramservercuba$Repair.browse"/>
+    <menu id="references"
+          insertBefore="administration">
+        <item screen="tramservercuba$TransportTypeBaseEntity.browse"/>
+        <item screen="tramservercuba$AggregateTypeBaseEntity.browse"/>
+        <item screen="tramservercuba$Provider.browse"/>
+    </menu>
+    <menu id="manufactureStructure"
+          insertBefore="administration">
+        <item screen="tramservercuba$RegionalDepartment.browse"/>
+        <item screen="tramservercuba$Depo.browse"/>
+        <item screen="tramservercuba$WorkTeam.browse"/>
+        <item screen="tramservercuba$Employee.browse"/>
+    </menu>
+    <menu id="maintenance"
+          insertBefore="administration">
+        <item screen="tramservercuba$MaintenanceKind.browse"/>
+        <item screen="tramservercuba$MaintenanceWorkTemplate.browse"/>
+        <item screen="tramservercuba$MaintenanceRegulation.browse"/>
+    </menu>
+    <menu id="users"
+          insertBefore="administration">
+        <item id="usersList"
+              screen="sec$User.browse"/>
+        <item id="accessGroup"
+              screen="sec$Group.browse"/>
+        <item id="roles"
+              screen="sec$Role.browse"/>
+    </menu>
+    <item id="generatedCodes"
+          insertBefore="administration"
+          screen="tramservercuba$GeneratedCode.browse"/>
+</menu-config>

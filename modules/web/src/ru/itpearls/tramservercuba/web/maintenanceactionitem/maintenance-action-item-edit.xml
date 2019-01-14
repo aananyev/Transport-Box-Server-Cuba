@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="ru.itpearls.tramservercuba.web.maintenanceactionitem.MaintenanceActionItemEdit"
+        datasource="maintenanceActionItemDs"
+        focusComponent="fieldGroup"
+        messagesPack="ru.itpearls.tramservercuba.web.maintenanceactionitem">
+    <dsContext>
+        <datasource id="maintenanceActionItemDs"
+                    class="ru.itpearls.tramservercuba.entity.MaintenanceActionItem"
+                    view="edit">
+            <collectionDatasource id="maintenanceActionItemWorkDs"
+                                  property="maintenanceActionItemWorks"/>
+        </datasource>
+        <collectionDatasource id="maintenanceKindsDs"
+                              class="ru.itpearls.tramservercuba.entity.MaintenanceKind"
+                              view="_local">
+            <query>
+                <![CDATA[select e from tramservercuba$MaintenanceKind e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="tabSheet"
+            spacing="true">
+        <label htmlEnabled="true"
+               value="msg://editTitleLabel"/>
+        <hbox spacing="true">
+            <label value="msg://maintenanceRegulationCaption"/>
+            <label datasource="maintenanceActionItemDs"
+                   property="maintenanceRegulation"/>
+        </hbox>
+        <tabSheet id="tabSheet">
+            <tab id="generalInfoTab"
+                 caption="msg://generalInfoTabCaption"
+                 margin="true"
+                 spacing="true">
+                <vbox spacing="true">
+                    <fieldGroup id="fieldGroup"
+                                datasource="maintenanceActionItemDs">
+                        <column width="500px">
+                            <field captionProperty="code"
+                                   optionsDatasource="maintenanceKindsDs"
+                                   property="maintenanceKind"/>
+                            <field property="name"/>
+                            <field property="description"
+                                   rows="5"/>
+                        </column>
+                    </fieldGroup>
+                    <groupBox caption="msg://ru.itpearls.tramservercuba.entity/MaintenanceActionItem.periodKind"
+                              width="690px">
+                        <hbox margin="true"
+                              spacing="true">
+                            <optionsGroup id="periodKindOptions"
+                                          datasource="maintenanceActionItemDs"
+                                          property="periodKind"/>
+                            <lookupField id="periodTimeKindLookup"
+                                         datasource="maintenanceActionItemDs"
+                                         property="periodTimeKind"/>
+                        </hbox>
+                        <hbox margin="true"
+                              spacing="true">
+                            <label value="msg://countLabelCaption"/>
+                            <textField datasource="maintenanceActionItemDs"
+                                       property="periodCount"/>
+                        </hbox>
+                    </groupBox>
+                    <groupBox caption="msg://plannedTimeBoxCaption"
+                              width="690px">
+                        <hbox margin="true"
+                              spacing="true">
+                            <label value="msg://ru.itpearls.tramservercuba.entity/MaintenanceActionItem.dateKind"/>
+                            <textField datasource="maintenanceActionItemDs"
+                                       property="dateCount"/>
+                            <label value="msg://pretextAt"/>
+                            <lookupField datasource="maintenanceActionItemDs"
+                                         property="dateKind"/>
+                        </hbox>
+                    </groupBox>
+                </vbox>
+            </tab>
+            <tab id="workTab"
+                 caption="msg://workTabCaption"
+                 margin="true"
+                 spacing="true">
+                <table id="maintenanceActionItemWorksTable"
+                       editable="true"
+                       height="100%"
+                       width="100%">
+                    <actions>
+                        <action id="create"/>
+                        <action id="edit"/>
+                        <action id="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="workTemplate.code"
+                                caption="msg://ru.itpearls.tramservercuba.entity/MaintenanceWorkTemplate.code"/>
+                        <column id="workTemplate.name"
+                                caption="msg://ru.itpearls.tramservercuba.entity/MaintenanceWorkTemplate.name"/>
+                        <column id="workTemplate.aggregateType"
+                                caption="msg://aggregateTypeColumnCaption"/>
+                        <column id="actionItem.maintenanceRegulation.code"
+                                caption="msg://regulationCodeColumnCaption"
+                                collapsed="true"/>
+                        <column id="actionItem.name"
+                                caption="msg://workItemNameColumnCaption"
+                                collapsed="true"/>
+                    </columns>
+                    <rows datasource="maintenanceActionItemWorkDs"/>
+                    <rowsCount/>
+                    <buttonsPanel id="buttonsPanel"
+                                  alwaysVisible="true">
+                        <button id="createBtn"
+                                action="maintenanceActionItemWorksTable.create"/>
+                        <button id="editBtn"
+                                action="maintenanceActionItemWorksTable.edit"/>
+                        <button id="removeBtn"
+                                action="maintenanceActionItemWorksTable.remove"/>
+                        <popupButton id="excelBtn"
+                                     caption="msg://excelAction"
+                                     icon="icons/excel.png">
+                            <actions>
+                                <action id="maintenanceActionItemWorksTable.importExcel"
+                                        caption="msg://importExcelAction"
+                                        invoke="excelImportActionInvoke"/>
+                            </actions>
+                        </popupButton>
+                        <button id="multiplyAddBtn"
+                                caption="msg://multiplyAddBtnCaption"
+                                invoke="multiplyAddAction"/>
+                    </buttonsPanel>
+                </table>
+            </tab>
+        </tabSheet>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

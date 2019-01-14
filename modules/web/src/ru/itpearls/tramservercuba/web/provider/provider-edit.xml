@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="ru.itpearls.tramservercuba.web.provider.ProviderEdit"
+        datasource="providerDs"
+        focusComponent="fieldGroup"
+        messagesPack="ru.itpearls.tramservercuba.web.provider">
+    <dsContext>
+        <datasource id="providerDs"
+                    class="ru.itpearls.tramservercuba.entity.Provider"
+                    view="_local"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout spacing="true">
+        <vbox spacing="true">
+            <label htmlEnabled="true"
+                   value="msg://editTitleLabel"/>
+            <fieldGroup id="fieldGroup"
+                        datasource="providerDs">
+                <column width="250px">
+                    <field property="name"/>
+                    <field property="code"
+                           editable="false"/>
+                    <field property="address"/>
+                    <field property="contactPerson"/>
+                    <field property="contact"/>
+                </column>
+            </fieldGroup>
+            <groupBox caption="msg://deliverCaption"
+                      spacing="true"
+                      width="190px">
+                <vbox spacing="true">
+                    <hbox spacing="true">
+                        <label value="msg://deliverTransportLabel"
+                               width="150px"/>
+                        <checkBox datasource="providerDs"
+                                  property="deliverTransport"/>
+                    </hbox>
+                    <hbox spacing="true">
+                        <label value="msg://deliverAggregatesLabel"
+                               width="150px"/>
+                        <checkBox datasource="providerDs"
+                                  property="deliverAggregates"/>
+                    </hbox>
+                    <hbox spacing="true">
+                        <label value="msg://deliverAccessoriesLabel"
+                               width="150px"/>
+                        <checkBox datasource="providerDs"
+                                  property="deliverAccessories"/>
+                    </hbox>
+                    <hbox spacing="true">
+                        <label value="msg://deliverMaterials"
+                               width="150px"/>
+                        <checkBox datasource="providerDs"
+                                  property="deliverMaterials"/>
+                    </hbox>
+                    <hbox spacing="true">
+                        <label value="msg://deliverServices"
+                               width="150px"/>
+                        <checkBox datasource="providerDs"
+                                  property="deliverServices"/>
+                    </hbox>
+                </vbox>
+            </groupBox>
+            <frame id="windowActions"
+                   height="100%"
+                   screen="editWindowActions"/>
+        </vbox>
+    </layout>
+</window>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="ru.itpearls.tramservercuba.web.transportmodelprovider.TransportModelProviderEdit"
+        datasource="transportModelProviderDs"
+        focusComponent="fieldGroup"
+        messagesPack="ru.itpearls.tramservercuba.web.transportmodelprovider">
+    <dsContext>
+        <datasource id="transportModelProviderDs"
+                    class="ru.itpearls.tramservercuba.entity.TransportModelProvider"
+                    view="edit"/>
+        <collectionDatasource id="providersDs"
+                              class="ru.itpearls.tramservercuba.entity.Provider"
+                              view="_local">
+            <query>
+                <![CDATA[select e from tramservercuba$Provider e where e.deliverTransport = true]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout spacing="true">
+        <vbox spacing="true">
+            <fieldGroup id="fieldGroup"
+                        datasource="transportModelProviderDs">
+                <column width="250px">
+                    <field optionsDatasource="providersDs"
+                           property="provider"/>
+                </column>
+            </fieldGroup>
+            <groupBox caption="msg://activityLabel"
+                      spacing="true"
+                      width="190px">
+                <vbox spacing="true">
+                    <hbox spacing="true">
+                        <label value="msg://isProviderLabel"
+                               width="150px"/>
+                        <checkBox datasource="transportModelProviderDs"
+                                  property="isDeliver"/>
+                    </hbox>
+                    <hbox spacing="true">
+                        <label value="msg://isProducerLabel"
+                               width="150px"/>
+                        <checkBox datasource="transportModelProviderDs"
+                                  property="isProducer"/>
+                    </hbox>
+                </vbox>
+            </groupBox>
+            <frame id="windowActions"
+                   height="100%"
+                   screen="editWindowActions"/>
+        </vbox>
+    </layout>
+</window>

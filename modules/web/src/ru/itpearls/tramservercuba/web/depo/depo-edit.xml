@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="ru.itpearls.tramservercuba.web.depo.DepoEdit"
+        datasource="depoDs"
+        focusComponent="fieldGroup"
+        messagesPack="ru.itpearls.tramservercuba.web.depo">
+    <dsContext>
+        <datasource id="depoDs"
+                    class="ru.itpearls.tramservercuba.entity.Depo"
+                    view="edit"/>
+        <collectionDatasource id="regionalDepartmentsDs"
+                              class="ru.itpearls.tramservercuba.entity.RegionalDepartment"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from tramservercuba$RegionalDepartment e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <label htmlEnabled="true"
+               value="msg://editTitleLabel"/>
+        <fieldGroup id="fieldGroup"
+                    datasource="depoDs">
+            <column width="250px">
+                <field property="name"/>
+                <field property="code"/>
+                <field optionsDatasource="regionalDepartmentsDs"
+                       property="regionalDepartment"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

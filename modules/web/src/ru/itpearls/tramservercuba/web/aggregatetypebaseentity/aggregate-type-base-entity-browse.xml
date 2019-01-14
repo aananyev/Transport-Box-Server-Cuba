@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="ru.itpearls.tramservercuba.web.aggregatetypebaseentity.AggregateTypeBaseEntityBrowse"
+        focusComponent="aggregateTypeBaseEntitiesTable"
+        lookupComponent="aggregateTypeBaseEntitiesTable"
+        messagesPack="ru.itpearls.tramservercuba.web.aggregatetypebaseentity">
+    <dsContext>
+        <hierarchicalDatasource id="aggregateTypeBaseEntitiesDs"
+                                class="ru.itpearls.tramservercuba.entity.AggregateTypeBaseEntity"
+                                hierarchyProperty="parent"
+                                view="aggregateTypeBaseEntity-browse">
+            <query>
+                <![CDATA[select e from tramservercuba$AggregateTypeBaseEntity e where e.deleteTs is null]]>
+            </query>
+        </hierarchicalDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout>
+        <split height="100%"
+               orientation="horizontal"
+               width="100%">
+            <vbox expand="aggregateTypeBaseEntitiesTable"
+                  height="100%"
+                  margin="true"
+                  spacing="true">
+                <label htmlEnabled="true"
+                       value="msg://browseTitleLabel"/>
+                <buttonsPanel>
+                    <button id="addTypeBtn"
+                            caption="msg://addTypeBtnCaption"
+                            icon="icons/create.png"
+                            invoke="createGroupAction"/>
+                    <button id="aggregateTypeBtn"
+                            caption="msg://aggregateTypeBtnCaption"
+                            invoke="aggregateTypeAction"/>
+                    <popupButton id="excelBtn"
+                                 caption="msg://excelAction"
+                                 icon="icons/excel.png">
+                        <actions>
+                            <action id="importGroupExcel"
+                                    caption="msg://importGroupExcelAction"
+                                    invoke="excelGroupImportActionInvoke"/>
+                            <action id="importAggregateModelExcel"
+                                    caption="msg://importAggregateModelExcelAction"
+                                    invoke="importAggregateModelExcelAction"/>
+                        </actions>
+                    </popupButton>
+                </buttonsPanel>
+                <hbox margin="true"
+                      spacing="true">
+                    <label value="msg://searchInHierarchy"/>
+                    <suggestionPickerField id="searchPickerField"
+                                           captionProperty="name"
+                                           metaClass="tramservercuba$AggregateTypeBaseEntity">
+                        <actions>
+                            <action id="clear"/>
+                        </actions>
+                    </suggestionPickerField>
+                </hbox>
+                <treeTable id="aggregateTypeBaseEntitiesTable"
+                           width="100%">
+                    <columns>
+                        <column id="name"/>
+                        <column id="actions"
+                                align="CENTER"
+                                caption="Действия"
+                                generator="actionGenerator"/>
+                        <column id="code" collapsed="true" caption="msg://codeCaption"/>
+                        <column id="description" collapsed="true" caption="msg://descriptionCaption"/>
+                        <column id="parent.code" collapsed="true" caption="msg://parentCaption"/>
+                        <column id="aggregateModeTypeCode" collapsed="true" caption="msg://aggregateModeTypeCodeCaption"/>
+                        <column id="aggregateModelAggregateKind" collapsed="true" caption="msg://aggregateModelAggregateKindCaption"/>
+                        <column id="modelModification" collapsed="true" caption="msg://modelModificationCaption"/>
+                    </columns>
+                    <rows datasource="aggregateTypeBaseEntitiesDs"/>
+                    <rowsCount/>
+                    <buttonsPanel id="buttonsPanel"
+                                  alwaysVisible="true"/>
+                </treeTable>
+            </vbox>
+            <vbox id="rightBox"
+                  margin="true"/>
+        </split>
+    </layout>
+</window>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="ru.itpearls.tramservercuba.web.maintenanceactionitemwork.MaintenanceActionItemWorkEdit"
+        datasource="maintenanceActionItemWorkDs"
+        messagesPack="ru.itpearls.tramservercuba.web.maintenanceactionitemwork">
+    <dsContext>
+        <datasource id="maintenanceActionItemWorkDs"
+                    class="ru.itpearls.tramservercuba.entity.MaintenanceActionItemWork"
+                    view="edit"/>
+        <collectionDatasource id="workTemplatesDs"
+                              class="ru.itpearls.tramservercuba.entity.MaintenanceWorkTemplate"
+                              view="browse">
+            <query>
+                <![CDATA[select e from tramservercuba$MaintenanceWorkTemplate e
+where e.state = 1]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <label htmlEnabled="true"
+               value="msg://editTitleLabel"/>
+        <hbox spacing="true">
+            <label value="msg://maintenanceRegulationCaprion"/>
+            <label datasource="maintenanceActionItemWorkDs"
+                   property="actionItem.maintenanceRegulation"/>
+        </hbox>
+        <hbox spacing="true">
+            <label value="msg://maintenanceActioItemCaption"/>
+            <label datasource="maintenanceActionItemWorkDs"
+                   property="actionItem"/>
+        </hbox>
+        <groupBox spacing="true"
+                  width="700px">
+            <hbox margin="true"
+                  spacing="true">
+                <label value="msg://ru.itpearls.tramservercuba.entity/MaintenanceActionItemWork.workTemplate"
+                       width="250px"/>
+                <suggestionPickerField id="suggestionWorkTemplateField"
+                                       captionProperty="nameForSearch"
+                                       datasource="maintenanceActionItemWorkDs"
+                                       property="workTemplate"
+                                       required="true"
+                                       width="400px">
+                    <actions>
+                        <action id="lookup"
+                                openType="DIALOG"/>
+                        <action id="clear"/>
+                    </actions>
+                </suggestionPickerField>
+            </hbox>
+            <hbox margin="true"
+                  spacing="true">
+                <label value="msg://aggregateTypeCustomColumnCaption"
+                       width="250px"/>
+                <textField id="aggregateType"
+                           editable="false"/>
+            </hbox>
+            <hbox margin="true"
+                  spacing="true">
+                <label value="msg://ru.itpearls.tramservercuba.entity/MaintenanceWorkTemplate.description"
+                       width="250px"/>
+                <textArea id="description"
+                          editable="false"
+                          rows="10"
+                          width="400px"/>
+            </hbox>
+            <hbox margin="true"
+                  spacing="true">
+                <label value="msg://ru.itpearls.tramservercuba.entity/MaintenanceWorkTemplate.instruction"
+                       width="250px"/>
+                <linkButton id="instructionFileLinkBtn"
+                            invoke="uploadFileAction"
+                            visible="false"/>
+            </hbox>
+        </groupBox>
+        <hbox margin="true"
+              spacing="true">
+            <label value="msg://ru.itpearls.tramservercuba.entity/MaintenanceActionItemWork.order"/>
+            <textField datasource="maintenanceActionItemWorkDs"
+                       property="order"
+                       required="true">
+                <validator class="ru.itpearls.tramservercuba.web.validators.PositiveIntegerValidator"/>
+            </textField>
+        </hbox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

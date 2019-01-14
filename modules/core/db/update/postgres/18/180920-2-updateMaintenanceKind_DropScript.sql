@@ -1,0 +1,1 @@
+alter table TRAMSERVERCUBA_MAINTENANCE_KIND drop column WORK_CLASS__U96657 cascade ;

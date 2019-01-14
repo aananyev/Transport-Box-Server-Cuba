@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="ru.itpearls.tramservercuba.web.depo.DepoBrowse"
+        focusComponent="depoesTable"
+        lookupComponent="depoesTable"
+        messagesPack="ru.itpearls.tramservercuba.web.depo">
+    <dsContext>
+        <collectionDatasource id="depoesDs"
+                              class="ru.itpearls.tramservercuba.entity.Depo"
+                              view="edit">
+            <query>
+                <![CDATA[select e from tramservercuba$Depo e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="depoesTable"
+            spacing="true">
+        <label htmlEnabled="true"
+               value="msg://browseTitleLabel"/>
+        <table id="depoesTable"
+               width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="regionalDepartment"/>
+                <column id="name"/>
+                <column id="code"/>
+            </columns>
+            <rows datasource="depoesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="depoesTable.create"/>
+                <button id="editBtn"
+                        action="depoesTable.edit"/>
+                <button id="removeBtn"
+                        action="depoesTable.remove"/>
+                <popupButton id="excelBtn"
+                             caption="msg://excelAction"
+                             icon="icons/excel.png">
+                    <actions>
+                        <action id="transportItemsTable.importExcel"
+                                caption="msg://importExcelAction"
+                                invoke="excelImportActionInvoke"/>
+                    </actions>
+                </popupButton>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>

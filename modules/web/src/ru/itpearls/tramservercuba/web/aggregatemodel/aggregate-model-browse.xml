@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="ru.itpearls.tramservercuba.web.aggregatemodel.AggregateModelBrowse"
+        focusComponent="aggregateModelsTable"
+        lookupComponent="aggregateModelsTable"
+        messagesPack="ru.itpearls.tramservercuba.web.aggregatemodel">
+    <dsContext>
+        <collectionDatasource id="aggregateModelsDs"
+                              class="ru.itpearls.tramservercuba.entity.AggregateModel"
+                              view="aggregateModel-browse">
+            <query>
+                <![CDATA[select e from tramservercuba$AggregateModel e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="aggregateModelsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="aggregateModelsTable"
+                datasource="aggregateModelsDs">
+            <properties include=".*"/>
+        </filter>
+        <table id="aggregateModelsTable"
+               width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name" caption="msg://modelCaption"/>
+                <column id="code"/>
+                <column id="description"/>
+                <column id="group" caption="msg://belongsCaption"/>
+                <column id="modification"/>
+                <column id="type"/>
+                <column id="aggregateKind"/>
+            </columns>
+            <rows datasource="aggregateModelsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="aggregateModelsTable.create"/>
+                <button id="editBtn"
+                        action="aggregateModelsTable.edit"/>
+                <button id="removeBtn"
+                        action="aggregateModelsTable.remove"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>

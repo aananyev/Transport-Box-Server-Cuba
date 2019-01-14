@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="ru.itpearls.tramservercuba.web.transportmodelaggregatesystem.TransportModelAggregateSystemBrowse"
+        focusComponent="transportModelAggregateSystemsTable"
+        lookupComponent="transportModelAggregateSystemsTable"
+        messagesPack="ru.itpearls.tramservercuba.web.transportmodelaggregatesystem">
+    <dsContext>
+        <groupDatasource id="transportModelAggregateSystemsDs"
+                         class="ru.itpearls.tramservercuba.entity.TransportModelAggregateSystem"
+                         view="_local">
+            <query>
+                <![CDATA[select e from tramservercuba$TransportModelAggregateSystem e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="transportModelAggregateSystemsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="transportModelAggregateSystemsTable"
+                datasource="transportModelAggregateSystemsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="transportModelAggregateSystemsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+            </columns>
+            <rows datasource="transportModelAggregateSystemsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="transportModelAggregateSystemsTable.create"/>
+                <button id="editBtn"
+                        action="transportModelAggregateSystemsTable.edit"/>
+                <button id="removeBtn"
+                        action="transportModelAggregateSystemsTable.remove"/>
+                <popupButton id="excelBtn"
+                             caption="msg://excelAction"
+                             icon="icons/excel.png">
+                    <actions>
+                        <action id="transportModelAggregateSystemsTable.excel"
+                                caption="msg://exportExcelAction"
+                                invoke="excelExportActionInvoke"/>
+                        <action id="transportModelAggregateSystemsTable.importExcel"
+                                caption="msg://importExcelAction"
+                                invoke="excelImportActionInvoke"/>
+                    </actions>
+                </popupButton>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

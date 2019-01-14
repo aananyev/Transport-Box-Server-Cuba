@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="ru.itpearls.tramservercuba.web.transportequipment.TransportEquipmentEdit"
+        datasource="transportEquipmentDs"
+        focusComponent="fieldGroup"
+        messagesPack="ru.itpearls.tramservercuba.web.transportequipment">
+    <dsContext>
+        <datasource id="transportEquipmentDs"
+                    class="ru.itpearls.tramservercuba.entity.TransportEquipment"
+                    view="_local"/>
+
+        <collectionDatasource id="aggregateModelsDs"
+                              class="ru.itpearls.tramservercuba.entity.AggregateModel"
+                              view="aggregateModel-browse">
+            <query>
+                <![CDATA[select e from tramservercuba$AggregateModel e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="transportEquipmentDs">
+            <column width="250px">
+                <field property="system"
+                       required="true"/>
+                <field id="suggestionPickerFieldWrapper" caption="msg://aggregateModelCaption">
+                    <suggestionPickerField id="suggestionPickerField"
+                                           captionProperty="modelTitleForEquipmentItem"
+                                           datasource="transportEquipmentDs"
+                                           property="aggregate">
+                    </suggestionPickerField>
+                </field>
+                <field property="count">
+                    <validator class="ru.itpearls.tramservercuba.web.validators.PositiveIntegerValidator"/>
+                </field>
+            </column>
+        </fieldGroup>
+
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

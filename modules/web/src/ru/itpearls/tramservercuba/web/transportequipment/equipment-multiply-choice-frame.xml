@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://multiplyChoiceCaption"
+        class="ru.itpearls.tramservercuba.web.transportequipment.EquipmentMultiplyChoiceFrame"
+        messagesPack="ru.itpearls.tramservercuba.web.transportequipment">
+    <dsContext>
+        <groupDatasource id="aggregateTypeBaseEntitiesDs"
+                                class="ru.itpearls.tramservercuba.entity.AggregateModel"
+                                view="edit">
+            <query>
+                <![CDATA[select e from tramservercuba$AggregateModel e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="1300"/>
+    <layout expand="aggregateTypeBaseEntitiesTable"
+            margin="true">
+        <filter id="filter"
+                applyTo="aggregateTypeBaseEntitiesTable"
+                datasource="aggregateTypeBaseEntitiesDs"
+                editable="false">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="aggregateTypeBaseEntitiesTable"
+                   width="100%">
+            <columns>
+                <group>
+                    <column id="group"></column>
+                </group>
+                <column id="name"/>
+            </columns>
+            <rows datasource="aggregateTypeBaseEntitiesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true"/>
+        </groupTable>
+        <hbox id="systemContainer" spacing="true" margin="true">
+            <label value="msg://systemCaption"/>
+            <pickerField id="systemPickerField" required="true"
+                               captionProperty="name" requiredMessage="msg://systemIsRequiredMsg"
+                               metaClass="tramservercuba$TransportModelAggregateSystem"/>
+        </hbox>
+        <hbox spacing="true" margin="true">
+            <button id="createBtn" invoke="createAllCheckedEquipment" caption="msg://createAllCheckedEquipmentCaption"/>
+            <button id="closeWindow" invoke="closeWindow" caption="msg://closeWindowCaption"/>
+        </hbox>
+    </layout>
+</window>

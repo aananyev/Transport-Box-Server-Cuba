@@ -1,0 +1,1 @@
+alter table TRAMSERVERCUBA_MAINTENANCE_WORK_TEMPLATE alter column AGGREGATE_TYPE_ID drop not null ;

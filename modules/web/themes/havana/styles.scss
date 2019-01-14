@@ -1,0 +1,18 @@
+@import "havana-defaults";
+@import "ru.itpearls.tramservercuba/havana-ext-defaults";
+@import "app-components";
+@import "ru.itpearls.tramservercuba/havana-ext";
+
+.havana {
+  // include auto-generated app components SCSS
+  @include app_components;
+  
+  @include ru_itpearls_tramservercuba-havana-ext;
+  .c-login-icon>img{height:132px}
+  .tram-background {
+    background-image: url(images/tram-background.png);
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .c-app-workarea-initial{background:#e6e6e6}
+}

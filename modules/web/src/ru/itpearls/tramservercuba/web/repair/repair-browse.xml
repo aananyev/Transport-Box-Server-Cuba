@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="ru.itpearls.tramservercuba.web.repair.RepairBrowse"
+        focusComponent="repairsTable"
+        lookupComponent="repairsTable"
+        messagesPack="ru.itpearls.tramservercuba.web.repair">
+    <dsContext>
+        <collectionDatasource id="repairsDs"
+                              class="ru.itpearls.tramservercuba.entity.Repair"
+                              view="browse">
+            <query>
+                <![CDATA[select e from tramservercuba$Repair e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="repairsTable"
+            spacing="true">
+        <label htmlEnabled="true"
+               value="msg://browseTitleLabel"/>
+        <filter id="filter"
+                applyTo="repairsTable"
+                datasource="repairsDs"
+                editable="false">
+            <properties include=".*"/>
+        </filter>
+        <table id="repairsTable"
+               width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="code"/>
+                <column id="depo.depoWithRegion"/>
+                <column id="startDate"/>
+                <column id="transportItem.factoryNumber"/>
+                <column id="transportItem.workNumber"/>
+                <column id="transportItem.modelWithModification"/>
+                <column id="milage"/>
+                <column id="allMaintenanceKinds"/>
+                <column id="finishDate"/>
+                <column id="state"/>
+                <column id="stateColor"
+                        generator="generateStateColorCell"
+                        caption="msg://stateColorCaption"/>
+                <column id="workTeam"/>
+                <column id="depo.code" collapsed="true" caption="msg://depoCodeCaption"/>
+                <column id="maintenanceKind.code" collapsed="true" caption="msg://maintenanceKindCaption"/>
+                <column id="escapeFromLine" collapsed="true"/>
+                <column id="workTeam.name" collapsed="true" caption="msg://workTeamName"/>
+            </columns>
+            <rows datasource="repairsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="repairsTable.create"/>
+                <button id="editBtn"
+                        action="repairsTable.edit"/>
+                <button id="removeBtn"
+                        action="repairsTable.remove"/>
+                <popupButton id="excelBtn"
+                             caption="msg://excelAction"
+                             icon="icons/excel.png">
+                    <actions>
+                        <action id="importExcelAction"
+                                caption="msg://importExcelAction"
+                                invoke="importExcelAction"/>
+                    </actions>
+                </popupButton>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>

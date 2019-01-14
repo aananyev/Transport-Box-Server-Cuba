@@ -1,0 +1,416 @@
+insert into SEC_FILTER (ID, COMPONENT, NAME, XML, GLOBAL_DEFAULT)
+values (NEWID(), '[tramservercuba$TransportItem.browse].filter', 'Поиск в реестре подвижного состава',
+'<?xml version="1.0" encoding="UTF-8"?>
+ <filter>
+   <and>
+     <c name="factoryNumber" class="java.lang.String" operatorType="CONTAINS" width="1" type="PROPERTY"><![CDATA[e.factoryNumber like :component$filter.factoryNumber23021 ESCAPE ''\'' ]]>
+       <param name="component$filter.factoryNumber23021" javaClass="java.lang.String">NULL</param>
+     </c>
+     <c name="workNumber" class="java.lang.String" operatorType="CONTAINS" width="1" type="PROPERTY"><![CDATA[e.workNumber like :component$filter.workNumber06901 ESCAPE ''\'' ]]>
+       <param name="component$filter.workNumber06901" javaClass="java.lang.String">NULL</param>
+     </c>
+     <c name="model.type" class="ru.itpearls.tramservercuba.entity.TransportType" caption="msg://filterTypeLabel" operatorType="EQUAL" width="1" type="PROPERTY"><![CDATA[e.model.type.id = :component$filter.model_type44399]]>
+       <param name="component$filter.model_type44399" javaClass="ru.itpearls.tramservercuba.entity.TransportType">NULL</param>
+     </c>
+     <c name="model.name" class="java.lang.String" caption="msg://filterModelLabel" operatorType="CONTAINS" width="1" type="PROPERTY"><![CDATA[e.model.name like :component$filter.model_name88471 ESCAPE ''\'' ]]>
+       <param name="component$filter.model_name88471" javaClass="java.lang.String">NULL</param>
+     </c>
+     <c name="model.modification" class="java.lang.String" caption="msg://filterModificationLabel" operatorType="CONTAINS" width="1" type="PROPERTY"><![CDATA[e.model.modification like :component$filter.model_modification90596 ESCAPE ''\'' ]]>
+       <param name="component$filter.model_modification90596" javaClass="java.lang.String">NULL</param>
+     </c>
+     <c name="provider" class="ru.itpearls.tramservercuba.entity.Provider" paramWhere="{E}.deliverTransport = true" inExpr="true" operatorType="IN" width="1" type="PROPERTY"><![CDATA[e.provider.id in :component$filter.provider14174]]>
+       <param name="component$filter.provider14174" javaClass="ru.itpearls.tramservercuba.entity.Provider">NULL</param>
+     </c>
+     <c name="depo" class="ru.itpearls.tramservercuba.entity.Depo" operatorType="EQUAL" width="1" type="PROPERTY"><![CDATA[e.depo.id = :component$filter.depo50518]]>
+       <param name="component$filter.depo50518" javaClass="ru.itpearls.tramservercuba.entity.Depo">NULL</param>
+     </c>
+   </and>
+ </filter>
+', TRUE) ^
+
+insert into SEC_FILTER (ID, COMPONENT, NAME, XML, GLOBAL_DEFAULT)
+values (NEWID(), '[tramservercuba$Provider.browse].filter', 'Поиск поставщиков',
+'<?xml version="1.0" encoding="UTF-8"?>
+ <filter>
+   <and>
+     <c name="name" class="java.lang.String" operatorType="CONTAINS" width="1" type="PROPERTY"><![CDATA[e.name like :component$filter.name36897 ESCAPE ''\'' ]]>
+       <param name="component$filter.name36897" javaClass="java.lang.String">NULL</param>
+     </c>
+     <c name="code" class="java.lang.String" operatorType="CONTAINS" width="1" type="PROPERTY"><![CDATA[e.code like :component$filter.code37483 ESCAPE ''\'' ]]>
+       <param name="component$filter.code37483" javaClass="java.lang.String">NULL</param>
+     </c>
+     <c name="address" class="java.lang.String" operatorType="CONTAINS" width="1" type="PROPERTY"><![CDATA[e.address like :component$filter.address21482 ESCAPE ''\'' ]]>
+       <param name="component$filter.address21482" javaClass="java.lang.String">NULL</param>
+     </c>
+     <c name="deliverTransport" class="java.lang.Boolean" operatorType="EQUAL" width="1" type="PROPERTY"><![CDATA[e.deliverTransport = :component$filter.deliverTransport38270]]>
+       <param name="component$filter.deliverTransport38270" javaClass="java.lang.Boolean">NULL</param>
+     </c>
+     <c name="deliverAggregates" class="java.lang.Boolean" operatorType="EQUAL" width="1" type="PROPERTY"><![CDATA[e.deliverAggregates = :component$filter.deliverAggregates20935]]>
+       <param name="component$filter.deliverAggregates20935" javaClass="java.lang.Boolean">NULL</param>
+     </c>
+     <c name="deliverAccessories" class="java.lang.Boolean" operatorType="EQUAL" width="1" type="PROPERTY"><![CDATA[e.deliverAccessories = :component$filter.deliverAccessories09585]]>
+       <param name="component$filter.deliverAccessories09585" javaClass="java.lang.Boolean">NULL</param>
+     </c>
+     <c name="deliverMaterials" class="java.lang.Boolean" operatorType="EQUAL" width="1" type="PROPERTY"><![CDATA[e.deliverMaterials = :component$filter.deliverMaterials09210]]>
+       <param name="component$filter.deliverMaterials09210" javaClass="java.lang.Boolean">NULL</param>
+     </c>
+     <c name="deliverServices" class="java.lang.Boolean" operatorType="EQUAL" width="1" type="PROPERTY"><![CDATA[e.deliverServices = :component$filter.deliverServices18548]]>
+       <param name="component$filter.deliverServices18548" javaClass="java.lang.Boolean">NULL</param>
+     </c>
+   </and>
+ </filter>
+', TRUE) ^
+
+insert into SEC_FILTER (ID, COMPONENT, NAME, XML, GLOBAL_DEFAULT)
+values (NEWID(), '[tramservercuba$EquipmentMultiplyChoice.frame].filter', 'Поиск комплектующих',
+'<?xml version="1.0" encoding="UTF-8"?>
+
+ <filter>
+   <and>
+     <c name="name" class="java.lang.String" operatorType="CONTAINS" width="1" caption="msg://ru.itpearls.tramservercuba.entity/AggregateModel" type="PROPERTY"><![CDATA[e.name like :component$filter.name88798 ESCAPE ''\'' ]]>
+       <param name="component$filter.name88798" javaClass="java.lang.String">NULL</param>
+     </c>
+     <c name="modification" class="java.lang.String" operatorType="CONTAINS" width="1" type="PROPERTY"><![CDATA[e.modification like :component$filter.modification64045 ESCAPE ''\'' ]]>
+       <param name="component$filter.modification64045" javaClass="java.lang.String">NULL</param>
+     </c>
+     <c name="type" class="ru.itpearls.tramservercuba.entity.AggregateType" operatorType="EQUAL" width="1" type="PROPERTY"><![CDATA[e.type.id = :component$filter.type79027]]>
+       <param name="component$filter.type79027" javaClass="ru.itpearls.tramservercuba.entity.AggregateType">NULL</param>
+     </c>
+     <c name="aggregateKind" class="ru.itpearls.tramservercuba.entity.AggregateKind" operatorType="EQUAL" width="1" type="PROPERTY"><![CDATA[e.aggregateKind = :component$filter.aggregateKind75583]]>
+       <param name="component$filter.aggregateKind75583" javaClass="ru.itpearls.tramservercuba.entity.AggregateKind">NULL</param>
+     </c>
+   </and>
+ </filter>
+
+', TRUE) ^
+
+insert into SEC_FILTER (ID, COMPONENT, NAME, XML, GLOBAL_DEFAULT)
+values (NEWID(), '[tramservercuba$MaintenanceWorkTemplate.browse].filter', 'Поиск шаблона работ',
+'<?xml version="1.0" encoding="UTF-8"?>
+ <filter>
+   <and>
+     <c name="name" class="java.lang.String" operatorType="CONTAINS" width="1" type="PROPERTY"><![CDATA[e.name like :component$filter.name96695 ESCAPE ''\'' ]]>
+       <param name="component$filter.name96695" javaClass="java.lang.String">NULL</param>
+     </c>
+     <c name="code" class="java.lang.String" operatorType="CONTAINS" width="1" type="PROPERTY"><![CDATA[e.code like :component$filter.code64583 ESCAPE ''\'' ]]>
+       <param name="component$filter.code64583" javaClass="java.lang.String">NULL</param>
+     </c>
+     <c name="aggregateType" class="ru.itpearls.tramservercuba.entity.AggregateType" operatorType="EQUAL" width="1" type="PROPERTY"><![CDATA[e.aggregateType.id = :component$filter.aggregateType31022]]>
+       <param name="component$filter.aggregateType31022" javaClass="ru.itpearls.tramservercuba.entity.AggregateType">NULL</param>
+     </c>
+     <c name="state" class="ru.itpearls.tramservercuba.entity.State" operatorType="EQUAL" width="1" type="PROPERTY"><![CDATA[e.state = :component$filter.state23741]]>
+       <param name="component$filter.state23741" javaClass="ru.itpearls.tramservercuba.entity.State">NULL</param>
+     </c>
+   </and>
+ </filter>
+', TRUE) ^
+
+insert into SEC_FILTER (ID, COMPONENT, NAME, XML, GLOBAL_DEFAULT)
+values (NEWID(), 'tramservercuba$MaintenanceWorkTemplateMultiplyChoice.filter', 'Поиск шаблона работ',
+'<?xml version="1.0" encoding="UTF-8"?>
+
+ <filter>
+   <and>
+     <c name="name" class="java.lang.String" operatorType="CONTAINS" width="1" type="PROPERTY"><![CDATA[e.name like :component$filter.name28908 ESCAPE ''\'' ]]>
+       <param name="component$filter.name28908" javaClass="java.lang.String">NULL</param>
+     </c>
+     <c name="code" class="java.lang.String" operatorType="CONTAINS" width="1" type="PROPERTY"><![CDATA[e.code like :component$filter.code62890 ESCAPE ''\'' ]]>
+       <param name="component$filter.code62890" javaClass="java.lang.String">NULL</param>
+     </c>
+     <c name="aggregateType" class="ru.itpearls.tramservercuba.entity.AggregateType" operatorType="EQUAL" width="1" type="PROPERTY"><![CDATA[e.aggregateType.id = :component$filter.aggregateType26649]]>
+       <param name="component$filter.aggregateType26649" javaClass="ru.itpearls.tramservercuba.entity.AggregateType">NULL</param>
+     </c>
+   </and>
+ </filter>
+', TRUE) ^
+
+insert into SEC_FILTER (ID, COMPONENT, NAME, XML, GLOBAL_DEFAULT)
+values (NEWID(), '[tramservercuba$Repair.browse].filter', 'Поиск ремонтов',
+'<?xml version="1.0" encoding="UTF-8"?>
+
+ <filter>
+   <and>
+     <c name="startDate" class="java.util.Date" operatorType="GREATER_OR_EQUAL" width="1" type="PROPERTY"><![CDATA[e.startDate >= :component$filter.startDate22565]]>
+       <param name="component$filter.startDate22565" javaClass="java.util.Date">NULL</param>
+     </c>
+     <c name="finishDate" class="java.util.Date" operatorType="LESSER_OR_EQUAL" width="1" type="PROPERTY"><![CDATA[e.finishDate <= :component$filter.finishDate97900]]>
+       <param name="component$filter.finishDate97900" javaClass="java.util.Date">NULL</param>
+     </c>
+     <c name="depo" class="ru.itpearls.tramservercuba.entity.Depo" operatorType="EQUAL" width="1" type="PROPERTY"><![CDATA[e.depo.id = :component$filter.depo58523]]>
+       <param name="component$filter.depo58523" javaClass="ru.itpearls.tramservercuba.entity.Depo">NULL</param>
+     </c>
+   </and>
+ </filter>
+', TRUE) ^
+
+insert into SEC_FILTER (ID, COMPONENT, NAME, XML, GLOBAL_DEFAULT)
+values (NEWID(), '[tramservercuba$Repair.edit].filter', 'Поиск по истории ремонтов',
+'<?xml version="1.0" encoding="UTF-8"?>
+
+ <filter>
+   <and>
+     <c name="startDate" class="java.util.Date" operatorType="GREATER_OR_EQUAL" width="1" type="PROPERTY"><![CDATA[e.startDate >= :component$filter.startDate45853]]>
+       <param name="component$filter.startDate45853" javaClass="java.util.Date">NULL</param>
+     </c>
+     <c name="finishDate" class="java.util.Date" operatorType="LESSER_OR_EQUAL" width="1" type="PROPERTY"><![CDATA[e.finishDate <= :component$filter.finishDate71651]]>
+       <param name="component$filter.finishDate71651" javaClass="java.util.Date">NULL</param>
+     </c>
+     <c name="maintenanceKind.featureOfUse" class="ru.itpearls.tramservercuba.entity.MaintenanceKindFeatureOfUse" caption="msg://featureOfUseCaption" inExpr="true" operatorType="NOT_IN" width="1" type="PROPERTY"><![CDATA[((e.maintenanceKind.featureOfUse not in :component$filter.maintenanceKind_featureOfUse80071) or (e.maintenanceKind.featureOfUse is null)) ]]>
+       <param name="component$filter.maintenanceKind_featureOfUse80071" javaClass="ru.itpearls.tramservercuba.entity.MaintenanceKindFeatureOfUse">NULL</param>
+     </c>
+   </and>
+ </filter>
+', TRUE) ^
+
+insert into SEC_FILTER (ID, COMPONENT, NAME, XML, GLOBAL_DEFAULT)
+values (NEWID(), '[tramservercuba$TransportItem.edit].filter', 'Поиск по истории ремонтов',
+'<?xml version="1.0" encoding="UTF-8"?>
+
+ <filter>
+   <and>
+     <c name="startDate" class="java.util.Date" operatorType="GREATER_OR_EQUAL" width="1" type="PROPERTY"><![CDATA[e.startDate >= :component$filter.startDate24467]]>
+       <param name="component$filter.startDate24467" javaClass="java.util.Date">NULL</param>
+     </c>
+     <c name="finishDate" class="java.util.Date" operatorType="LESSER_OR_EQUAL" width="1" type="PROPERTY"><![CDATA[e.finishDate <= :component$filter.finishDate04936]]>
+       <param name="component$filter.finishDate04936" javaClass="java.util.Date">NULL</param>
+     </c>
+     <c name="maintenanceKind.featureOfUse" class="ru.itpearls.tramservercuba.entity.MaintenanceKindFeatureOfUse" caption="msg://featureOfUseCaption" inExpr="true" operatorType="NOT_IN" width="1" type="PROPERTY"><![CDATA[((e.maintenanceKind.featureOfUse not in :component$filter.maintenanceKind_featureOfUse64041) or (e.maintenanceKind.featureOfUse is null)) ]]>
+       <param name="component$filter.maintenanceKind_featureOfUse64041" javaClass="ru.itpearls.tramservercuba.entity.MaintenanceKindFeatureOfUse">NULL</param>
+     </c>
+   </and>
+ </filter>
+', TRUE) ^
+
+insert into SEC_FILTER (ID, COMPONENT, NAME, XML, GLOBAL_DEFAULT)
+values (NEWID(), '[tramservercuba$TransportItem.edit].identifiedFaultsFilter', 'Поиск неисправностей',
+'<?xml version="1.0" encoding="UTF-8"?>
+
+ <filter>
+   <and>
+     <c name="state" class="ru.itpearls.tramservercuba.entity.IdentifiedFaultsState" operatorType="EQUAL" width="1" type="PROPERTY"><![CDATA[e.state = :component$identifiedFaultsFilter.state76816]]>
+       <param name="component$identifiedFaultsFilter.state76816" javaClass="ru.itpearls.tramservercuba.entity.IdentifiedFaultsState">NULL</param>
+     </c>
+   </and>
+ </filter>
+', TRUE) ^
+
+-- Prefilled necessary for permissions data
+insert into TRAMSERVERCUBA_REGIONAL_DEPARTMENT (ID, VERSION, NAME, REGION)
+values (NEWID(), 1, 'ООО "ЭлектроТрансСервис"', 'Москва') ^
+
+insert into TRAMSERVERCUBA_DEPO (ID, VERSION, REGIONAL_DEPARTMENT_ID, NAME, CODE)
+values (NEWID(), 1, (select r.ID from TRAMSERVERCUBA_REGIONAL_DEPARTMENT r where r.REGION = 'Москва'),
+'Обособленное подразделение им. Баумана', 'БАУМАНСКАЯ') ^
+
+insert into TRAMSERVERCUBA_DEPO (ID, VERSION, REGIONAL_DEPARTMENT_ID, NAME, CODE)
+values (NEWID(), 1, (select r.ID from TRAMSERVERCUBA_REGIONAL_DEPARTMENT r where r.REGION = 'Москва'),
+'Обособленное подразделение Октябрьское', 'ОКТЯБРЬСКАЯ') ^
+
+insert into TRAMSERVERCUBA_DEPO (ID, VERSION, REGIONAL_DEPARTMENT_ID, NAME, CODE)
+values (NEWID(), 1, (select r.ID from TRAMSERVERCUBA_REGIONAL_DEPARTMENT r where r.REGION = 'Москва'),
+'Обособленное подразделение Русаковское', 'РУСАКОВСКАЯ') ^
+
+-- Groups
+insert into SEC_GROUP (ID, NAME, PARENT_ID)
+values (NEWID(), 'все_депо', (select g.ID from SEC_GROUP g where g.NAME = 'Company')) ^
+insert into SEC_GROUP_HIERARCHY (ID, GROUP_ID, PARENT_ID, HIERARCHY_LEVEL)
+values (NEWID(), (select g.ID from SEC_GROUP g where g.NAME = 'все_депо'),
+(select p.ID from SEC_GROUP p where p.NAME = 'Company'), 0) ^
+
+insert into SEC_GROUP (ID, NAME, PARENT_ID)
+values (NEWID(), 'депо_бауманская', (select g.ID from SEC_GROUP g where g.NAME = 'Company')) ^
+insert into SEC_GROUP_HIERARCHY (ID, GROUP_ID, PARENT_ID, HIERARCHY_LEVEL)
+values (NEWID(), (select g.ID from SEC_GROUP g where g.NAME = 'депо_бауманская'),
+(select p.ID from SEC_GROUP p where p.NAME = 'Company'), 0) ^
+
+insert into SEC_GROUP (ID, NAME, PARENT_ID)
+values (NEWID(), 'депо_октябрьская', (select g.ID from SEC_GROUP g where g.NAME = 'Company')) ^
+insert into SEC_GROUP_HIERARCHY (ID, GROUP_ID, PARENT_ID, HIERARCHY_LEVEL)
+values (NEWID(), (select g.ID from SEC_GROUP g where g.NAME = 'депо_октябрьская'),
+(select p.ID from SEC_GROUP p where p.NAME = 'Company'), 0) ^
+
+insert into SEC_GROUP (ID, NAME, PARENT_ID)
+values (NEWID(), 'депо_русаковская', (select g.ID from SEC_GROUP g where g.NAME = 'Company')) ^
+insert into SEC_GROUP_HIERARCHY (ID, GROUP_ID, PARENT_ID, HIERARCHY_LEVEL)
+values (NEWID(), (select g.ID from SEC_GROUP g where g.NAME = 'депо_русаковская'),
+(select p.ID from SEC_GROUP p where p.NAME = 'Company'), 0) ^
+
+-- Groups conditions
+insert into SEC_CONSTRAINT (ID, CHECK_TYPE, OPERATION_TYPE, ENTITY_NAME, WHERE_CLAUSE, FILTER_XML, IS_ACTIVE, GROUP_ID)
+values (NEWID(), 'db', 'all', 'tramservercuba$Repair', '{E}.depo.code = ''БАУМАНСКАЯ''',
+'<?xml version="1.0" encoding="UTF-8"?>
+
+ <filter>
+   <and>
+     <c name="depo.code" class="java.lang.String" operatorType="EQUAL" width="1" type="PROPERTY"><![CDATA[queryEntity.depo.code = :component$filterWithoutId.depo_code81944]]>
+       <param name="component$filterWithoutId.depo_code81944" javaClass="java.lang.String">БАУМАНСКАЯ</param>
+     </c>
+   </and>
+ </filter>
+', true, (select g.ID from SEC_GROUP g where g.NAME = 'депо_бауманская')) ^
+insert into SEC_CONSTRAINT (ID, CHECK_TYPE, OPERATION_TYPE, ENTITY_NAME, WHERE_CLAUSE, FILTER_XML, IS_ACTIVE, GROUP_ID)
+values (NEWID(), 'db', 'all', 'tramservercuba$TransportItem', '{E}.depo.code = ''БАУМАНСКАЯ''',
+'<?xml version="1.0" encoding="UTF-8"?>
+
+ <filter>
+   <and>
+     <c name="depo.code" class="java.lang.String" operatorType="EQUAL" width="1" type="PROPERTY"><![CDATA[queryEntity.depo.code = :component$filterWithoutId.depo_code97219]]>
+       <param name="component$filterWithoutId.depo_code97219" javaClass="java.lang.String">БАУМАНСКАЯ</param>
+     </c>
+   </and>
+ </filter>
+', true, (select g.ID from SEC_GROUP g where g.NAME = 'депо_бауманская')) ^
+
+insert into SEC_CONSTRAINT (ID, CHECK_TYPE, OPERATION_TYPE, ENTITY_NAME, WHERE_CLAUSE, FILTER_XML, IS_ACTIVE, GROUP_ID)
+values (NEWID(), 'db', 'all', 'tramservercuba$Repair', '{E}.depo.code = ''ОКТЯБРЬСКАЯ''',
+'<?xml version="1.0" encoding="UTF-8"?>
+
+ <filter>
+   <and>
+     <c name="depo.code" class="java.lang.String" operatorType="EQUAL" width="1" type="PROPERTY"><![CDATA[queryEntity.depo.code = :component$filterWithoutId.depo_code05974]]>
+       <param name="component$filterWithoutId.depo_code05974" javaClass="java.lang.String">ОКТЯБРЬСКАЯ</param>
+     </c>
+   </and>
+ </filter>
+', true, (select g.ID from SEC_GROUP g where g.NAME = 'депо_октябрьская')) ^
+insert into SEC_CONSTRAINT (ID, CHECK_TYPE, OPERATION_TYPE, ENTITY_NAME, WHERE_CLAUSE, FILTER_XML, IS_ACTIVE, GROUP_ID)
+values (NEWID(), 'db', 'all', 'tramservercuba$TransportItem', '{E}.depo.code = ''ОКТЯБРЬСКАЯ''',
+'<?xml version="1.0" encoding="UTF-8"?>
+
+ <filter>
+   <and>
+     <c name="depo.code" class="java.lang.String" operatorType="EQUAL" width="1" type="PROPERTY"><![CDATA[queryEntity.depo.code = :component$filterWithoutId.depo_code66457]]>
+       <param name="component$filterWithoutId.depo_code66457" javaClass="java.lang.String">ОКТЯБРЬСКАЯ</param>
+     </c>
+   </and>
+ </filter>
+', true, (select g.ID from SEC_GROUP g where g.NAME = 'депо_октябрьская')) ^
+
+insert into SEC_CONSTRAINT (ID, CHECK_TYPE, OPERATION_TYPE, ENTITY_NAME, WHERE_CLAUSE, FILTER_XML, IS_ACTIVE, GROUP_ID)
+values (NEWID(), 'db', 'all', 'tramservercuba$Repair', '{E}.depo.code = ''РУСАКОВСКАЯ''',
+'<?xml version="1.0" encoding="UTF-8"?>
+
+ <filter>
+   <and>
+     <c name="depo.code" class="java.lang.String" operatorType="EQUAL" width="1" type="PROPERTY"><![CDATA[queryEntity.depo.code = :component$filterWithoutId.depo_code88574]]>
+       <param name="component$filterWithoutId.depo_code88574" javaClass="java.lang.String">БАУМАНСКАЯ</param>
+     </c>
+   </and>
+ </filter>
+', true, (select g.ID from SEC_GROUP g where g.NAME = 'депо_русаковская')) ^
+insert into SEC_CONSTRAINT (ID, CHECK_TYPE, OPERATION_TYPE, ENTITY_NAME, WHERE_CLAUSE, FILTER_XML, IS_ACTIVE, GROUP_ID)
+values (NEWID(), 'db', 'all', 'tramservercuba$TransportItem', '{E}.depo.code = ''РУСАКОВСКАЯ''',
+'<?xml version="1.0" encoding="UTF-8"?>
+
+ <filter>
+   <and>
+     <c name="depo.code" class="java.lang.String" operatorType="EQUAL" width="1" type="PROPERTY"><![CDATA[queryEntity.depo.code = :component$filterWithoutId.depo_code24722]]>
+       <param name="component$filterWithoutId.depo_code24722" javaClass="java.lang.String">БАУМАНСКАЯ</param>
+     </c>
+   </and>
+ </filter>
+', true, (select g.ID from SEC_GROUP g where g.NAME = 'депо_русаковская')) ^
+
+-- Roles
+insert into SEC_ROLE (ID, NAME, IS_DEFAULT_ROLE)
+values (NEWID(), 'Базовая', true) ^
+
+insert into SEC_ROLE (ID, NAME)
+values (NEWID(), 'Администратор_пользователей') ^
+
+insert into SEC_ROLE (ID, NAME)
+values (NEWID(), 'Администратор_структуры_производства') ^
+
+insert into SEC_ROLE (ID, NAME)
+values (NEWID(), 'Администратор_справочников_ТО') ^
+
+insert into SEC_ROLE (ID, NAME)
+values (NEWID(), 'Администратор_справочников_моделей_ТС') ^
+
+insert into SEC_ROLE (ID, NAME)
+values (NEWID(), 'Администратор_справочников_элементов_ТС') ^
+
+insert into SEC_ROLE (ID, NAME)
+values (NEWID(), 'Администратор_поставщиков') ^
+
+insert into SEC_ROLE (ID, NAME)
+values (NEWID(), 'Администратор_реестра_ТС') ^
+
+insert into SEC_ROLE (ID, NAME, ROLE_TYPE)
+values (NEWID(), 'Наблюдатель_реестра_ТС', 20) ^
+
+insert into SEC_ROLE (ID, NAME)
+values (NEWID(), 'Мастер_смены') ^
+
+insert into SEC_ROLE (ID, NAME, ROLE_TYPE)
+values (NEWID(), 'Наблюдатель_ТО_и_ремонтов', 20) ^
+
+-- Roles permissions
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 10, 'transportItemsManagement', 0, (select r.ID from SEC_ROLE r where r.NAME = 'Базовая')) ^
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 10, 'repairs', 0, (select r.ID from SEC_ROLE r where r.NAME = 'Базовая')) ^
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 10, 'references', 0, (select r.ID from SEC_ROLE r where r.NAME = 'Базовая')) ^
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 10, 'tramservercuba$TransportTypeBaseEntity.browse', 0, (select r.ID from SEC_ROLE r where r.NAME = 'Базовая')) ^
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 10, 'tramservercuba$AggregateTypeBaseEntity.browse', 0, (select r.ID from SEC_ROLE r where r.NAME = 'Базовая')) ^
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 10, 'tramservercuba$Provider.browse', 0, (select r.ID from SEC_ROLE r where r.NAME = 'Базовая')) ^
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 10, 'maintenance', 0, (select r.ID from SEC_ROLE r where r.NAME = 'Базовая')) ^
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 10, 'manufactureStructure', 0, (select r.ID from SEC_ROLE r where r.NAME = 'Базовая')) ^
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 10, 'users', 0, (select r.ID from SEC_ROLE r where r.NAME = 'Базовая')) ^
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 10, 'generatedCodes', 0, (select r.ID from SEC_ROLE r where r.NAME = 'Базовая')) ^
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 10, 'administration', 0, (select r.ID from SEC_ROLE r where r.NAME = 'Базовая')) ^
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 10, 'help', 0, (select r.ID from SEC_ROLE r where r.NAME = 'Базовая')) ^
+
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 10, 'users', 1, (select r.ID from SEC_ROLE r where r.NAME = 'Администратор_пользователей')) ^
+
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 10, 'manufactureStructure', 1, (select r.ID from SEC_ROLE r where r.NAME = 'Администратор_структуры_производства')) ^
+
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 10, 'maintenance', 1, (select r.ID from SEC_ROLE r where r.NAME = 'Администратор_справочников_ТО')) ^
+
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 10, 'references', 1, (select r.ID from SEC_ROLE r where r.NAME = 'Администратор_справочников_моделей_ТС')) ^
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 10, 'tramservercuba$TransportTypeBaseEntity.browse', 1, (select r.ID from SEC_ROLE r where r.NAME = 'Администратор_справочников_моделей_ТС')) ^
+
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 10, 'references', 1, (select r.ID from SEC_ROLE r where r.NAME = 'Администратор_справочников_элементов_ТС')) ^
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 10, 'tramservercuba$AggregateTypeBaseEntity.browse', 1, (select r.ID from SEC_ROLE r where r.NAME = 'Администратор_справочников_элементов_ТС')) ^
+
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 10, 'references', 1, (select r.ID from SEC_ROLE r where r.NAME = 'Администратор_поставщиков')) ^
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 10, 'tramservercuba$Provider.browse', 1, (select r.ID from SEC_ROLE r where r.NAME = 'Администратор_поставщиков')) ^
+
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 10, 'transportItemsManagement', 1, (select r.ID from SEC_ROLE r where r.NAME = 'Администратор_реестра_ТС')) ^
+
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 10, 'transportItemsManagement', 1, (select r.ID from SEC_ROLE r where r.NAME = 'Наблюдатель_реестра_ТС')) ^
+
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 10, 'repairs', 1, (select r.ID from SEC_ROLE r where r.NAME = 'Мастер_смены')) ^
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 20, 'tramservercuba$TransportItem:read', 1, (select r.ID from SEC_ROLE r where r.NAME = 'Мастер_смены')) ^
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 20, 'tramservercuba$TransportItem:create', 0, (select r.ID from SEC_ROLE r where r.NAME = 'Мастер_смены')) ^
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 20, 'tramservercuba$TransportItem:update', 0, (select r.ID from SEC_ROLE r where r.NAME = 'Мастер_смены')) ^
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 20, 'tramservercuba$TransportItem:delete', 0, (select r.ID from SEC_ROLE r where r.NAME = 'Мастер_смены')) ^
+
+insert into SEC_PERMISSION (ID, PERMISSION_TYPE, TARGET, VALUE_, ROLE_ID)
+values (NEWID(), 10, 'repairs', 1, (select r.ID from SEC_ROLE r where r.NAME = 'Наблюдатель_ТО_и_ремонтов')) ^

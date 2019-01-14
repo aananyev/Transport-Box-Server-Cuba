@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://multipleChoiceCaption"
+        class="ru.itpearls.tramservercuba.web.maintenancekind.MaintenanceKindMultipleChoise"
+        messagesPack="ru.itpearls.tramservercuba.web.maintenancekind">
+    <dsContext>
+        <collectionDatasource id="maintenanceKindsDs"
+                              class="ru.itpearls.tramservercuba.entity.MaintenanceKind"
+                              view="edit">
+            <query>
+                <![CDATA[select e from tramservercuba$MaintenanceKind e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout>
+        <vbox id="vbox"
+              height="100%"
+              spacing="true">
+            <table id="maintenanceKindsTable"
+                   height="100%"
+                   width="100%">
+                <columns>
+                    <column id="checkBox"
+                            caption=""
+                            generator="generateCheckBoxCell"/>
+                    <column id="code"/>
+                    <column id="name"/>
+                    <column id="featureOfUse"/>
+                </columns>
+                <rows datasource="maintenanceKindsDs"/>
+            </table>
+            <hbox spacing="true">
+                <button id="generateButton"
+                        caption="msg://generateBtnCaption"
+                        invoke="onGenerateButtonClick"/>
+                <button id="cancelButton"
+                        caption="msg://cancelBtnCaption"
+                        invoke="onCancelButtonClick"/>
+            </hbox>
+        </vbox>
+    </layout>
+</window>

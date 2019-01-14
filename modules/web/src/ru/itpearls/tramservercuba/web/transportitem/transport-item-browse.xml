@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="ru.itpearls.tramservercuba.web.transportitem.TransportItemBrowse"
+        focusComponent="transportItemsTable"
+        lookupComponent="transportItemsTable"
+        messagesPack="ru.itpearls.tramservercuba.web.transportitem">
+    <dsContext>
+        <collectionDatasource id="transportItemsDs"
+                              class="ru.itpearls.tramservercuba.entity.TransportItem"
+                              view="browse">
+            <query>
+                <![CDATA[select e from tramservercuba$TransportItem e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="transportItemsTable"
+            spacing="true">
+        <label htmlEnabled="true"
+               value="msg://browseTitleLabel"/>
+        <filter id="filter"
+                applyTo="transportItemsTable"
+                datasource="transportItemsDs"
+                editable="false">
+            <properties include=".*"/>
+        </filter>
+        <table id="transportItemsTable"
+               width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="depo.depoWithRegion"/>
+                <column id="factoryNumber"/>
+                <column id="workNumber"/>
+                <column id="model.type"/>
+                <column id="modelWithModification"
+                        caption="msg://modelLabel"/>
+                <column id="provider"/>
+                <column id="model.code"
+                        caption="msg://transportModelCodeCaption"
+                        collapsed="true"/>
+                <column id="depo.code"
+                        caption="msg://depoCodeCaption"
+                        collapsed="true"/>
+                <column id="provider.code"
+                        caption="msg://providerCodeCaption"
+                        collapsed="true"/>
+            </columns>
+            <rows datasource="transportItemsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="transportItemsTable.create"/>
+                <button id="editBtn"
+                        action="transportItemsTable.edit"/>
+                <button id="removeBtn"
+                        action="transportItemsTable.remove"/>
+                <popupButton id="excelBtn"
+                             caption="msg://excelAction"
+                             icon="icons/excel.png">
+                    <actions>
+                        <action id="transportItemsTable.importExcel"
+                                caption="msg://importExcelAction"
+                                invoke="excelImportActionInvoke"/>
+                    </actions>
+                </popupButton>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>

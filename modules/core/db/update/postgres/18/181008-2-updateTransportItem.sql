@@ -1,0 +1,1 @@
+alter table TRAMSERVERCUBA_TRANSPORT_ITEM add column IS_EQUIPMENT_DONE boolean ;

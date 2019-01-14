@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="ru.itpearls.tramservercuba.web.employee.EmployeeBrowse"
+        focusComponent="employeesTable"
+        lookupComponent="employeesTable"
+        messagesPack="ru.itpearls.tramservercuba.web.employee">
+    <dsContext>
+        <collectionDatasource id="employeesDs"
+                              class="ru.itpearls.tramservercuba.entity.Employee"
+                              view="edit">
+            <query>
+                <![CDATA[select e from tramservercuba$Employee e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="employeesTable"
+            spacing="true">
+        <label htmlEnabled="true"
+               value="msg://browseTitleLabel"/>
+        <table id="employeesTable"
+               width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="number"/>
+                <column id="position"/>
+                <column id="workTeam.name" caption="msg://ru.itpearls.tramservercuba.entity/WorkTeam"/>
+                <column id="isIngener"/>
+                <column id="user.login" caption="msg://com.haulmont.cuba.security.entity/User"/>
+                <column id="state"/>
+            </columns>
+            <rows datasource="employeesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="employeesTable.create"/>
+                <button id="editBtn"
+                        action="employeesTable.edit"/>
+                <button id="removeBtn"
+                        action="employeesTable.remove"/>
+                <popupButton id="excelBtn" icon="icons/excel.png"
+                             caption="msg://excelAction">
+                    <actions>
+                        <action id="maintenanceKindsTable.excel"
+                                caption="msg://exportExcelAction"
+                                invoke="excelExportActionInvoke"/>
+                        <action id="maintenanceKindsTable.importExcel"
+                                caption="msg://importExcelAction"
+                                invoke="excelImportActionInvoke"/>
+                    </actions>
+                </popupButton>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>

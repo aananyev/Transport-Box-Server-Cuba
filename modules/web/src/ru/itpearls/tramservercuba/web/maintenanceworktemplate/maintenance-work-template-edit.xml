@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="ru.itpearls.tramservercuba.web.maintenanceworktemplate.MaintenanceWorkTemplateEdit"
+        datasource="maintenanceWorkTemplateDs"
+        focusComponent="fieldGroup"
+        messagesPack="ru.itpearls.tramservercuba.web.maintenanceworktemplate">
+    <dsContext>
+        <datasource id="maintenanceWorkTemplateDs"
+                    class="ru.itpearls.tramservercuba.entity.MaintenanceWorkTemplate"
+                    view="edit"/>
+        <collectionDatasource id="aggregateGroupDs"
+                              class="ru.itpearls.tramservercuba.entity.AggregateType"
+                              view="_local">
+            <query>
+                <![CDATA[select e from tramservercuba$AggregateType e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <label htmlEnabled="true"
+               value="msg://editTitleLabel"/>
+        <fieldGroup id="fieldGroup"
+                    datasource="maintenanceWorkTemplateDs">
+            <column width="250px">
+                <field editable="false"
+                       property="code"/>
+                <field property="name"
+                       width="500"/>
+                <field caption="msg://aggregateTypeCustomColumnCaption"
+                       optionsDatasource="aggregateGroupDs"
+                       property="aggregateType"/>
+                <field property="description"
+                       rows="10"
+                       width="500"/>
+                <field property="instruction"/>
+                <field property="workClass"/>
+                <field property="state"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

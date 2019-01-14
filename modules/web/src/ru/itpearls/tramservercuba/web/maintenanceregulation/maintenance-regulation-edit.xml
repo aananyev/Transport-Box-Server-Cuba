@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="ru.itpearls.tramservercuba.web.maintenanceregulation.MaintenanceRegulationEdit"
+        datasource="maintenanceRegulationDs"
+        focusComponent="fieldGroup"
+        messagesPack="ru.itpearls.tramservercuba.web.maintenanceregulation">
+    <dsContext>
+        <datasource id="maintenanceRegulationDs"
+                    class="ru.itpearls.tramservercuba.entity.MaintenanceRegulation"
+                    view="_local"/>
+        <collectionDatasource id="maintenanceActionItemsDs"
+                              class="ru.itpearls.tramservercuba.entity.MaintenanceActionItem"
+                              view="edit">
+            <query>
+                <![CDATA[select e from tramservercuba$MaintenanceActionItem e
+                where e.maintenanceRegulation.id = :ds$maintenanceRegulationDs]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="tabSheet"
+            spacing="true">
+        <label htmlEnabled="true"
+               value="msg://editTitleLabel"/>
+        <tabSheet id="tabSheet">
+            <tab id="generalInfoTab"
+                 caption="msg://generalInfoTabCaption"
+                 margin="true"
+                 spacing="true">
+                <fieldGroup id="fieldGroup"
+                            datasource="maintenanceRegulationDs">
+                    <column width="250px">
+                        <field property="name"/>
+                        <field editable="false"
+                               property="code"/>
+                    </column>
+                </fieldGroup>
+                <hbox>
+                    <button id="saveBtn"
+                            caption="msg://saveBtnCaption"
+                            invoke="saveAction"
+                            visible="false"/>
+                </hbox>
+            </tab>
+            <tab id="plannedTechnicalImpactsTab"
+                 caption="msg://plannedTechnicalImpactsTabCaption"
+                 margin="true"
+                 spacing="true">
+                <table id="maintenanceActionItemsTable"
+                       height="100%"
+                       width="100%">
+                    <actions>
+                        <action id="create"/>
+                        <action id="edit"/>
+                        <action id="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="maintenanceKind.name"
+                                caption="msg://maintenanceKindCaption"/>
+                        <column id="name"/>
+                        <column id="periodCaption"
+                                caption="msg://ru.itpearls.tramservercuba.entity/MaintenanceActionItem.periodKind"/>
+                        <column id="dateCaption"
+                                caption="msg://dateKindCaption"/>
+                        <column id="description"/>
+                        <column id="maintenanceRegulation.code"
+                                caption="msg://regulationCodeColumnCaption"
+                                collapsed="true"/>
+                        <column id="maintenanceKind.code"
+                                caption="msg://maintenanceKindCodeColumnCaption"
+                                collapsed="true"/>
+                    </columns>
+                    <rows datasource="maintenanceActionItemsDs"/>
+                    <rowsCount/>
+                    <buttonsPanel id="buttonsPanel"
+                                  alwaysVisible="true">
+                        <button id="createBtn"
+                                caption="msg://addCaption"
+                                icon="icons/create.png"
+                                invoke="createMaintenanceActionItem"/>
+                        <button id="editBtn"
+                                action="maintenanceActionItemsTable.edit"/>
+                        <button id="removeBtn"
+                                action="maintenanceActionItemsTable.remove"/>
+                        <popupButton id="excelBtn"
+                                     caption="msg://excelAction"
+                                     icon="icons/excel.png">
+                            <actions>
+                                <action id="maintenanceActionItemsTable.importExcel"
+                                        caption="msg://importExcelAction"
+                                        invoke="excelImportActionItemsActionInvoke"/>
+                            </actions>
+                        </popupButton>
+                    </buttonsPanel>
+                </table>
+            </tab>
+        </tabSheet>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

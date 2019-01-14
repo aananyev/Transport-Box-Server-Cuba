@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="ru.itpearls.tramservercuba.web.employee.EmployeeEdit"
+        datasource="employeeDs"
+        focusComponent="fieldGroup"
+        messagesPack="ru.itpearls.tramservercuba.web.employee">
+    <dsContext>
+        <datasource id="employeeDs"
+                    class="ru.itpearls.tramservercuba.entity.Employee"
+                    view="edit"/>
+        <collectionDatasource id="workTeamsDs"
+                              class="ru.itpearls.tramservercuba.entity.WorkTeam"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from tramservercuba$WorkTeam e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="usersDs"
+                              class="com.haulmont.cuba.security.entity.User"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from sec$User e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <label htmlEnabled="true"
+               value="msg://editTitleLabel"/>
+        <fieldGroup id="fieldGroup"
+                    datasource="employeeDs">
+            <column width="250px">
+                <field property="name"/>
+                <field property="number"/>
+                <field property="position"/>
+                <field optionsDatasource="workTeamsDs"
+                       property="workTeam"/>
+                <field property="isIngener"/>
+                <field optionsDatasource="usersDs"
+                       property="user"/>
+                <field property="state"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

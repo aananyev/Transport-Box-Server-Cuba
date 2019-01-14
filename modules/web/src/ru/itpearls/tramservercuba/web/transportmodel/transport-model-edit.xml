@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="ru.itpearls.tramservercuba.web.transportmodel.TransportModelEdit"
+        datasource="transportModelDs"
+        focusComponent="fieldGroup"
+        messagesPack="ru.itpearls.tramservercuba.web.transportmodel">
+    <dsContext>
+        <datasource id="transportModelDs"
+                    class="ru.itpearls.tramservercuba.entity.TransportModel"
+                    view="edit">
+            <groupDatasource id="equipmentsDs"
+                             property="equipments"/>
+            <collectionDatasource id="transportModelProvidersDs"
+                                  property="transportProviders"/>
+        </datasource>
+        <collectionDatasource id="typesDs"
+                              class="ru.itpearls.tramservercuba.entity.TransportType"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from tramservercuba$TransportType e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="transportModelsDs"
+                              class="ru.itpearls.tramservercuba.entity.TransportModel"
+                              view="baseModel-lookup">
+            <query>
+                <![CDATA[select e from tramservercuba$TransportModel e
+where e.id <> :ds$transportModelDs and e.type.id = :ds$transportModelDs.type.id]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="maintenanceRegulationsDs"
+                              class="ru.itpearls.tramservercuba.entity.MaintenanceRegulation"
+                              view="_local">
+            <query>
+                <![CDATA[select e from tramservercuba$MaintenanceRegulation e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="maintenanceActionItemsDs"
+                              class="ru.itpearls.tramservercuba.entity.MaintenanceActionItem"
+                              view="browse">
+            <query>
+                <![CDATA[select e from tramservercuba$MaintenanceActionItem e
+where e.maintenanceRegulation.id = :ds$transportModelDs.maintenanceRegulation.id]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout expand="transportModelTabSheet"
+            height="100%"
+            margin="true"
+            spacing="true"
+            width="100%">
+        <label htmlEnabled="true"
+               value="msg://editTitleLabel"/>
+        <tabSheet id="transportModelTabSheet">
+            <tab id="detailsTab"
+                 caption="msg://detailsTabCaption"
+                 margin="true"
+                 spacing="true">
+                <fieldGroup id="fieldGroup"
+                            datasource="transportModelDs">
+                    <column width="250px">
+                        <field editable="false"
+                               property="code"/>
+                        <field optionsDatasource="typesDs"
+                               property="type"
+                               required="true"/>
+                        <field caption="msg://modelCaption"
+                               property="name"/>
+                        <field property="modification"/>
+                        <field optionsDatasource="transportModelsDs"
+                               property="baseModel"/>
+                        <field property="description"/>
+                    </column>
+                </fieldGroup>
+            </tab>
+            <tab id="equipmentTab"
+                 caption="msg://equipmentTabCaption"
+                 margin="true"
+                 spacing="true">
+                <groupTable id="transportEquipmentsTable"
+                            editable="true"
+                            height="100%"
+                            width="100%">
+                    <actions>
+                        <action id="create"/>
+                        <action id="edit"/>
+                        <action id="remove"/>
+                    </actions>
+                    <columns>
+                        <group>
+                            <column id="system"/>
+                        </group>
+                        <column id="aggregate.type"/>
+                        <column id="aggregate"
+                                caption="msg://aggregateCaption"/>
+                        <column id="aggregate.modification"
+                                caption="msg://aggregateModificationCaption"/>
+                        <column id="count"/>
+                        <column id="aggregate.description"/>
+                        <column id="model.name"
+                                caption="msg://modelNameColumnCaption"
+                                collapsed="true"/>
+                        <column id="model.modification"
+                                caption="msg://modelModificationColumnCaption"
+                                collapsed="true"/>
+                        <column id="isMain"
+                                collapsed="true"/>
+                        <column id="mainEquipment.aggregate.code"
+                                caption="msg://mainAggregateCodeCaption"
+                                collapsed="true"/>
+                        <column id="aggregate.code"
+                                caption="msg://aggregateCodeCaption"
+                                collapsed="true"/>
+                    </columns>
+                    <rows datasource="equipmentsDs"/>
+                    <rowsCount/>
+                    <buttonsPanel id="buttonsPanel"
+                                  alwaysVisible="true">
+                        <button id="createBtnEq"
+                                action="transportEquipmentsTable.create"/>
+                        <button id="editBtnEq"
+                                action="transportEquipmentsTable.edit"/>
+                        <button id="removeBtnEq"
+                                action="transportEquipmentsTable.remove"/>
+                        <popupButton id="excelBtnEq"
+                                     caption="msg://excelAction"
+                                     icon="icons/excel.png">
+                            <actions>
+                                <action id="transportEquipmentsTable.importExcel"
+                                        caption="msg://importExcelAction"
+                                        invoke="excelImportEquipmentActionInvoke"/>
+                            </actions>
+                        </popupButton>
+                        <button id="multiplyAddBtnEq"
+                                caption="msg://multiplyAddActionCaption"
+                                invoke="multiplyAddAction"/>
+                        <button id="analogsBtnEq"
+                                caption="msg://analogsActionCaption"
+                                invoke="analogsAction"/>
+                        <button id="clearEquipments"
+                                caption="msg://clearEquipments"
+                                invoke="clearEquipments" visible="false"/>
+                    </buttonsPanel>
+                </groupTable>
+            </tab>
+            <tab id="providersTabCaption"
+                 caption="msg://providersTabCaption"
+                 margin="true"
+                 spacing="true">
+                <table id="providersTable"
+                       columnControlVisible="false"
+                       height="100%"
+                       multiselect="true"
+                       width="100%">
+                    <actions>
+                        <action id="create"
+                                openType="DIALOG"/>
+                        <action id="edit"
+                                openType="DIALOG"/>
+                        <action id="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="provider.name"/>
+                        <column id="provider.code"
+                                caption="msg://providerCodeCaption"/>
+                        <column id="provider.address"/>
+                        <column id="providerActivity"/>
+                        <column id="model.code"
+                                caption="msg://transportModelCodeCaption"
+                                collapsed="true"/>
+                        <column id="isDeliver"
+                                caption="msg://isDeliverCaption"
+                                collapsed="true"/>
+                        <column id="isProducer"
+                                caption="msg://isProducerCaption"
+                                collapsed="true"/>
+                    </columns>
+                    <rows datasource="transportModelProvidersDs"/>
+                    <buttonsPanel id="providersButtonsPanel"
+                                  alwaysVisible="true">
+                        <button id="createBtnProv"
+                                action="providersTable.create"/>
+                        <button id="editBtnProv"
+                                action="providersTable.edit"/>
+                        <button id="removeBtnProv"
+                                action="providersTable.remove"/>
+                        <popupButton id="excelBtnProv"
+                                     caption="msg://excelAction"
+                                     icon="icons/excel.png">
+                            <actions>
+                                <action id="transportItemsTable.importExcel"
+                                        caption="msg://importExcelAction"
+                                        invoke="excelImportProviderActionInvoke"/>
+                            </actions>
+                        </popupButton>
+                    </buttonsPanel>
+                </table>
+            </tab>
+            <tab id="techMaintenanceTab"
+                 caption="msg://techMaintenanceTabCaption"
+                 margin="true"
+                 spacing="true">
+                <vbox spacing="true">
+                    <hbox spacing="true">
+                        <label align="BOTTOM_LEFT"
+                               value="msg://regulationLabel"
+                               width="150px"/>
+                        <lookupField id="regulationField"
+                                     datasource="transportModelDs"
+                                     optionsDatasource="maintenanceRegulationsDs"
+                                     property="maintenanceRegulation"
+                                     required="true"
+                                     width="300px"/>
+                    </hbox>
+                    <table id="maintenanceActionItemsTable"
+                           caption="msg://maintenanceTableCaption"
+                           columnControlVisible="false"
+                           contextMenuEnabled="false"
+                           height="250px"
+                           settingsEnabled="false"
+                           width="100%">
+                        <columns>
+                            <column id="maintenanceKind.name"
+                                    caption="msg://maintenanceKindCaption"/>
+                            <column id="name"/>
+                            <column id="periodCaption"
+                                    caption="msg://ru.itpearls.tramservercuba.entity/MaintenanceActionItem.periodKind"/>
+                            <column id="dateCaption"
+                                    caption="msg://dateKindCaption"/>
+                            <column id="description"/>
+                        </columns>
+                        <rows datasource="maintenanceActionItemsDs"/>
+                    </table>
+                </vbox>
+            </tab>
+        </tabSheet>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

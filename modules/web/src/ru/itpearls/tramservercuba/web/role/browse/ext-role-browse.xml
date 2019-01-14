@@ -1,0 +1,82 @@
+<!--
+  ~ Copyright (c) 2008-2016 Haulmont.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~
+  -->
+
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        class="ru.itpearls.tramservercuba.web.role.browse.ExtRoleBrowser"
+        messagesPack="ru.itpearls.tramservercuba.web.role.browse"
+        lookupComponent="rolesTable"
+        caption="msg://caption"
+        focusComponent="rolesTable">
+
+    <dsContext>
+        <collectionDatasource id="rolesDs" class="com.haulmont.cuba.security.entity.Role" view="_local">
+            <query>
+                select r from sec$Role r order by r.name
+            </query>
+        </collectionDatasource>
+    </dsContext>
+
+    <dialogMode height="theme://cuba.gui.dialogSize.height.xlarge"
+                width="theme://cuba.gui.dialogSize.width.xlarge"
+                resizable="true"/>
+
+    <layout expand="rolesTable">
+        <filter applyTo="rolesTable" datasource="rolesDs" margin="false,false,true,false">
+            <properties include=".*"/>
+        </filter>
+        <table id="rolesTable" width="100%" editable="true" multiselect="true">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="excel"/>
+                <action id="refresh"/>
+            </actions>
+            <buttonsPanel alwaysVisible="true">
+                <button action="rolesTable.create"/>
+                <button action="rolesTable.edit"/>
+                <button action="rolesTable.remove"/>
+                <button action="rolesTable.refresh"/>
+                <popupButton id="excelPopupBtn" caption="msg://excelAction" icon="icons/excel.png">
+                    <actions>
+                        <action id="importRole" caption="msg://importExcelAction" invoke="importExcelAction"/>
+                    </actions>
+                </popupButton>
+                <button action="rolesTable.copy" icon="icons/copy.png"/>
+                <button action="rolesTable.assignToUsers" icon="icons/user-group-ok.png"/>
+                <popupButton id="exportBtn" icon="icons/download.png">
+                    <actions>
+                        <action id="exportJSON" caption="msg://exportJSON" invoke="exportJSON"/>
+                        <action id="exportZIP" caption="msg://exportZIP" invoke="exportZIP"/>
+                    </actions>
+                </popupButton>
+                <upload id="importRolesUpload"
+                        uploadButtonIcon="icons/upload.png"
+                        uploadButtonDescription="mainMsg://actions.Import"/>
+            </buttonsPanel>
+            <rowsCount/>
+            <columns>
+                <column id="name" caption="msg://role.name"/>
+                <column id="locName" caption="msg://role.locName"/>
+                <column id="description" caption="msg://role.description"/>
+                <column id="defaultRole" caption="msg://role.defaultRole" editable="true"/>
+                <column id="type" caption="msg://role.type"/>
+            </columns>
+            <rows datasource="rolesDs"/>
+        </table>
+    </layout>
+</window>

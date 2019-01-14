@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="ru.itpearls.tramservercuba.web.maintenancekind.MaintenanceKindBrowse"
+        focusComponent="maintenanceKindsTable"
+        lookupComponent="maintenanceKindsTable"
+        messagesPack="ru.itpearls.tramservercuba.web.maintenancekind">
+    <dsContext>
+        <collectionDatasource id="maintenanceKindsDs"
+                              class="ru.itpearls.tramservercuba.entity.MaintenanceKind"
+                              view="_local">
+            <query>
+                <![CDATA[select e from tramservercuba$MaintenanceKind e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="maintenanceKindsTable"
+            spacing="true">
+        <label htmlEnabled="true"
+               value="msg://browseTitleLabel"/>
+        <table id="maintenanceKindsTable"
+               width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="code"/>
+                <column id="name"/>
+                <column id="featureOfUse"/>
+            </columns>
+            <rows datasource="maintenanceKindsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="maintenanceKindsTable.create"/>
+                <button id="editBtn"
+                        action="maintenanceKindsTable.edit"/>
+                <button id="removeBtn"
+                        action="maintenanceKindsTable.remove"/>
+                <popupButton id="excelBtn"
+                             caption="msg://excelAction"
+                             icon="icons/excel.png">
+                    <actions>
+                        <action id="maintenanceKindsTable.excel"
+                                caption="msg://exportExcelAction"
+                                invoke="excelExportActionInvoke"/>
+                        <action id="maintenanceKindsTable.importExcel"
+                                caption="msg://importExcelAction"
+                                invoke="excelImportActionInvoke"/>
+                    </actions>
+                </popupButton>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>

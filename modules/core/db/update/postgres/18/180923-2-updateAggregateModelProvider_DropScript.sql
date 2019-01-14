@@ -1,0 +1,1 @@
+alter table TRAMSERVERCUBA_AGGREGATE_MODEL_PROVIDER drop column MODEL_ID__U51085 cascade ;

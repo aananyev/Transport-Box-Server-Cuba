@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="ru.itpearls.tramservercuba.web.transporttype.TransportTypeBrowse"
+        focusComponent="transportTypesTable"
+        lookupComponent="transportTypesTable"
+        messagesPack="ru.itpearls.tramservercuba.web.transporttype">
+    <dsContext>
+        <groupDatasource id="transportTypesDs"
+                         class="ru.itpearls.tramservercuba.entity.TransportType"
+                         view="transportType-browse">
+            <query>
+                <![CDATA[select e from tramservercuba$TransportType e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="transportTypesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="transportTypesTable"
+                datasource="transportTypesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="transportTypesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="code"/>
+            </columns>
+            <rows datasource="transportTypesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="transportTypesTable.create"/>
+                <button id="editBtn"
+                        action="transportTypesTable.edit"/>
+                <button id="removeBtn"
+                        action="transportTypesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

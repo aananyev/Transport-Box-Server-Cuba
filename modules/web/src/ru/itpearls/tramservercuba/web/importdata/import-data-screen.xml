@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://importWindowCaption"
+        class="ru.itpearls.tramservercuba.web.importdata.ImportDataScreen"
+        datasource="transportModelDs"
+        messagesPack="ru.itpearls.tramservercuba.web.importdata">
+
+    <dialogMode
+                width="500"/>
+    <layout margin="true"
+            spacing="true">
+        <upload id="upload"
+                dropZone="dropZone"
+                showClearButton="true"
+                showFileName="true"/>
+        <vbox id="dropZone"
+              height="150px"
+              spacing="true"
+              stylename="dropzone-container">
+            <label stylename="dropzone-description"
+                   value="Drop file here"
+                   align="MIDDLE_CENTER"/>
+        </vbox>
+        <hbox spacing="true">
+            <button id="importBtn" caption="msg://importAction" invoke="importAction"/>
+            <button caption="mainMsg://actions.Cancel" invoke="closeAction"/>
+        </hbox>
+    </layout>
+</window>

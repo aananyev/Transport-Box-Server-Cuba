@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="ru.itpearls.tramservercuba.web.transportmodel.TransportModelBrowse"
+        focusComponent="transportModelsTable"
+        lookupComponent="transportModelsTable"
+        messagesPack="ru.itpearls.tramservercuba.web.transportmodel">
+    <dsContext>
+        <collectionDatasource id="transportModelsDs"
+                              class="ru.itpearls.tramservercuba.entity.TransportModel"
+                              view="transportModel-browse">
+            <query>
+                <![CDATA[select e from tramservercuba$TransportModel e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="transportModelsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="transportModelsTable"
+                datasource="transportModelsDs">
+            <properties include=".*"/>
+        </filter>
+        <table id="transportModelsTable"
+               width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name"
+                        caption="msg://modelCaption"/>
+                <column id="type"/>
+                <column id="modification"/>
+                <column id="baseModel"/>
+                <column id="description"/>
+            </columns>
+            <rows datasource="transportModelsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="transportModelsTable.create"/>
+                <button id="editBtn"
+                        action="transportModelsTable.edit"/>
+                <button id="removeBtn"
+                        action="transportModelsTable.remove"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>

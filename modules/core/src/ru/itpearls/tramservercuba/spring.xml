@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+    <!-- Annotation-based beans -->
+    <context:component-scan base-package="ru.itpearls.tramservercuba"/>
+
+    <bean class="ru.itpearls.tramservercuba.mapper.MapperFactory">
+        <property name="mappersMap">
+            <map>
+                <entry key="tramservercuba$TransportType"
+                       value-ref="tramservercuba_TransportTypeMapper"/>
+                <entry key="tramservercuba$TransportModel"
+                       value-ref="tramservercuba_TransportModelMapper"/>
+                <entry key="tramservercuba$AggregateType"
+                       value-ref="tramservercuba_AggregateTypeMapper"/>
+                <entry key="tramservercuba$MaintenanceKind"
+                       value-ref="tramservercuba_MaintenanceKindMapper"/>
+                <entry key="tramservercuba$Depo"
+                       value-ref="tramservercuba_DepoMapper"/>
+                <entry key="tramservercuba$MaintenanceWorkTemplate"
+                       value-ref="tramservercuba_MaintenanceWorkTemplate"/>
+                <entry key="tramservercuba$MaintenanceRegulation"
+                       value-ref="tramservercuba_MaintenanceRegulationMapper"/>
+                <entry key="tramservercuba$RegionalDepartment"
+                       value-ref="tramservercuba_RegionalDepartmentMapper"/>
+                <entry key="tramservercuba$WorkTeam"
+                       value-ref="tramservercuba_WorkTeamMapper"/>
+                <entry key="tramservercuba$Provider"
+                       value-ref="tramservercuba_ProviderMapper"/>
+                <entry key="tramservercuba$Employee"
+                       value-ref="tramservercuba_EmployeeMapper"/>
+                <entry key="tramservercuba$MaintenanceActionItem"
+                       value-ref="tramservercuba_MaintenanceActionItemMapper"/>
+                <entry key="tramservercuba$MaintenanceActionItemWork"
+                       value-ref="tramservercuba_MaintenanceActionItemWorkMapper"/>
+                <entry key="tramservercuba$TransportEquipment"
+                       value-ref="tramservercuba_TransportEquipmentMapper"/>
+                <entry key="tramservercuba$AggregateModelProvider"
+                       value-ref="tramservercuba_AggregateModelProviderMapper"/>
+                <entry key="tramservercuba$TransportModelProvider"
+                       value-ref="tramservercuba_TransportModelProviderMapper"/>
+                <entry key="tramservercuba$TransportItem"
+                       value-ref="tramservercuba_TransportItemMapper"/>
+                <entry key="tramservercuba$TransportItemEquipment"
+                       value-ref="tramservercuba_TransportItemEquipmentMapper"/>
+                <entry key="tramservercuba$AggregateGroup"
+                       value-ref="tramservercuba_AggregateGroupMapper"/>
+                <entry key="tramservercuba$AggregateModel"
+                       value-ref="tramservercuba_AggregateModelMapper"/>
+                <entry key="tramservercuba$TransportModelAggregateSystem"
+                       value-ref="tramservercuba_TransportModelAggregateSystemMapper"/>
+                <entry key="sec$Role"
+                       value-ref="tramservercuba_RoleMapper"/>
+                <entry key="sec$User"
+                       value-ref="tramservercuba_UserMapper"/>
+                <entry key="sec$Group"
+                       value-ref="tramservercuba_GroupMapper"/>
+                <entry key="tramservercuba$Repair"
+                       value-ref="tramservercuba_RepairMapper"/>
+                <entry key="tramservercuba$RepairItem"
+                       value-ref="tramservercuba_RepairItemMapper"/>
+                <entry key="tramservercuba$IdentifiedFaults"
+                       value-ref="tramservercuba_IdentifiedFaultsMapper"/>
+                <entry key="tramservercuba$AggregateItemChange"
+                       value-ref="tramservercuba_AggragateItemChangesMapper"/>
+            </map>
+        </property>
+    </bean>
+
+</beans>

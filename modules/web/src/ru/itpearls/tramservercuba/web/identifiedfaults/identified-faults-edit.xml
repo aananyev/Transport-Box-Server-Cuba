@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="ru.itpearls.tramservercuba.web.identifiedfaults.IdentifiedFaultsEdit"
+        datasource="identifiedFaultsDs"
+        focusComponent="fieldGroup"
+        messagesPack="ru.itpearls.tramservercuba.web.identifiedfaults">
+    <dsContext>
+        <datasource id="identifiedFaultsDs"
+                    class="ru.itpearls.tramservercuba.entity.IdentifiedFaults"
+                    view="edit"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <label htmlEnabled="true"
+               value="msg://editTitleLabel"/>
+        <label id="transportItemLabel"
+               datasource="identifiedFaultsDs"
+               htmlEnabled="true"
+               property="repair.transportItem.numbersWithModelAdnModification"
+               stylename="h2"/>
+        <fieldGroup id="fieldGroup"
+                    datasource="identifiedFaultsDs">
+            <column width="250px">
+                <field property="code" editable="false"/>
+                <field property="identifiedDate"/>
+                <field editable="false"
+                       property="repair.maintenanceKind"/>
+                <field editable="false"
+                       property="repair.milage"/>
+                <field property="description"
+                       rows="5"
+                       width="200%"/>
+                <field property="isWarranty"/>
+                <field property="disposalDate"/>
+                <field editable="false"
+                       property="state"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

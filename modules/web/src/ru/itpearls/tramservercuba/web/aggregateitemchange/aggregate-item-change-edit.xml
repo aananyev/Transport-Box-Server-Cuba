@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="ru.itpearls.tramservercuba.web.aggregateitemchange.AggregateItemChangeEdit"
+        datasource="aggregateItemChangeDs"
+        focusComponent="mainGroup"
+        messagesPack="ru.itpearls.tramservercuba.web.aggregateitemchange">
+    <dsContext>
+        <datasource id="aggregateItemChangeDs"
+                    class="ru.itpearls.tramservercuba.entity.AggregateItemChange"
+                    view="edit"/>
+        <collectionDatasource id="aggregateModelsDs"
+                              class="ru.itpearls.tramservercuba.entity.AggregateModel"
+                              view="aggregateModel-combo">
+            <query>
+                <![CDATA[select e.aggregate from tramservercuba$TransportEquipment e
+where e.mainEquipment.aggregate.id = :ds$aggregateItemChangeDs.aggregateItemOld.model]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="providersDs"
+                              class="ru.itpearls.tramservercuba.entity.Provider">
+            <query>
+                <![CDATA[select e.provider from tramservercuba$AggregateModelProvider e
+where e.aggregateModel.id = :ds$aggregateModelsDs]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="vbox"
+            spacing="true">
+        <label datasource="aggregateItemChangeDs"
+               htmlEnabled="true"
+               property="repair.transportItem.numbersWithModelAdnModification"
+               stylename="h2"/>
+        <vbox id="vbox"
+              expand="hbox"
+              spacing="true">
+            <fieldGroup id="mainGroup"
+                        datasource="aggregateItemChangeDs">
+                <column width="450px">
+                    <field editable="false"
+                           property="code"/>
+                    <field property="operationDate"/>
+                    <field editable="false"
+                           property="repair.milage"/>
+                    <field editable="false"
+                           property="aggregateItemOld.model.type"/>
+                    <field property="description"/>
+                    <field property="count"/>
+                </column>
+            </fieldGroup>
+            <hbox id="hbox"
+                  spacing="true">
+                <fieldGroup id="aggregateItemOldGroup"
+                            border="visible"
+                            caption="msg://aggregateItemOldGroupCaption"
+                            datasource="aggregateItemChangeDs">
+                    <column width="250px">
+                        <field editable="false"
+                               property="aggregateItemOld.model.code"/>
+                        <field editable="false"
+                               property="aggregateItemOld.model.modelTitleForEquipmentItem"/>
+                        <field editable="false"
+                               property="aggregateItemOld.provider"/>
+                        <field editable="false"
+                               property="aggregateItemOld.number"/>
+                    </column>
+                </fieldGroup>
+                <fieldGroup id="aggregateItemNewGroup"
+                            border="visible"
+                            caption="msg://aggregateItemNewGroupCaption"
+                            datasource="aggregateItemChangeDs">
+                    <column width="250px">
+                        <field editable="false"
+                               property="aggregateItemNew.model.code"/>
+                        <field optionsDatasource="aggregateModelsDs"
+                               property="aggregateItemNew.model"/>
+                        <field optionsDatasource="providersDs"
+                               property="aggregateItemNew.provider"
+                               required="true"/>
+                        <field property="aggregateItemNew.number"/>
+                    </column>
+                </fieldGroup>
+            </hbox>
+        </vbox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>
