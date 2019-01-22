@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        class="ru.itpearls.tramservercuba.web.app.dashboard.widget.infowidget.InfoWidget"
+        messagesPack="ru.itpearls.tramservercuba.web.app.dashboard.widget.infowidget">
+    <layout height="300px"
+            spacing="true"
+            width="140px">
+        <hbox align="MIDDLE_LEFT">
+            <vbox width="200px" align="MIDDLE_LEFT">
+                <label id="widgetCaption" stylename="infoWidgetCaption" width="200px"/>
+                <label id="widgetValue" stylename="infoWidgetValue"/>
+            </vbox>
+            <vbox align="MIDDLE_LEFT" spacing="true">
+                <image id="widgetIcon" scaleMode="FILL" height="80px" width="80px">
+                </image>
+            </vbox>
+        </hbox>
+    </layout>
+</window>

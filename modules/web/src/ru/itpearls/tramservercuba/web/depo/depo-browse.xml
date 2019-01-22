@@ -46,7 +46,7 @@
                              caption="msg://excelAction"
                              icon="icons/excel.png">
                     <actions>
-                        <action id="transportItemsTable.importExcel"
+                        <action id="importExcel"
                                 caption="msg://importExcelAction"
                                 invoke="excelImportActionInvoke"/>
                     </actions>

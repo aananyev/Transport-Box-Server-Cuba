@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <metadata xmlns="http://schemas.haulmont.com/cuba/metadata.xsd">
 
-    <metadata-model root-package="ru.itpearls.tramservercuba" namespace="tramservercuba"/>
+    <metadata-model root-package="ru.itpearls.tramservercuba" namespace="tramservercuba">
+        <class>ru.itpearls.tramservercuba.route.Route</class>
+    </metadata-model>
 
 </metadata>

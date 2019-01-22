@@ -181,7 +181,7 @@ or (e.aggregateItem.model.aggregateKind = 0 and e.aggregateItem.number is not nu
                                      caption="msg://excelAction"
                                      icon="icons/excel.png">
                             <actions>
-                                <action id="providersTable.importExcel"
+                                <action id="importExcel"
                                         caption="msg://importExcelAction"
                                         invoke="excelImportActionInvoke"/>
                             </actions>
@@ -236,7 +236,7 @@ or (e.aggregateItem.model.aggregateKind = 0 and e.aggregateItem.number is not nu
                                      caption="msg://excelAction"
                                      icon="icons/excel.png">
                             <actions>
-                                <action id="identifiedFaultsTable.importExcel"
+                                <action id="importExcel"
                                         caption="msg://importExcelAction"
                                         invoke="excelImportIdentifiedFaultsActionInvoke"/>
                             </actions>
@@ -287,7 +287,7 @@ or (e.aggregateItem.model.aggregateKind = 0 and e.aggregateItem.number is not nu
                                      caption="msg://excelAction"
                                      icon="icons/excel.png">
                             <actions>
-                                <action id="aggregateItemChangesTable.importExcel"
+                                <action id="importExcel"
                                         caption="msg://importExcelAction"
                                         invoke="excelImportAggregateItemChangesActionInvoke"/>
                             </actions>

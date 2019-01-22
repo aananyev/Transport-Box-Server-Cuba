@@ -1,0 +1,15 @@
+@mixin info-widget {
+    .infoWidgetCaption {
+        font-size: 17px;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding: 10px;
+    }
+
+    .infoWidgetValue {
+            font-size: 35px;
+            text-transform: uppercase;
+            font-weight: bold;
+            padding: 15px;
+        }
+}

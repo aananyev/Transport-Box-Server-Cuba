@@ -47,10 +47,10 @@
                              caption="msg://excelAction"
                              icon="icons/excel.png">
                     <actions>
-                        <action id="maintenanceKindsTable.excel"
+                        <action id="excel"
                                 caption="msg://exportExcelAction"
                                 invoke="excelExportActionInvoke"/>
-                        <action id="maintenanceKindsTable.importExcel"
+                        <action id="importExcel"
                                 caption="msg://importExcelAction"
                                 invoke="excelImportActionInvoke"/>
                     </actions>

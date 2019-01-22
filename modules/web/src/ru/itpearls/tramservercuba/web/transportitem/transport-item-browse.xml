@@ -25,6 +25,16 @@
                 datasource="transportItemsDs"
                 editable="false">
             <properties include=".*"/>
+            <custom name="workStateOnRepair"
+                    caption="msg://workStateOnRepair"
+                    join=" tramservercuba$Repair r ">
+                {E}.id = r.transportItem.id and r.state in (1, 2, 4)
+            </custom>
+            <custom name="workStateOnLine"
+                    caption="msg://workStateOnLine"
+                    join=" tramservercuba$Repair r ">
+                {E}.id = r.transportItem.id and r.state = 3
+            </custom>
         </filter>
         <table id="transportItemsTable"
                width="100%">
@@ -50,6 +60,7 @@
                 <column id="provider.code"
                         caption="msg://providerCodeCaption"
                         collapsed="true"/>
+                <column id="workState"/>
             </columns>
             <rows datasource="transportItemsDs"/>
             <rowsCount/>
@@ -65,7 +76,7 @@
                              caption="msg://excelAction"
                              icon="icons/excel.png">
                     <actions>
-                        <action id="transportItemsTable.importExcel"
+                        <action id="importExcel"
                                 caption="msg://importExcelAction"
                                 invoke="excelImportActionInvoke"/>
                     </actions>

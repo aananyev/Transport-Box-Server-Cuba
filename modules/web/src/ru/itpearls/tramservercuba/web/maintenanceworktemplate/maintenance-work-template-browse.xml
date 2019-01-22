@@ -58,7 +58,7 @@
                              caption="msg://excelAction"
                              icon="icons/excel.png">
                     <actions>
-                        <action id="maintenanceWorkTemplatesTable.importExcel"
+                        <action id="importExcel"
                                 caption="msg://importExcelAction"
                                 invoke="excelImportActionInvoke"/>
                     </actions>

@@ -110,10 +110,38 @@
             template="ru/itpearls/tramservercuba/web/group/browse/ext-group-browse.xml"/>
     <screen id="mainWindow"
             template="ru/itpearls/tramservercuba/web/app/mainwindow/extmainwindow.xml"/>
+    <!--<screen id="mainWindow"
+            template="ru/itpearls/tramservercuba/web/mainwindow/ext-mainwindow.xml"/>-->
     <screen id="tramservercuba$AggregateItemChange.edit"
             template="ru/itpearls/tramservercuba/web/aggregateitemchange/aggregate-item-change-edit.xml"/>
     <screen id="tramservercuba$GeneratedCode.browse"
             template="ru/itpearls/tramservercuba/web/generatedcode/generated-code-browse.xml"/>
     <screen id="tramservercuba$GeneratedCode.edit"
             template="ru/itpearls/tramservercuba/web/generatedcode/generated-code-edit.xml"/>
+
+
+    <!-- TEST DASHBOARD -->
+    <!--<screen id="mainWindow"
+            template="ru/itpearls/tramservercuba/web/app/mainscreen/dashboard-reference-window.xml"/>-->
+    <screen id="dashboard-demo$AverageTime"
+            template="ru/itpearls/tramservercuba/web/app/dashboard/widget/averagetriptime/average-time-widget.xml"/>
+    <screen id="dashboard-demo$Bookings"
+            template="ru/itpearls/tramservercuba/web/app/dashboard/widget/bookings/bookings-widget.xml"/>
+    <screen id="dashboard-demo$CarDelivery"
+            template="ru/itpearls/tramservercuba/web/app/dashboard/widget/cardelivery/cardelivery-widget.xml"/>
+    <screen id="dashboard-demo$CarMap"
+            template="ru/itpearls/tramservercuba/web/app/dashboard/widget/carmap/car-map-widget.xml"/>
+    <screen id="dashboard-demo$InProgress"
+            template="ru/itpearls/tramservercuba/web/app/dashboard/widget/inprogress/inprogress-widget.xml"/>
+    <screen id="dashboard-demo$Online"
+            template="ru/itpearls/tramservercuba/web/app/dashboard/widget/online/online-widget.xml"/>
+    <screen id="dashboard-demo$Redes"
+            template="ru/itpearls/tramservercuba/web/app/dashboard/widget/rides/rides-widget.xml"/>
+    <screen id="dashboard-demo$InfoWidget"
+            template="ru/itpearls/tramservercuba/web/app/dashboard/widget/infowidget/info-widget.xml"/>
+
+    <screen id="dashboard$TsRepairTableWidget"
+            template="ru/itpearls/tramservercuba/web/app/dashboard/widget/tsrepairtablewidget/ts-repair-table-widget.xml"/>
+    <!-- END TEST DASHBOARD -->
+
 </screen-config>

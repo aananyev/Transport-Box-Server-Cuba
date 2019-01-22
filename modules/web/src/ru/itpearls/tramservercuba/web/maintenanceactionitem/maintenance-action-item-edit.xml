@@ -121,7 +121,7 @@
                                      caption="msg://excelAction"
                                      icon="icons/excel.png">
                             <actions>
-                                <action id="maintenanceActionItemWorksTable.importExcel"
+                                <action id="importExcel"
                                         caption="msg://importExcelAction"
                                         invoke="excelImportActionInvoke"/>
                             </actions>

@@ -46,10 +46,10 @@
                 <popupButton id="excelBtn"
                              caption="msg://excelAction">
                     <actions>
-                        <action id="transportItemsTable.importExcel"
+                        <action id="importExcel"
                                 caption="msg://importExcelAction"
                                 invoke="excelImportActionInvoke"/>
-                        <action id="transportItemsTable.excel"
+                        <action id="excel"
                                 caption="msg://exportExcelAction"
                                 invoke="excelExportActionInvoke"/>
                     </actions>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        class="ru.itpearls.tramservercuba.web.app.dashboard.widget.tsrepairtablewidget.TsRepairTableWidget"
+        messagesPack="ru.itpearls.tramservercuba.web.app.dashboard.widget.tsrepairtablewidget">
+    <dsContext>
+        <collectionDatasource id="transportItemsDs"
+                              class="ru.itpearls.tramservercuba.entity.TransportItem"
+                              view="browse">
+            <query>
+                <![CDATA[select ts from tramservercuba$Repair r join r.transportItem ts where r.state in (1, 2, 4)]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout height="100%"
+            spacing="true"
+            width="100%">
+        <table id="transportRepairTable"
+               caption="msg://transportRepairWidgetCaption"
+               columnHeaderVisible="false"
+               height="100%"
+               showSelection="false"
+               stylename="color-table"
+               width="100%">
+            <columns>
+                <column id="depo.depoWithRegion"/>
+                <column id="workNumber" caption="№" width="70px"/>
+                <column id="model.modelTitleForTransportItem" caption="msg://modelTs" align="CENTER"/>
+            </columns>
+            <rows datasource="transportItemsDs"/>
+        </table>
+    </layout>
+</window>

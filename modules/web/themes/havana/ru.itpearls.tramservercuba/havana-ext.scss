@@ -1,4 +1,9 @@
 /* Define your theme modifications inside next mixin */
-@mixin ru_itpearls_tramservercuba-havana-ext {
 
+@import "dashboard";
+@import "info-widget";
+
+@mixin ru_itpearls_tramservercuba-havana-ext {
+    @include dashboard;
+    @include info-widget;
 }

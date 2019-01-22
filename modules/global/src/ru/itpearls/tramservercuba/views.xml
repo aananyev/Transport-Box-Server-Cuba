@@ -133,6 +133,7 @@
             </property>
             <property name="depoWithRegion"/>
         </property>
+        <property name="workState"/>
     </view>
     <view class="ru.itpearls.tramservercuba.entity.TransportItem"
           extends="_local"

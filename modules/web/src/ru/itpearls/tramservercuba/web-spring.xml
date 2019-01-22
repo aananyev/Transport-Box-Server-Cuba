@@ -24,6 +24,10 @@
                        value="ru.itpearls.tramservercuba.service.EntityHelperService"/>-->
                 <entry key="tramservercuba_EquipmentService"
                        value="ru.itpearls.tramservercuba.service.EquipmentService"/>
+                <entry key="tramservercuba_TransportItemStateService"
+                       value="ru.itpearls.tramservercuba.service.TransportItemStateService"/>
+                <entry key="tramservercuba_WidgetInfoDataProviderService"
+                       value="ru.itpearls.tramservercuba.service.WidgetInfoDataProviderService"/>
             </map>
         </property>
     </bean>

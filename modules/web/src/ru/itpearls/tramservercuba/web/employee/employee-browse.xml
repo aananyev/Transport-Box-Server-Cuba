@@ -50,10 +50,10 @@
                 <popupButton id="excelBtn" icon="icons/excel.png"
                              caption="msg://excelAction">
                     <actions>
-                        <action id="maintenanceKindsTable.excel"
+                        <action id="employeesTable.excel"
                                 caption="msg://exportExcelAction"
                                 invoke="excelExportActionInvoke"/>
-                        <action id="maintenanceKindsTable.importExcel"
+                        <action id="importExcel"
                                 caption="msg://importExcelAction"
                                 invoke="excelImportActionInvoke"/>
                     </actions>

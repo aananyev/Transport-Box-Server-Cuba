@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        class="ru.itpearls.tramservercuba.web.app.dashboard.widget.carmap.CarMapWidget"
+        xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd"
+        messagesPack="ru.itpearls.tramservercuba.web.app.dashboard.widget.carmap">
+    <layout height="100%"
+            spacing="true"
+            width="100%">
+        <chart:mapViewer id="map"
+                         stylename="dashboard-map"
+                         height="100%"
+                         width="100%"/>
+    </layout>
+</window>

@@ -11,6 +11,7 @@ import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.global.AppBeans;
 import com.haulmont.cuba.core.global.Messages;
+import ru.itpearls.tramservercuba.service.TransportItemStateService;
 
 import java.util.List;
 
@@ -152,5 +153,12 @@ public class TransportItem extends StandardEntity {
                 .append(factoryNumber);
 
         return res.toString();
+    }
+
+    // Temporary decision only for presale
+    @MetaProperty
+    public TransportItemWorkState getWorkState() {
+        TransportItemStateService transportItemStateService = AppBeans.get(TransportItemStateService.class);
+        return transportItemStateService.getCurrentWorkState(this);
     }
 }

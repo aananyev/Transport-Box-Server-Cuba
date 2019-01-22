@@ -17,6 +17,7 @@
 
 <window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
         xmlns:main="http://schemas.haulmont.com/cuba/mainwindow.xsd"
+        xmlns:dashboard="http://schemas.haulmont.com/cubadshb/ui-component.xsd"
         class="ru.itpearls.tramservercuba.web.app.mainwindow.ExtAppMainWindow"
         caption="mainMsg://application.caption">
 
@@ -51,7 +52,9 @@
 
             <main:workArea id="workArea" width="100%" height="100%">
                 <main:initialLayout spacing="true" margin="true">
-                    <vbox width="100%" height="100%" stylename="tram-background"/>
+                    <vbox width="100%" height="100%" stylename="tram-background">
+                        <dashboard:dashboard id="MainTsDashboard" code="MainTsDashboard"/>
+                    </vbox>
                 </main:initialLayout>
             </main:workArea>
         </split>

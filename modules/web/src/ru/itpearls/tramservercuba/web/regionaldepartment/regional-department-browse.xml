@@ -45,10 +45,10 @@
                 <popupButton id="excelBtn" icon="icons/excel.png"
                              caption="msg://excelAction">
                     <actions>
-                        <action id="providersTable.importExcel"
+                        <action id="importExcel"
                                 caption="msg://importExcelAction"
                                 invoke="excelImportActionInvoke"/>
-                        <action id="providersTable.exportExcel"
+                        <action id="exportExcel"
                                 caption="msg://exportExcelAction"
                                 invoke="excelExportActionInvoke"/>
                     </actions>

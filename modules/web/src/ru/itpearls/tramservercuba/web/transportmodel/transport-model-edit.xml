@@ -127,7 +127,7 @@ where e.maintenanceRegulation.id = :ds$transportModelDs.maintenanceRegulation.id
                                      caption="msg://excelAction"
                                      icon="icons/excel.png">
                             <actions>
-                                <action id="transportEquipmentsTable.importExcel"
+                                <action id="importExcel"
                                         caption="msg://importExcelAction"
                                         invoke="excelImportEquipmentActionInvoke"/>
                             </actions>
@@ -189,7 +189,7 @@ where e.maintenanceRegulation.id = :ds$transportModelDs.maintenanceRegulation.id
                                      caption="msg://excelAction"
                                      icon="icons/excel.png">
                             <actions>
-                                <action id="transportItemsTable.importExcel"
+                                <action id="importExcel"
                                         caption="msg://importExcelAction"
                                         invoke="excelImportProviderActionInvoke"/>
                             </actions>

@@ -53,10 +53,10 @@
                              caption="msg://excelAction"
                              icon="icons/excel.png">
                     <actions>
-                        <action id="transportItemsTable.importTypeExcel"
+                        <action id="importTypeExcel"
                                 caption="msg://importTypeExcelAction"
                                 invoke="excelImportTypeActionInvoke"/>
-                        <action id="transportItemsTable.importModelExcel"
+                        <action id="importModelExcel"
                                 caption="msg://importModelExcelAction"
                                 invoke="excelImportModelActionInvoke"/>
                     </actions>
