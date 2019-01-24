@@ -142,4 +142,6 @@
     <!-- END TEST DASHBOARD -->
     <screen id="tramservercuba$Incident.browse"
             template="ru/itpearls/tramservercuba/web/incident/incident-browse.xml"/>
+    <screen id="tramservercuba$Incident.edit"
+            template="ru/itpearls/tramservercuba/web/incident/incident-edit.xml"/>
 </screen-config>

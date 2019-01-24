@@ -28,7 +28,7 @@ public class Incident extends StandardEntity {
     @Column(name = "NAME", nullable = false, length = 100)
     protected String name;
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     @NotNull
     @Column(name = "DATE_", nullable = false)
     protected Date date;
