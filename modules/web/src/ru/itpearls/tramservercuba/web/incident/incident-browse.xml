@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="ru.itpearls.tramservercuba.web.incident.IncidentBrowse"
+        focusComponent="incidentsTable"
+        lookupComponent="incidentsTable"
+        messagesPack="ru.itpearls.tramservercuba.web.incident">
+    <dsContext>
+        <collectionDatasource id="incidentsDs"
+                              class="ru.itpearls.tramservercuba.entity.Incident"
+                              view="_local">
+            <query>
+                <![CDATA[select e from tramservercuba$Incident e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="incidentsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="incidentsTable"
+                datasource="incidentsDs">
+            <properties include=".*"/>
+        </filter>
+        <table id="incidentsTable"
+               width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="code"/>
+                <column id="name"/>
+                <column id="date"/>
+                <column id="type"/>
+                <column id="description"/>
+            </columns>
+            <rows datasource="incidentsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="incidentsTable.create"/>
+                <button id="editBtn"
+                        action="incidentsTable.edit"/>
+                <button id="removeBtn"
+                        action="incidentsTable.remove"/>
+                <button id="excelBtn"
+                        action="incidentsTable.excel"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>
