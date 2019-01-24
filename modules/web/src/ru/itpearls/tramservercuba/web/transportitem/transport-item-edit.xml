@@ -10,6 +10,7 @@
                     view="edit">
             <groupDatasource id="transportItemEquipmentsDs"
                              property="transportItemEquipments"/>
+            <collectionDatasource id="incidentsDs" property="incidents"/>
         </datasource>
         <collectionDatasource id="modelsDs"
                               class="ru.itpearls.tramservercuba.entity.TransportModel"
@@ -253,6 +254,27 @@ order by e.operationDate desc]]>
                         <column id="disposalDate"/>
                     </columns>
                     <rows datasource="identifiedFaultsDs"/>
+                </table>
+            </tab>
+            <tab id="incidentsTab"
+                 caption="msg://incidentsTabCaption"
+                 margin="true"
+                 spacing="true"
+                 expand="incidentsTable">
+                <label datasource="transportItemDs"
+                       htmlEnabled="true"
+                       property="numbersWithModelAdnModification"
+                       stylename="h2"/>
+                <table id="incidentsTable"
+                       width="100%">
+                    <columns>
+                        <column id="code"/>
+                        <column id="name"/>
+                        <column id="date"/>
+                        <column id="type"/>
+                        <column id="description"/>
+                    </columns>
+                    <rows datasource="incidentsDs"/>
                 </table>
             </tab>
         </tabSheet>
