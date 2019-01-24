@@ -585,6 +585,7 @@ create table TRAMSERVERCUBA_INCIDENT (
     NAME varchar(100) not null,
     DATE_ timestamp not null,
     DESCRIPTION varchar(255) not null,
+    TRANSPORT_ITEM_ID uuid,
     --
     primary key (ID)
 )^

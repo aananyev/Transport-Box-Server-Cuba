@@ -143,6 +143,7 @@
             <property name="equipments"
                       view="edit"/>
         </property>
+        <property name="incidents" view="_local"/>
         <property name="provider"
                   view="_minimal"/>
         <property name="depo"

@@ -1,0 +1,1 @@
+alter table TRAMSERVERCUBA_INCIDENT add column TRANSPORT_ITEM_ID uuid ;
