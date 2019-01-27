@@ -37,6 +37,8 @@ public final class Constants {
     public static final String AGGREGATE_ITEM_METACLASS = "tramservercuba$AggregateItem";
 
     public static final String EDIT_VIEW = "edit";
+    public static final String BROWSE_VIEW = "browse";
+    public static final String LOCAL_VIEW = "_local";
     public static final String META_CLASS = "metaClass";
     public static final String IMPORT_SCREEN_NAME = "importDataScreen";
 
