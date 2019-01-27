@@ -118,7 +118,7 @@
             template="ru/itpearls/tramservercuba/web/generatedcode/generated-code-browse.xml"/>
     <screen id="tramservercuba$GeneratedCode.edit"
             template="ru/itpearls/tramservercuba/web/generatedcode/generated-code-edit.xml"/>
-    <!-- TEST DASHBOARD -->
+    <!--DASHBOARD WIDGETS-->
     <!--<screen id="mainWindow"
             template="ru/itpearls/tramservercuba/web/app/mainscreen/dashboard-reference-window.xml"/>-->
     <screen id="dashboard-demo$AverageTime"
@@ -139,7 +139,9 @@
             template="ru/itpearls/tramservercuba/web/app/dashboard/widget/infowidget/info-widget.xml"/>
     <screen id="dashboard$TsRepairTableWidget"
             template="ru/itpearls/tramservercuba/web/app/dashboard/widget/tsrepairtablewidget/ts-repair-table-widget.xml"/>
-    <!-- END TEST DASHBOARD -->
+    <screen id="dashboard$RepairControlWidget"
+            template="ru/itpearls/tramservercuba/web/app/dashboard/widget/repaircontrolwidget/repair-control-widget.xml"/>
+    <!-- END DASHBOARD -->
     <screen id="tramservercuba$Incident.browse"
             template="ru/itpearls/tramservercuba/web/incident/incident-browse.xml"/>
     <screen id="tramservercuba$Incident.edit"

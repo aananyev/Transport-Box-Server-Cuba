@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        class="ru.itpearls.tramservercuba.web.app.dashboard.widget.repaircontrolwidget.RepairControlWidget"
+        messagesPack="ru.itpearls.tramservercuba.web.app.dashboard.widget.repaircontrolwidget">
+    <dsContext>
+        <collectionDatasource id="repairsDs"
+                              class="ru.itpearls.tramservercuba.entity.Repair"
+                              view="browse">
+            <query>
+                <![CDATA[select r from tramservercuba$Repair r where r.state = 2]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout height="100%"
+            spacing="true"
+            width="100%">
+        <table id="repairTable"
+               caption="msg://repairsWidgetCaption"
+               columnHeaderVisible="true"
+               height="100%"
+               showSelection="true"
+               width="100%">
+            <actions>
+                <action id="edit"/>
+            </actions>
+            <columns>
+                <column id="depo.depoWithRegion"/>
+                <column id="startDate"/>
+                <column id="transportItem.factoryNumber"/>
+                <column id="transportItem.workNumber"/>
+                <column id="transportItem.modelWithModification"/>
+                <column id="milage"/>
+                <column id="maintenanceKind"/>
+                <column id="workTeam"/>
+            </columns>
+            <rows datasource="repairsDs"/>
+        </table>
+    </layout>
+</window>
