@@ -29,6 +29,11 @@
         <item screen="tramservercuba$MaintenanceWorkTemplate.browse"/>
         <item screen="tramservercuba$MaintenanceRegulation.browse"/>
     </menu>
+    <menu id="printReports" insertBefore="reports">
+        <item id="generateAllRepairTsReport"
+              bean="MenuReportGenerateAction"
+              beanMethod="generateAllRepairTsReport"/>
+    </menu>
     <menu id="users"
           insertBefore="reports">
         <item id="usersList"

@@ -31,4 +31,5 @@
             </map>
         </property>
     </bean>
+    <bean name="MenuReportGenerateAction" class="ru.itpearls.tramservercuba.web.tools.MenuReportGenerateAction"/>
 </beans>
