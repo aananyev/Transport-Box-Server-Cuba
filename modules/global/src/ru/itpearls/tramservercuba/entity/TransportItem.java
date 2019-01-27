@@ -26,6 +26,9 @@ public class TransportItem extends StandardEntity {
     protected Depo depo;
 
     @OneToMany(mappedBy = "transportItem")
+    protected List<Incident> incidents;
+
+    @OneToMany(mappedBy = "transportItem")
     protected List<TransportItemEquipment> transportItemEquipments;
 
     @NotNull
@@ -54,6 +57,15 @@ public class TransportItem extends StandardEntity {
 
     @Column(name = "IS_EQUIPMENT_DONE")
     protected Boolean isEquipmentDone;
+
+    public void setIncidents(List<Incident> incidents) {
+        this.incidents = incidents;
+    }
+
+    public List<Incident> getIncidents() {
+        return incidents;
+    }
+
 
     public void setIsEquipmentDone(Boolean isEquipmentDone) {
         this.isEquipmentDone = isEquipmentDone;

@@ -9,6 +9,9 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.chile.core.annotations.NamePattern;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @NamePattern("%s|name")
 @Table(name = "TRAMSERVERCUBA_INCIDENT")
@@ -28,7 +31,7 @@ public class Incident extends StandardEntity {
     @Column(name = "NAME", nullable = false, length = 100)
     protected String name;
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     @NotNull
     @Column(name = "DATE_", nullable = false)
     protected Date date;
@@ -36,6 +39,19 @@ public class Incident extends StandardEntity {
     @NotNull
     @Column(name = "DESCRIPTION", nullable = false)
     protected String description;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "TRANSPORT_ITEM_ID")
+    protected TransportItem transportItem;
+
+    public void setTransportItem(TransportItem transportItem) {
+        this.transportItem = transportItem;
+    }
+
+    public TransportItem getTransportItem() {
+        return transportItem;
+    }
+
 
     public void setType(IncidentType type) {
         this.type = type == null ? null : type.getId();

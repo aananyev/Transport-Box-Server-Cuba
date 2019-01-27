@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="ru.itpearls.tramservercuba.web.incident.IncidentEdit"
+        datasource="incidentDs"
+        focusComponent="fieldGroup"
+        messagesPack="ru.itpearls.tramservercuba.web.incident">
+    <dsContext>
+        <datasource id="incidentDs"
+                    class="ru.itpearls.tramservercuba.entity.Incident"
+                    view="_local"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="incidentDs">
+            <column width="350px">
+                <field property="code" editable="false"/>
+                <field property="name" required="true"/>
+                <field property="date" required="true"/>
+                <field property="description" required="true" rows="4"/>
+            </column>
+        </fieldGroup>
+<!--
+        <dateField property="date" required="true" datasource="incidentDs" caption="msg://date"/>
+-->
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>
