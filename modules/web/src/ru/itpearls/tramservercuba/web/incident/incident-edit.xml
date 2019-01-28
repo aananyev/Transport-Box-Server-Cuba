@@ -20,6 +20,7 @@
                 <field property="code" editable="false"/>
                 <field property="name" required="true"/>
                 <field property="date" required="true"/>
+                <field property="type" required="true"/>
                 <field property="description" required="true" rows="4"/>
             </column>
         </fieldGroup>

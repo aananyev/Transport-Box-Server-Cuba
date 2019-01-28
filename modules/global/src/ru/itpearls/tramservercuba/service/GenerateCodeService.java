@@ -15,6 +15,7 @@ public interface GenerateCodeService {
     String IDENTIFIED_FAULTS_PREFIX = "IF-";
     String AGGREGATE_ITEM_CHANGE_PREFIX = "AIC-";
     String AGGREGATE_ITEM_PREFIX = "AI-";
+    String INCIDENT_PREFIX = "INC-";
 
     Integer getNextCodeForEntity(String metaclass);
 
@@ -35,4 +36,6 @@ public interface GenerateCodeService {
     String getNextCodeForAggregateItemChange();
 
     String getNextCodeForAggregateItem();
+
+    String getNextCodeForIncident();
 }
