@@ -108,4 +108,9 @@ public class GenerateCodeServiceBean implements GenerateCodeService {
         return AGGREGATE_ITEM_PREFIX + getNextCodeForEntity(Constants.AGGREGATE_ITEM_METACLASS).toString();
 
     }
+
+    @Override
+    public String getNextCodeForIncident() {
+        return INCIDENT_PREFIX + getNextCodeForEntity(Constants.INCIDENT_METACLASS).toString();
+    }
 }
