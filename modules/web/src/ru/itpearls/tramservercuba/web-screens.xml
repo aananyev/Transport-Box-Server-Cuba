@@ -141,6 +141,8 @@
             template="ru/itpearls/tramservercuba/web/app/dashboard/widget/tsrepairtablewidget/ts-repair-table-widget.xml"/>
     <screen id="dashboard$RepairControlWidget"
             template="ru/itpearls/tramservercuba/web/app/dashboard/widget/repaircontrolwidget/repair-control-widget.xml"/>
+    <screen id="dashboard$IncidentWidget"
+            template="ru/itpearls/tramservercuba/web/app/dashboard/widget/incidentswidget/incident-widget.xml"/>
     <!-- END DASHBOARD -->
     <screen id="tramservercuba$Incident.browse"
             template="ru/itpearls/tramservercuba/web/incident/incident-browse.xml"/>

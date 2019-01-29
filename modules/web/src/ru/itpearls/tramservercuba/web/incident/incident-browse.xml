@@ -8,7 +8,7 @@
     <dsContext>
         <collectionDatasource id="incidentsDs"
                               class="ru.itpearls.tramservercuba.entity.Incident"
-                              view="_local">
+                              view="widget">
             <query>
                 <![CDATA[select e from tramservercuba$Incident e]]>
             </query>
@@ -36,6 +36,7 @@
                 <column id="name"/>
                 <column id="date"/>
                 <column id="type"/>
+                <column id="transportItem.numbersWithModelAdnModification" caption="msg://modelTs" align="CENTER"/>
                 <column id="description"/>
             </columns>
             <rows datasource="incidentsDs"/>

@@ -694,4 +694,21 @@
             <property name="code"/>
         </property>
     </view>
+    <view class="ru.itpearls.tramservercuba.entity.Incident"
+          extends="_local"
+          name="widget">
+        <property name="transportItem"
+                  view="_local">
+            <property name="numbersWithModelAdnModification" />
+        </property>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.Incident"
+          extends="_local"
+          name="edit">
+        <property name="transportItem"
+                  view="_local">
+            <property name="numbersWithModelAdnModification" />
+            <property name="model" view="_local"/>
+        </property>
+    </view>
 </views>
