@@ -41,6 +41,7 @@
                 <column id="transportItem.workNumber"/>
                 <column id="transportItem.modelWithModification"/>
                 <column id="milage"/>
+                <column id="incident"/>
                 <column id="allMaintenanceKinds"/>
                 <column id="finishDate"/>
                 <column id="state"/>

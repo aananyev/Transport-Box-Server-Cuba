@@ -185,6 +185,7 @@ order by e.operationDate desc]]>
                         <column id="depo.depoWithRegion"/>
                         <column id="startDate"/>
                         <column id="milage"/>
+                        <column id="incident"/>
                         <column id="allMaintenanceKinds"/>
                         <column id="finishDate"/>
                         <column id="state"/>

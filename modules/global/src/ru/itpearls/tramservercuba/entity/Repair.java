@@ -33,6 +33,11 @@ public class Repair extends StandardEntity {
     @Column(name = "START_DATE", nullable = false)
     protected Date startDate;
 
+    @OnDelete(DeletePolicy.CASCADE)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "INCIDENT_ID")
+    protected Incident incident;
+
     @OneToMany(mappedBy = "repair")
     protected List<AggregateItemChange> aggregateItemChanges;
 
@@ -81,6 +86,15 @@ public class Repair extends StandardEntity {
     @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "repair")
     protected List<RepairItem> repairItems;
+
+    public void setIncident(Incident incident) {
+        this.incident = incident;
+    }
+
+    public Incident getIncident() {
+        return incident;
+    }
+
 
     public void setAggregateItemChanges(List<AggregateItemChange> aggregateItemChanges) {
         this.aggregateItemChanges = aggregateItemChanges;

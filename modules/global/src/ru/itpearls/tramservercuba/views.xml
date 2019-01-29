@@ -143,7 +143,8 @@
             <property name="equipments"
                       view="edit"/>
         </property>
-        <property name="incidents" view="_local"/>
+        <property name="incidents"
+                  view="_local"/>
         <property name="provider"
                   view="_minimal"/>
         <property name="depo"
@@ -417,6 +418,8 @@
                 </property>
             </property>
         </property>
+        <property name="incident"
+                  view="_minimal"/>
     </view>
     <view class="ru.itpearls.tramservercuba.entity.Repair"
           extends="_local"
@@ -530,6 +533,8 @@
                           view="_minimal"/>
             </property>
         </property>
+        <property name="incident"
+                  view="_minimal"/>
     </view>
     <view class="ru.itpearls.tramservercuba.entity.IdentifiedFaults"
           extends="_local"
@@ -699,7 +704,7 @@
           name="widget">
         <property name="transportItem"
                   view="_local">
-            <property name="numbersWithModelAdnModification" />
+            <property name="numbersWithModelAdnModification"/>
         </property>
     </view>
     <view class="ru.itpearls.tramservercuba.entity.Incident"
@@ -707,8 +712,9 @@
           name="edit">
         <property name="transportItem"
                   view="_local">
-            <property name="numbersWithModelAdnModification" />
-            <property name="model" view="_local"/>
+            <property name="numbersWithModelAdnModification"/>
+            <property name="model"
+                      view="_local"/>
         </property>
     </view>
 </views>
