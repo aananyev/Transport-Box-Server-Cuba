@@ -103,6 +103,7 @@ or (e.aggregateItem.model.aggregateKind = 0 and e.aggregateItem.number is not nu
                                property="transportItem.providerName"/>
                         <field editable="false"
                                property="milage"/>
+                        <field property="incident"/>
                         <field captionProperty="code"
                                editable="false"
                                optionsDatasource="maintenanceKindsDs"
@@ -274,9 +275,15 @@ or (e.aggregateItem.model.aggregateKind = 0 and e.aggregateItem.number is not nu
                                 caption="msg://aggregateItemNewCaption"/>
                         <column id="aggregateItemNew.model.code"/>
                         <column id="aggregateItemNew.number"/>
-                        <column id="aggregateItemOld.code" collapsed="true" caption="msg://aggregateItemOldCode"/>
-                        <column id="aggregateItemNew.code" collapsed="true" caption="msg://aggregateItemNewCode"/>
-                        <column id="repair.code" collapsed="true" caption="msg://repairCodeCaption"/>
+                        <column id="aggregateItemOld.code"
+                                caption="msg://aggregateItemOldCode"
+                                collapsed="true"/>
+                        <column id="aggregateItemNew.code"
+                                caption="msg://aggregateItemNewCode"
+                                collapsed="true"/>
+                        <column id="repair.code"
+                                caption="msg://repairCodeCaption"
+                                collapsed="true"/>
                     </columns>
                     <rows datasource="aggregateItemChangesDs"/>
                     <buttonsPanel id="aggregateItemChangesButtonsPanel"
@@ -367,6 +374,7 @@ or (e.aggregateItem.model.aggregateKind = 0 and e.aggregateItem.number is not nu
                         <column id="depo.depoWithRegion"/>
                         <column id="startDate"/>
                         <column id="milage"/>
+                        <column id="incident"/>
                         <column id="allMaintenanceKinds"/>
                         <column id="finishDate"/>
                         <column id="state"/>
