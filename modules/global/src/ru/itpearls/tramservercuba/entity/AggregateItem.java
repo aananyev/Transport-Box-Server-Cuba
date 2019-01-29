@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.chile.core.annotations.NamePattern;
+import javax.persistence.OneToOne;
 
 @NamePattern("%s %s %s|model,provider,number")
 @Table(name = "TRAMSERVERCUBA_AGGREGATE_ITEM")
@@ -34,6 +35,18 @@ public class AggregateItem extends StandardEntity {
 
     @Column(name = "NUMBER_", length = 50)
     protected String number;
+
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "aggregateItem")
+    protected EquipmentStorageItem equipmentStorageItem;
+
+    public void setEquipmentStorageItem(EquipmentStorageItem equipmentStorageItem) {
+        this.equipmentStorageItem = equipmentStorageItem;
+    }
+
+    public EquipmentStorageItem getEquipmentStorageItem() {
+        return equipmentStorageItem;
+    }
+
 
     public void setCode(String code) {
         this.code = code;

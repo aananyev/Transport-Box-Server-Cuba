@@ -33,5 +33,6 @@
         <class>ru.itpearls.tramservercuba.entity.IdentifiedFaults</class>
         <class>ru.itpearls.tramservercuba.entity.AggregateItemChange</class>
         <class>ru.itpearls.tramservercuba.entity.Incident</class>
+        <class>ru.itpearls.tramservercuba.entity.EquipmentStorageItem</class>
     </persistence-unit>
 </persistence>
