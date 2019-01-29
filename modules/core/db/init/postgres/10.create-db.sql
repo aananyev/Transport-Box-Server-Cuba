@@ -482,6 +482,7 @@ create table TRAMSERVERCUBA_REPAIR (
     DELETED_BY varchar(50),
     --
     START_DATE timestamp not null,
+    INCIDENT_ID uuid,
     CODE varchar(50),
     FINISH_DATE timestamp,
     DEPO_ID uuid not null,

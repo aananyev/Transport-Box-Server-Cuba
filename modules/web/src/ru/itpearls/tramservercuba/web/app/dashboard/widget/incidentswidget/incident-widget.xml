@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        class="ru.itpearls.tramservercuba.web.app.dashboard.widget.incidentswidget.IncidentWidget"
+        messagesPack="ru.itpearls.tramservercuba.web.app.dashboard.widget.incidentswidget">
+    <dsContext>
+        <collectionDatasource id="incidentsDs"
+                              class="ru.itpearls.tramservercuba.entity.Incident"
+                              view="widget">
+            <query>
+                <![CDATA[select i from tramservercuba$Incident i where @today(i.date)]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout height="100%"
+            spacing="true"
+            width="100%">
+        <table id="incidentsTable"
+               caption="msg://widgetCaption"
+               columnHeaderVisible="true"
+               height="100%"
+               showSelection="false"
+               width="100%">
+            <columns>
+                <column id="name"/>
+                <column id="type" width="50px"/>
+                <column id="transportItem.numbersWithModelAdnModification" caption="msg://modelTs" align="CENTER"/>
+            </columns>
+            <rows datasource="incidentsDs"/>
+        </table>
+    </layout>
+</window>

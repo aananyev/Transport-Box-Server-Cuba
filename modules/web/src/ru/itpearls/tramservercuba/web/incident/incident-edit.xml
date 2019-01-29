@@ -8,7 +8,7 @@
     <dsContext>
         <datasource id="incidentDs"
                     class="ru.itpearls.tramservercuba.entity.Incident"
-                    view="_local"/>
+                    view="edit"/>
     </dsContext>
     <dialogMode height="600"
                 width="800"/>
@@ -21,12 +21,10 @@
                 <field property="name" required="true"/>
                 <field property="date" required="true"/>
                 <field property="type" required="true"/>
+                <field property="transportItem" required="true"/>
                 <field property="description" required="true" rows="4"/>
             </column>
         </fieldGroup>
-<!--
-        <dateField property="date" required="true" datasource="incidentDs" caption="msg://date"/>
--->
         <frame id="windowActions"
                screen="editWindowActions"/>
     </layout>
