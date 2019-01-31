@@ -12,6 +12,7 @@
         <item screen="tramservercuba$AggregateTypeBaseEntity.browse"/>
         <item screen="tramservercuba$Provider.browse"/>
     </menu>
+    <item screen="tramservercuba$EquipmentStorageItem.browse" insertBefore="reports"/>
     <menu id="dispatcher"
           insertBefore="reports">
         <item screen="tramservercuba$Incident.browse"/>
