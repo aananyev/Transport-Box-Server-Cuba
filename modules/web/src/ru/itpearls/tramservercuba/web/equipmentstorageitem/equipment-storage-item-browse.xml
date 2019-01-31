@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="ru.itpearls.tramservercuba.web.equipmentstorageitem.EquipmentStorageItemBrowse"
+        focusComponent="equipmentStorageItemsTable"
+        lookupComponent="equipmentStorageItemsTable"
+        messagesPack="ru.itpearls.tramservercuba.web.equipmentstorageitem">
+    <dsContext>
+        <collectionDatasource id="equipmentStorageItemsDs"
+                              class="ru.itpearls.tramservercuba.entity.EquipmentStorageItem"
+                              view="_local">
+            <query>
+                <![CDATA[select e from tramservercuba$EquipmentStorageItem e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="equipmentStorageItemsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="equipmentStorageItemsTable"
+                datasource="equipmentStorageItemsDs">
+            <properties include=".*"/>
+        </filter>
+        <table id="equipmentStorageItemsTable"
+               width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="aggregateItem.model"/>
+                <column id="aggregateItem.model.modification"/>
+                <column id="aggregateItem.model.aggregateKind"/>
+                <column id="aggregateItem.model.type"/>
+                <column id="aggregateItem.code"/>
+                <column id="aggregateItem.provider"/>
+                <column id="aggregateItem.number"/>
+            </columns>
+            <rows datasource="equipmentStorageItemsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="equipmentStorageItemsTable.create"/>
+                <button id="editBtn"
+                        action="equipmentStorageItemsTable.edit"/>
+                <button id="removeBtn"
+                        action="equipmentStorageItemsTable.remove"/>
+                <button id="excelBtn"
+                        action="equipmentStorageItemsTable.excel"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>

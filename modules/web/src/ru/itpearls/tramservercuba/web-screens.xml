@@ -148,4 +148,6 @@
             template="ru/itpearls/tramservercuba/web/incident/incident-browse.xml"/>
     <screen id="tramservercuba$Incident.edit"
             template="ru/itpearls/tramservercuba/web/incident/incident-edit.xml"/>
+    <screen id="tramservercuba$EquipmentStorageItem.browse"
+            template="ru/itpearls/tramservercuba/web/equipmentstorageitem/equipment-storage-item-browse.xml"/>
 </screen-config>
