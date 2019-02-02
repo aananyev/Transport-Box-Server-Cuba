@@ -20,10 +20,11 @@
             spacing="true">
         <filter id="filter"
                 applyTo="typicalFaultsTable"
-                datasource="typicalFaultsDs">
+                datasource="typicalFaultsDs"
+                editable="false">
             <properties include=".*"/>
         </filter>
-        <groupTable id="typicalFaultsTable"
+        <table id="typicalFaultsTable"
                     width="100%">
             <actions>
                 <action id="create"/>
@@ -51,6 +52,6 @@
                 <button id="excelBtn"
                         action="typicalFaultsTable.excel"/>
             </buttonsPanel>
-        </groupTable>
+        </table>
     </layout>
 </window>
