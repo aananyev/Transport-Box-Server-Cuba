@@ -150,4 +150,8 @@
             template="ru/itpearls/tramservercuba/web/incident/incident-edit.xml"/>
     <screen id="tramservercuba$EquipmentStorageItem.browse"
             template="ru/itpearls/tramservercuba/web/equipmentstorageitem/equipment-storage-item-browse.xml"/>
+    <screen id="tramservercuba$TypicalFault.browse"
+            template="ru/itpearls/tramservercuba/web/typicalfault/typical-fault-browse.xml"/>
+    <screen id="tramservercuba$TypicalFault.edit"
+            template="ru/itpearls/tramservercuba/web/typicalfault/typical-fault-edit.xml"/>
 </screen-config>

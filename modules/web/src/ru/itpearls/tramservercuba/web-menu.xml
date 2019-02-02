@@ -12,7 +12,8 @@
         <item screen="tramservercuba$AggregateTypeBaseEntity.browse"/>
         <item screen="tramservercuba$Provider.browse"/>
     </menu>
-    <item screen="tramservercuba$EquipmentStorageItem.browse" insertBefore="reports"/>
+    <item insertBefore="reports"
+          screen="tramservercuba$EquipmentStorageItem.browse"/>
     <menu id="dispatcher"
           insertBefore="reports">
         <item screen="tramservercuba$Incident.browse"/>
@@ -29,8 +30,10 @@
         <item screen="tramservercuba$MaintenanceKind.browse"/>
         <item screen="tramservercuba$MaintenanceWorkTemplate.browse"/>
         <item screen="tramservercuba$MaintenanceRegulation.browse"/>
+        <item screen="tramservercuba$TypicalFault.browse"/>
     </menu>
-    <menu id="printReports" insertBefore="reports">
+    <menu id="printReports"
+          insertBefore="reports">
         <item id="generateAllRepairTsReport"
               bean="MenuReportGenerateAction"
               beanMethod="generateAllRepairTsReport"/>

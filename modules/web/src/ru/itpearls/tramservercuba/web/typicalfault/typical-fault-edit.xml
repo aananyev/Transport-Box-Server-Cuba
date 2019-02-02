@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="ru.itpearls.tramservercuba.web.typicalfault.TypicalFaultEdit"
+        datasource="typicalFaultDs"
+        focusComponent="fieldGroup"
+        messagesPack="ru.itpearls.tramservercuba.web.typicalfault">
+    <dsContext>
+        <datasource id="typicalFaultDs"
+                    class="ru.itpearls.tramservercuba.entity.TypicalFault"
+                    view="edit"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="typicalFaultDs">
+            <column width="250px">
+                <field property="transportModel"/>
+                <field property="aggregateModel"/>
+                <field property="code"/>
+                <field property="name"/>
+                <field property="description"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>
