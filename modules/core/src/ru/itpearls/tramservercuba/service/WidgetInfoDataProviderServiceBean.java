@@ -28,10 +28,10 @@ public class WidgetInfoDataProviderServiceBean implements WidgetInfoDataProvider
   private static final String CRASH_WIDGET = "CrashWidget";
 
   private static final Map<String, String> relativeIconPathMap = ImmutableMap.of(
-    REPAIR_TS_WIDGET, "VAADIN/themes/havana/images/widget/repair.png",
-    ONLINE_TS_WIDGET, "VAADIN/themes/havana/images/widget/online.png",
-    KTD_WIDGET, "VAADIN/themes/havana/images/widget/tramIcon.png",
-    CRASH_WIDGET, "VAADIN/themes/havana/images/widget/ktd.png"
+    REPAIR_TS_WIDGET, "VAADIN/themes/halo/images/widget/repair.png",
+    ONLINE_TS_WIDGET, "VAADIN/themes/halo/images/widget/online.png",
+    KTD_WIDGET, "VAADIN/themes/halo/images/widget/tramIcon.png",
+    CRASH_WIDGET, "VAADIN/themes/halo/images/widget/ktd.png"
   );
 
   @Inject

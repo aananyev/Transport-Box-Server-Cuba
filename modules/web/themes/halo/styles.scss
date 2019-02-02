@@ -1,16 +1,16 @@
-@import "havana-defaults";
-@import "ru.itpearls.tramservercuba/havana-ext-defaults";
+@import "halo-defaults";
+@import "ru.itpearls.tramservercuba/halo-ext-defaults";
 @import "app-components";
-@import "ru.itpearls.tramservercuba/havana-ext";
+@import "ru.itpearls.tramservercuba/halo-ext";
 
-.havana {
+.halo {
   // include auto-generated app components SCSS
   @include app_components;
   
-  @include ru_itpearls_tramservercuba-havana-ext;
+  @include ru_itpearls_tramservercuba-halo-ext;
   .c-login-icon>img{height:132px}
   .tram-background {
-    background-image: url(images/tram-background.png);
+    //background-image: url(images/tram-background.png);
     background-position: center;
     background-repeat: no-repeat;
   }
