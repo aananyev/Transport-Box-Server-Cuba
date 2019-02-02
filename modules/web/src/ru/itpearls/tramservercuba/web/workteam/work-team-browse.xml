@@ -29,8 +29,7 @@
                 <action id="excel"/>
             </actions>
             <columns>
-                <column id="depo.depoWithRegion"
-                        caption="msg://depoCaption"/>
+                <column id="depo.depoWithRegion"/>
                 <column id="name"/>
             </columns>
             <rows datasource="workTeamsDs"/>
