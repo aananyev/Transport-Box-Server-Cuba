@@ -10,7 +10,9 @@ public enum RepairState implements EnumClass<Integer> {
     PLANNED(1),
     PLANNED_DONE(4),
     IN_WORK(2),
-    FINISHED(3);
+    FINISHED(3),
+    ON_CONTROL(5),
+    DECLAINED(6);
 
     private Integer id;
 

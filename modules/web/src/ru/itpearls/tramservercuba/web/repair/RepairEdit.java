@@ -30,6 +30,7 @@ public class RepairEdit extends AbstractEditor<Repair> {
     private static final String STATE_PROPERTY = "state";
     private static final String FINISH_DATE = "finishDate";
     private static final String ESCAPE_FROM_LINE = "escapeFromLine";
+    private static final String INCIDENT = "incident";
 
     private static final String REPAIR_ITEMS_TAB = "repairItemsTab";
     private static final String IDENTIFIED_FAULTS_TAB = "identifiedFaultsTab";
@@ -137,6 +138,8 @@ public class RepairEdit extends AbstractEditor<Repair> {
     private ButtonsPanel aggregateItemChangesButtonsPanel;
     @Inject
     private ButtonsPanel transportItemEquipmentsButtonsPanel;
+    @Inject
+    private GroupBoxLayout controlPanel;
 
     @Override
     protected void initNewItem(Repair item) {
@@ -188,6 +191,16 @@ public class RepairEdit extends AbstractEditor<Repair> {
             disableRepairFinishing();
             disableRepirItemsTable();
             enableFinishDate();
+        }
+
+        if (repair.getState() == RepairState.ON_CONTROL) {
+            disableRepairFinishing();
+            disableRepirItemsTable();
+            enableControlPanel();
+        }
+
+        if (repair.getState() != RepairState.ON_CONTROL) {
+            disableControlPanel();
         }
 
         if (repair.getState() != RepairState.PLANNED) {
@@ -305,6 +318,7 @@ public class RepairEdit extends AbstractEditor<Repair> {
         fieldGroup.getField(TRANSPORT_ITEM_PROPERTY).setEditable(true);
         fieldGroup.getField(MILAGE_PROPERTY).setEditable(true);
         fieldGroup.getField(MAINTENANCE_KIND_PROPERTY).setEditable(true);
+        fieldGroup.getField(INCIDENT).setEditable(true);
     }
 
     public void createIdentifiedFault() {
@@ -412,6 +426,14 @@ public class RepairEdit extends AbstractEditor<Repair> {
         enableRepairFinishing();
     }
 
+    private void doDeclaimControl() {
+        getItem().setState(RepairState.DECLAINED);
+
+        disableRepairPlanning();
+        enableRepairFinishing();
+        disableControlPanel();
+    }
+
     private void disableRepairPlanning() {
         createRepairItemBtn.setEnabled(false);
         finishPlanningBtn.setEnabled(false);
@@ -449,6 +471,14 @@ public class RepairEdit extends AbstractEditor<Repair> {
         }
     }
 
+    private void disableControlPanel() {
+        controlPanel.setEnabled(false);
+    }
+
+    private void enableControlPanel() {
+        controlPanel.setEnabled(true);
+    }
+
     public void finishRepair() {
         Repair item = getItem();
 
@@ -482,7 +512,7 @@ public class RepairEdit extends AbstractEditor<Repair> {
             return;
         }
 
-        doFinishRepair();
+        sendToControl();
     }
 
     private void showFinishRepairConfirmation() {
@@ -491,18 +521,26 @@ public class RepairEdit extends AbstractEditor<Repair> {
                 getMessage(FINISH_REPAIR_CONFIRMATION_MSG),
                 MessageType.CONFIRMATION,
                 new Action[] {
-                        new DialogAction(DialogAction.Type.YES, Action.Status.PRIMARY).withHandler(e -> doFinishRepair()),
+                        new DialogAction(DialogAction.Type.YES, Action.Status.PRIMARY).withHandler(e -> sendToControl()),
                         new DialogAction(DialogAction.Type.NO, Action.Status.NORMAL)
                 }
         );
+    }
+
+    private void sendToControl() {
+        Repair item = getItem();
+
+        item.setState(RepairState.ON_CONTROL);
+        disableRepairFinishing();
+        disableRepirItemsTable();
+        enableControlPanel();
     }
 
     private void doFinishRepair() {
         Repair item = getItem();
 
         item.setState(RepairState.FINISHED);
-        disableRepairFinishing();
-        disableRepirItemsTable();
+        disableControlPanel();
 
         if (enableFinishDate()) {
             return;
@@ -543,6 +581,12 @@ public class RepairEdit extends AbstractEditor<Repair> {
                 break;
             case FINISHED:
                 stateCaption = Constants.GREEN_STATE_COLOR;
+                break;
+            case ON_CONTROL:
+                stateCaption = Constants.WHITE_STATE_COLOR;
+                break;
+            case DECLAINED:
+                stateCaption = Constants.PURPUR_STATE_COLOR;
                 break;
         }
 
@@ -643,5 +687,13 @@ public class RepairEdit extends AbstractEditor<Repair> {
         params.put(Constants.META_CLASS, Constants.AGGREGATE_ITEM_CHANGE_METACLASS);
         AbstractWindow window = openWindow(Constants.IMPORT_SCREEN_NAME, WindowManager.OpenType.DIALOG, params);
         window.addCloseListener((String actionId) -> repairDs.refresh());
+    }
+
+    public void onAcceptControlBtnClick() {
+        doFinishRepair();
+    }
+
+    public void onDeclaimControlBtnClick() {
+        doDeclaimControl();
     }
 }

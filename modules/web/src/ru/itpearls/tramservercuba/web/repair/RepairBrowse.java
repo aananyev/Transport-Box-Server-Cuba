@@ -102,6 +102,12 @@ public class RepairBrowse extends AbstractLookup {
             case FINISHED:
                 stateCaption = Constants.GREEN_STATE_COLOR;
                 break;
+            case ON_CONTROL:
+                stateCaption = Constants.WHITE_STATE_COLOR;
+                break;
+            case DECLAINED:
+                stateCaption = Constants.PURPUR_STATE_COLOR;
+                break;
         }
 
         stateColorField.setCaption(stateCaption);

@@ -87,6 +87,18 @@ public class Repair extends StandardEntity {
     @OneToMany(mappedBy = "repair")
     protected List<RepairItem> repairItems;
 
+    @Column(name = "RESULT_OF_CONTROL")
+    protected String resultOfControl;
+
+    public void setResultOfControl(String resultOfControl) {
+        this.resultOfControl = resultOfControl;
+    }
+
+    public String getResultOfControl() {
+        return resultOfControl;
+    }
+
+
     public void setIncident(Incident incident) {
         this.incident = incident;
     }

@@ -48,6 +48,7 @@ public final class Constants {
     public static final String YELLOW_STATE_COLOR = "<span style=\"background-color:rgb(255, 255, 0);color:rgb(255, 255, 0)\">111";
     public static final String ORANGE_STATE_COLOR = "<span style=\"background-color:rgb(255, 165, 0);color:rgb(255, 165, 0)\">111";
     public static final String WHITE_STATE_COLOR = "<span style=\"background-color:rgb(255, 255, 255);color:rgb(255, 255, 255)\">111";
+    public static final String PURPUR_STATE_COLOR = "<span style=\"background-color:rgb(255, 155, 155);color:rgb(255, 155, 155)\">111";
 
     public static final String USER_ADMIN = "admin";
 }

@@ -492,6 +492,7 @@ create table TRAMSERVERCUBA_REPAIR (
     MAINTENANCE_KIND_ID uuid not null,
     ESCAPE_FROM_LINE boolean,
     STATE integer,
+    RESULT_OF_CONTROL varchar(255),
     --
     primary key (ID)
 )^
