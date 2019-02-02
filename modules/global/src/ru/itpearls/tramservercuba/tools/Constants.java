@@ -36,6 +36,7 @@ public final class Constants {
     public static final String AGGREGATE_ITEM_CHANGE_METACLASS = "tramservercuba$AggregateItemChange";
     public static final String AGGREGATE_ITEM_METACLASS = "tramservercuba$AggregateItem";
     public static final String INCIDENT_METACLASS = "tramservercuba$Incident";
+    public static final String TYPICAL_FAULT_METACLASS = "tramservercuba$TypicalFault";
 
     public static final String EDIT_VIEW = "edit";
     public static final String BROWSE_VIEW = "browse";

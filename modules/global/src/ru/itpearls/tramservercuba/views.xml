@@ -739,6 +739,8 @@
         <property name="aggregateModel"
                   view="_minimal">
             <property name="modification"/>
+            <property name="group"
+                      view="_minimal"/>
         </property>
     </view>
 </views>

@@ -9,6 +9,13 @@
         <datasource id="typicalFaultDs"
                     class="ru.itpearls.tramservercuba.entity.TypicalFault"
                     view="edit"/>
+        <collectionDatasource id="aggregateModelsDs"
+                              class="ru.itpearls.tramservercuba.entity.AggregateModel"
+                              view="aggregateModel-browse">
+            <query>
+                <![CDATA[select e from tramservercuba$AggregateModel e]]>
+            </query>
+        </collectionDatasource>
     </dsContext>
     <dialogMode height="600"
                 width="800"/>
@@ -18,8 +25,16 @@
                     datasource="typicalFaultDs">
             <column width="250px">
                 <field property="transportModel"/>
-                <field property="aggregateModel"/>
-                <field property="code"/>
+                <field id="suggestionPickerFieldWrapper"
+                       caption="msg://aggregateModelCaption">
+                    <suggestionPickerField id="suggestionPickerField"
+                                           captionProperty="modelTitleForEquipmentItem"
+                                           datasource="typicalFaultDs"
+                                           property="aggregateModel">
+                    </suggestionPickerField>
+                </field>
+                <field editable="false"
+                       property="code"/>
                 <field property="name"/>
                 <field property="description"/>
             </column>

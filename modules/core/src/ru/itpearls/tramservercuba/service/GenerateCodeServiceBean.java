@@ -113,4 +113,9 @@ public class GenerateCodeServiceBean implements GenerateCodeService {
     public String getNextCodeForIncident() {
         return INCIDENT_PREFIX + getNextCodeForEntity(Constants.INCIDENT_METACLASS).toString();
     }
+
+    @Override
+    public String getNextCodeForTypicalFault() {
+        return TYPICAL_FAULT_PREFIX + getNextCodeForEntity(Constants.TYPICAL_FAULT_METACLASS).toString();
+    }
 }
