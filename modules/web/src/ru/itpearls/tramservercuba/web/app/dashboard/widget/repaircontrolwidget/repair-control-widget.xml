@@ -7,7 +7,7 @@
                               class="ru.itpearls.tramservercuba.entity.Repair"
                               view="browse">
             <query>
-                <![CDATA[select r from tramservercuba$Repair r where r.state = 2]]>
+                <![CDATA[select r from tramservercuba$Repair r where r.state = 5]]>
             </query>
         </collectionDatasource>
     </dsContext>
