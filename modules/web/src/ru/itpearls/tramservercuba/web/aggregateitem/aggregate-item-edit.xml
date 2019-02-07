@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="ru.itpearls.tramservercuba.web.aggregateitem.AggregateItemEdit"
+        datasource="aggregateItemDs"
+        focusComponent="fieldGroup"
+        messagesPack="ru.itpearls.tramservercuba.web.aggregateitem">
+    <dsContext>
+        <datasource id="aggregateItemDs"
+                    class="ru.itpearls.tramservercuba.entity.AggregateItem"
+                    view="edit2"/>
+        <collectionDatasource id="modelsDs"
+                              class="ru.itpearls.tramservercuba.entity.AggregateModel"
+                              view="aggregateModel-browse">
+            <query>
+                <![CDATA[select e from tramservercuba$AggregateModel e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="providersDs"
+                              class="ru.itpearls.tramservercuba.entity.Provider"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from tramservercuba$Provider e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="aggregateItemDs">
+            <column width="250px">
+                <field optionsDatasource="modelsDs"
+                       property="model"/>
+                <field editable="false"
+                       property="code"/>
+                <field optionsDatasource="providersDs"
+                       property="provider"
+                       required="true"/>
+                <field property="number"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

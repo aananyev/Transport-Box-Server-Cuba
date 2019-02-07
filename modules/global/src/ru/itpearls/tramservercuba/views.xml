@@ -764,4 +764,59 @@
                       view="_minimal"/>
         </property>
     </view>
+    <view class="ru.itpearls.tramservercuba.entity.EquipmentStorageItem"
+          extends="_local"
+          name="edit">
+        <property name="aggregateItem"
+                  view="_minimal">
+            <property name="code"/>
+            <property name="equipmentStorageItem"
+                      view="_minimal"/>
+            <property name="model"
+                      view="_minimal">
+                <property name="aggregateKind"/>
+            </property>
+        </property>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.AggregateItem"
+          extends="_local"
+          name="browse">
+        <property name="model"
+                  view="_minimal">
+            <property name="aggregateKind"/>
+        </property>
+        <property name="provider"
+                  view="_minimal"/>
+        <property name="equipmentStorageItem"
+                  view="_minimal"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.AggregateItem"
+          extends="_local"
+          name="edit2">
+        <property name="model"
+                  view="_minimal">
+            <property name="aggregateKind"/>
+        </property>
+        <property name="provider"
+                  view="_minimal"/>
+        <property name="equipmentStorageItem"
+                  view="_minimal"/>
+    </view>
+    <view class="ru.itpearls.tramservercuba.entity.EquipmentStorageItem"
+          extends="_local"
+          name="browse">
+        <property name="aggregateItem"
+                  view="_minimal">
+            <property name="model"
+                      view="_minimal">
+                <property name="group"
+                          view="_minimal"/>
+                <property name="modification"/>
+                <property name="type"
+                          view="_minimal"/>
+                <property name="aggregateKind"/>
+            </property>
+            <property name="code"/>
+        </property>
+    </view>
 </views>

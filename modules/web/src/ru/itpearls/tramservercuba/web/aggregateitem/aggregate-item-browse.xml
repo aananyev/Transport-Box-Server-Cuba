@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="ru.itpearls.tramservercuba.web.aggregateitem.AggregateItemBrowse"
+        focusComponent="aggregateItemsTable"
+        lookupComponent="aggregateItemsTable"
+        messagesPack="ru.itpearls.tramservercuba.web.aggregateitem">
+    <dsContext>
+        <collectionDatasource id="aggregateItemsDs"
+                              class="ru.itpearls.tramservercuba.entity.AggregateItem"
+                              view="browse">
+            <query>
+                <![CDATA[select e from tramservercuba$AggregateItem e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="aggregateItemsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="aggregateItemsTable"
+                datasource="aggregateItemsDs">
+            <properties include=".*"/>
+        </filter>
+        <table id="aggregateItemsTable"
+               width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="model"/>
+                <column id="code"/>
+                <column id="provider"/>
+                <column id="number"/>
+            </columns>
+            <rows datasource="aggregateItemsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="aggregateItemsTable.create"/>
+                <button id="editBtn"
+                        action="aggregateItemsTable.edit"/>
+                <button id="removeBtn"
+                        action="aggregateItemsTable.remove"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>

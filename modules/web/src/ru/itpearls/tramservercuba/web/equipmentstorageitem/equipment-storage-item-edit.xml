@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="ru.itpearls.tramservercuba.web.equipmentstorageitem.EquipmentStorageItemEdit"
+        datasource="equipmentStorageItemDs"
+        focusComponent="fieldGroup"
+        messagesPack="ru.itpearls.tramservercuba.web.equipmentstorageitem">
+    <dsContext>
+        <datasource id="equipmentStorageItemDs"
+                    class="ru.itpearls.tramservercuba.entity.EquipmentStorageItem"
+                    view="edit"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="equipmentStorageItemDs">
+            <column width="250px">
+                <field property="aggregateItem"
+                       required="true"/>
+                <field property="count"
+                       required="true"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

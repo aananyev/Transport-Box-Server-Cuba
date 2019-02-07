@@ -11,6 +11,7 @@
         <item screen="tramservercuba$TransportTypeBaseEntity.browse"/>
         <item screen="tramservercuba$AggregateTypeBaseEntity.browse"/>
         <item screen="tramservercuba$Provider.browse"/>
+        <item screen="tramservercuba$AggregateItem.browse"/>
     </menu>
     <item insertBefore="reports"
           screen="tramservercuba$EquipmentStorageItem.browse"/>

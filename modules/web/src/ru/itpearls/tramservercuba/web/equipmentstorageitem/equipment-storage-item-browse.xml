@@ -8,7 +8,7 @@
     <dsContext>
         <collectionDatasource id="equipmentStorageItemsDs"
                               class="ru.itpearls.tramservercuba.entity.EquipmentStorageItem"
-                              view="_local">
+                              view="browse">
             <query>
                 <![CDATA[select e from tramservercuba$EquipmentStorageItem e]]>
             </query>
@@ -20,7 +20,8 @@
             spacing="true">
         <filter id="filter"
                 applyTo="equipmentStorageItemsTable"
-                datasource="equipmentStorageItemsDs">
+                datasource="equipmentStorageItemsDs"
+                editable="false">
             <properties include=".*"/>
         </filter>
         <table id="equipmentStorageItemsTable"
