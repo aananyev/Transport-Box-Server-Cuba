@@ -63,7 +63,6 @@
                   view="_minimal">
             <property name="maintenanceActionItems"
                       view="_minimal">
-                <property name="name"/>
                 <property name="dateKind"/>
                 <property name="periodTimeKind"/>
                 <property name="periodCount"/>
@@ -75,6 +74,15 @@
                 <property name="periodCaption"/>
                 <property name="dateCaption"/>
             </property>
+        </property>
+        <property name="typicalFaults"
+                  view="_minimal">
+            <property name="transportModel"
+                      view="_minimal"/>
+            <property name="aggregateModel"
+                      view="_minimal"/>
+            <property name="code"/>
+            <property name="description"/>
         </property>
     </view>
     <view class="ru.itpearls.tramservercuba.entity.TransportModel"

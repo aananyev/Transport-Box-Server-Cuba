@@ -13,6 +13,8 @@
                              property="equipments"/>
             <collectionDatasource id="transportModelProvidersDs"
                                   property="transportProviders"/>
+            <collectionDatasource id="typicalFaultsDs"
+                                  property="typicalFaults"/>
         </datasource>
         <collectionDatasource id="typesDs"
                               class="ru.itpearls.tramservercuba.entity.TransportType"
@@ -140,7 +142,8 @@ where e.maintenanceRegulation.id = :ds$transportModelDs.maintenanceRegulation.id
                                 invoke="analogsAction"/>
                         <button id="clearEquipments"
                                 caption="msg://clearEquipments"
-                                invoke="clearEquipments" visible="false"/>
+                                invoke="clearEquipments"
+                                visible="false"/>
                     </buttonsPanel>
                 </groupTable>
             </tab>
@@ -233,6 +236,36 @@ where e.maintenanceRegulation.id = :ds$transportModelDs.maintenanceRegulation.id
                         <rows datasource="maintenanceActionItemsDs"/>
                     </table>
                 </vbox>
+            </tab>
+            <tab id="typicalFaultsTab"
+                 caption="msg://typicalFaultsTabCaption"
+                 margin="true"
+                 spacing="true">
+                <table id="typicalFaultsTable"
+                       width="100%">
+                    <actions>
+                        <action id="create"/>
+                        <action id="edit"/>
+                        <action id="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="aggregateModel"/>
+                        <column id="code"/>
+                        <column id="name"/>
+                        <column id="description"/>
+                    </columns>
+                    <rows datasource="typicalFaultsDs"/>
+                    <rowsCount/>
+                    <buttonsPanel id="typicalFaultsButtonsPanel"
+                                  alwaysVisible="true">
+                        <button id="createtypicalFaultBtn"
+                                action="typicalFaultsTable.create"/>
+                        <button id="edittypicalFaultBtn"
+                                action="typicalFaultsTable.edit"/>
+                        <button id="removetypicalFaultBtn"
+                                action="typicalFaultsTable.remove"/>
+                    </buttonsPanel>
+                </table>
             </tab>
         </tabSheet>
         <frame id="windowActions"

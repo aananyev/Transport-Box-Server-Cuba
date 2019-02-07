@@ -40,6 +40,9 @@ public class TransportModel extends TransportTypeBaseEntity {
     @JoinColumn(name = "BASE_MODEL_ID")
     protected TransportModel baseModel;
 
+    @OneToMany(mappedBy = "transportModel")
+    protected List<TypicalFault> typicalFaults;
+
     @Transient
     @MetaProperty
     protected String modelTitleForTransportItem;
@@ -98,7 +101,15 @@ public class TransportModel extends TransportTypeBaseEntity {
     public void setType(TransportType type) {
         this.type = type;
     }
-    
+
+    public List<TypicalFault> getTypicalFaults() {
+        return typicalFaults;
+    }
+
+    public void setTypicalFaults(List<TypicalFault> typicalFaults) {
+        this.typicalFaults = typicalFaults;
+    }
+
     public String getModelTitleForTransportItem() {
         String modelTitle = "";
 
