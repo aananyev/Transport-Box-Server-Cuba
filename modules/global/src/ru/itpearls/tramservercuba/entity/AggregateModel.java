@@ -38,6 +38,9 @@ public class AggregateModel extends AggregateTypeBaseEntity {
     @Column(name = "AGGREGATE_KIND")
     protected Integer aggregateKind;
 
+    @OneToMany(mappedBy = "aggregateModel")
+    protected List<TypicalFault> typicalFaults;
+
     @Transient
     @MetaProperty
     protected String modelTitleForEquipmentItem;
@@ -82,6 +85,14 @@ public class AggregateModel extends AggregateTypeBaseEntity {
 
     public void setGroup(AggregateGroup group) {
         this.group = group;
+    }
+
+    public List<TypicalFault> getTypicalFaults() {
+        return typicalFaults;
+    }
+
+    public void setTypicalFaults(List<TypicalFault> typicalFaults) {
+        this.typicalFaults = typicalFaults;
     }
 
     public String getModelTitleForEquipmentItem() {

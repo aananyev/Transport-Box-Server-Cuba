@@ -9,7 +9,10 @@
         <datasource id="aggregateModelDs"
                     class="ru.itpearls.tramservercuba.entity.AggregateModel"
                     view="edit">
-            <collectionDatasource id="aggregateModelProvidersDs" property="aggregateModelProviders" />
+            <collectionDatasource id="aggregateModelProvidersDs"
+                                  property="aggregateModelProviders"/>
+            <collectionDatasource id="typicalFaultsDs"
+                                  property="typicalFaults"/>
         </datasource>
         <collectionDatasource id="groupDs"
                               class="ru.itpearls.tramservercuba.entity.AggregateGroup"
@@ -33,12 +36,15 @@
         <label htmlEnabled="true"
                value="msg://editTitleLabel"/>
         <tabSheet id="tabsheet">
-            <tab id="generalInfoTab" spacing="true" margin="true" caption="msg://generalTabCaption">
+            <tab id="generalInfoTab"
+                 caption="msg://generalTabCaption"
+                 margin="true"
+                 spacing="true">
                 <fieldGroup id="fieldGroup"
                             datasource="aggregateModelDs">
                     <column width="250px">
-                        <field property="code"
-                               editable="false"/>
+                        <field editable="false"
+                               property="code"/>
                         <field caption="msg://belongsCaption"
                                optionsDatasource="groupDs"
                                property="group"/>
@@ -55,7 +61,10 @@
                     </column>
                 </fieldGroup>
             </tab>
-            <tab id="providersTab" caption="msg://providersTabCaption" margin="true" spacing="true">
+            <tab id="providersTab"
+                 caption="msg://providersTabCaption"
+                 margin="true"
+                 spacing="true">
                 <table id="aggregateModelProvidersTable"
                        width="100%">
                     <actions>
@@ -64,13 +73,22 @@
                         <action id="remove"/>
                     </actions>
                     <columns>
-                        <column id="provider.name" caption="msg://ru.itpearls.tramservercuba.entity/Provider.name"/>
-                        <column id="provider.code" caption="msg://providerCodeCaption"/>
+                        <column id="provider.name"
+                                caption="msg://ru.itpearls.tramservercuba.entity/Provider.name"/>
+                        <column id="provider.code"
+                                caption="msg://providerCodeCaption"/>
                         <column id="isMain"/>
-                        <column id="activity" caption="msg://activityColumnCaption"/>
-                        <column id="aggregateModel.code" caption="msg://aggregateModelCodeCaption" collapsed="true"/>
-                        <column id="isDeliver" collapsed="true" caption="msg://isDeliverCaption"/>
-                        <column id="isProducer" collapsed="true" caption="msg://isProducerCaption"/>
+                        <column id="activity"
+                                caption="msg://activityColumnCaption"/>
+                        <column id="aggregateModel.code"
+                                caption="msg://aggregateModelCodeCaption"
+                                collapsed="true"/>
+                        <column id="isDeliver"
+                                caption="msg://isDeliverCaption"
+                                collapsed="true"/>
+                        <column id="isProducer"
+                                caption="msg://isProducerCaption"
+                                collapsed="true"/>
                     </columns>
                     <rows datasource="aggregateModelProvidersDs"/>
                     <rowsCount/>
@@ -82,14 +100,45 @@
                                 action="aggregateModelProvidersTable.edit"/>
                         <button id="removeBtn"
                                 action="aggregateModelProvidersTable.remove"/>
-                        <popupButton id="excelBtn" icon="icons/excel.png"
-                                     caption="msg://excelAction">
+                        <popupButton id="excelBtn"
+                                     caption="msg://excelAction"
+                                     icon="icons/excel.png">
                             <actions>
                                 <action id="importExcel"
                                         caption="msg://importExcelAction"
                                         invoke="excelImportActionInvoke"/>
                             </actions>
                         </popupButton>
+                    </buttonsPanel>
+                </table>
+            </tab>
+            <tab id="typicalFaultsTab"
+                 caption="msg://typicalFaultsTabCaption"
+                 margin="true"
+                 spacing="true">
+                <table id="typicalFaultsTable"
+                       width="100%">
+                    <actions>
+                        <action id="create"/>
+                        <action id="edit"/>
+                        <action id="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="transportModel"/>
+                        <column id="code"/>
+                        <column id="name"/>
+                        <column id="description"/>
+                    </columns>
+                    <rows datasource="typicalFaultsDs"/>
+                    <rowsCount/>
+                    <buttonsPanel id="typicalFaultsButtonsPanel"
+                                  alwaysVisible="true">
+                        <button id="createtypicalFaultBtn"
+                                action="typicalFaultsTable.create"/>
+                        <button id="edittypicalFaultBtn"
+                                action="typicalFaultsTable.edit"/>
+                        <button id="removetypicalFaultBtn"
+                                action="typicalFaultsTable.remove"/>
                     </buttonsPanel>
                 </table>
             </tab>
