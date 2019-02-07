@@ -498,6 +498,8 @@
             <property name="isWarranty"/>
             <property name="disposalDate"/>
             <property name="state"/>
+            <property name="typicalFault"
+                      view="_minimal"/>
         </property>
         <property name="repairItems"
                   view="_minimal">
@@ -539,8 +541,6 @@
             <property name="aggregateItemOld"
                       view="_minimal">
                 <property name="code"/>
-                <property name="model"
-                          view="_local"/>
             </property>
             <property name="description"/>
             <property name="count"/>
@@ -572,11 +572,15 @@
                 <property name="code"/>
             </property>
         </property>
+        <property name="typicalFault"
+                  view="_minimal"/>
     </view>
     <view class="ru.itpearls.tramservercuba.entity.IdentifiedFaults"
           extends="_local"
           name="browse">
         <property name="repair"
+                  view="_minimal"/>
+        <property name="typicalFault"
                   view="_minimal"/>
     </view>
     <view class="com.haulmont.cuba.security.entity.Role"

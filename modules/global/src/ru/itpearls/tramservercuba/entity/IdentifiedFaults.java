@@ -31,8 +31,7 @@ public class IdentifiedFaults extends StandardEntity {
     @Column(name = "IDENTIFIED_DATE", nullable = false)
     protected Date identifiedDate;
 
-    @NotNull
-    @Column(name = "DESCRIPTION", nullable = false)
+    @Column(name = "DESCRIPTION")
     protected String description;
 
     @Column(name = "IS_WARRANTY")
@@ -44,6 +43,19 @@ public class IdentifiedFaults extends StandardEntity {
 
     @Column(name = "STATE")
     protected Integer state;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "TYPICAL_FAULT_ID")
+    protected TypicalFault typicalFault;
+
+    public void setTypicalFault(TypicalFault typicalFault) {
+        this.typicalFault = typicalFault;
+    }
+
+    public TypicalFault getTypicalFault() {
+        return typicalFault;
+    }
+
 
     public void setCode(String code) {
         this.code = code;

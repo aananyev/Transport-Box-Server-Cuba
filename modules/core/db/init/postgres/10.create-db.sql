@@ -538,10 +538,11 @@ create table TRAMSERVERCUBA_IDENTIFIED_FAULTS (
     REPAIR_ID uuid not null,
     CODE varchar(50),
     IDENTIFIED_DATE timestamp not null,
-    DESCRIPTION varchar(255) not null,
+    DESCRIPTION varchar(255),
     IS_WARRANTY boolean,
     DISPOSAL_DATE timestamp,
     STATE integer,
+    TYPICAL_FAULT_ID uuid,
     --
     primary key (ID)
 )^

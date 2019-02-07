@@ -17,6 +17,8 @@ public class IdentifiedFaultsEdit extends AbstractEditor<IdentifiedFaults> {
 
     private static final String DISPOSAL_DATE_PROPERTY = "disposalDate";
 
+    private static final String MESSAGE_KEY_CHECK_FILLNESS = "checkFillnessMsg";
+
     @WindowParam
     private Repair repair;
 
@@ -63,5 +65,18 @@ public class IdentifiedFaultsEdit extends AbstractEditor<IdentifiedFaults> {
                 }
             }
         });
+    }
+
+    @Override
+    protected boolean preCommit() {
+        IdentifiedFaults item = getItem();
+
+        if (item.getDescription() == null
+                && item.getTypicalFault() == null) {
+            frame.showNotification(messages.getMessage(this.getClass(), MESSAGE_KEY_CHECK_FILLNESS), NotificationType.ERROR);
+            return false;
+        }
+
+        return super.preCommit();
     }
 }

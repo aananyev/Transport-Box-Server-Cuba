@@ -1,0 +1,1 @@
+alter table TRAMSERVERCUBA_IDENTIFIED_FAULTS add column TYPICAL_FAULT_ID uuid ;

@@ -10,7 +10,8 @@
                     view="edit">
             <groupDatasource id="transportItemEquipmentsDs"
                              property="transportItemEquipments"/>
-            <collectionDatasource id="incidentsDs" property="incidents"/>
+            <collectionDatasource id="incidentsDs"
+                                  property="incidents"/>
         </datasource>
         <collectionDatasource id="modelsDs"
                               class="ru.itpearls.tramservercuba.entity.TransportModel"
@@ -136,7 +137,8 @@ order by e.operationDate desc]]>
                                 invoke="updateFromModelAction"/>
                         <button id="cleanEquipment"
                                 caption="msg://cleanEquipmentCaption"
-                                invoke="cleanEquipmentAction" visible="false"/>
+                                invoke="cleanEquipmentAction"
+                                visible="false"/>
                         <button id="finishEquipment"
                                 caption="msg://finishEquipmentCaption"
                                 invoke="finishEquipmentAction"/>
@@ -190,8 +192,8 @@ order by e.operationDate desc]]>
                         <column id="finishDate"/>
                         <column id="state"/>
                         <column id="stateColor"
-                                generator="generateRepairStateColorCell"
-                                caption="msg://stateColorCaption"/>
+                                caption="msg://stateColorCaption"
+                                generator="generateRepairStateColorCell"/>
                         <column id="workTeam"/>
                     </columns>
                     <rows datasource="historyRepairsDs"/>
@@ -199,9 +201,9 @@ order by e.operationDate desc]]>
             </tab>
             <tab id="aggregateChangesTab"
                  caption="msg://aggregateChangesTabCaption"
+                 expand="aggregateItemChangesTable"
                  margin="true"
-                 spacing="true"
-                 expand="aggregateItemChangesTable">
+                 spacing="true">
                 <label datasource="transportItemDs"
                        htmlEnabled="true"
                        property="numbersWithModelAdnModification"
@@ -229,9 +231,9 @@ order by e.operationDate desc]]>
             </tab>
             <tab id="identifiedFaultsTab"
                  caption="msg://identifiedFaultsTabCaption"
+                 expand="identifiedFaultsTable"
                  margin="true"
-                 spacing="true"
-                 expand="identifiedFaultsTable">
+                 spacing="true">
                 <label datasource="transportItemDs"
                        htmlEnabled="true"
                        property="numbersWithModelAdnModification"
@@ -246,6 +248,7 @@ order by e.operationDate desc]]>
                        width="100%">
                     <columns>
                         <column id="identifiedDate"/>
+                        <column id="typicalFault"/>
                         <column id="description"/>
                         <column id="isWarranty"/>
                         <column id="state"/>
@@ -259,9 +262,9 @@ order by e.operationDate desc]]>
             </tab>
             <tab id="incidentsTab"
                  caption="msg://incidentsTabCaption"
+                 expand="incidentsTable"
                  margin="true"
-                 spacing="true"
-                 expand="incidentsTable">
+                 spacing="true">
                 <label datasource="transportItemDs"
                        htmlEnabled="true"
                        property="numbersWithModelAdnModification"

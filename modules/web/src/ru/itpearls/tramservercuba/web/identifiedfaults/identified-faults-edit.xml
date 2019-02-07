@@ -24,12 +24,14 @@
         <fieldGroup id="fieldGroup"
                     datasource="identifiedFaultsDs">
             <column width="250px">
-                <field property="code" editable="false"/>
+                <field editable="false"
+                       property="code"/>
                 <field property="identifiedDate"/>
                 <field editable="false"
                        property="repair.maintenanceKind"/>
                 <field editable="false"
                        property="repair.milage"/>
+                <field property="typicalFault"/>
                 <field property="description"
                        rows="5"
                        width="200%"/>
