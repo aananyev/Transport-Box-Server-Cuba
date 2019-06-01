@@ -18,7 +18,7 @@ import com.haulmont.chile.core.annotations.NamePattern;
 @NamePattern("%s|name")
 @Table(name = "TRAMSERVERCUBA_EMPLOYEE")
 @Entity(name = "tramservercuba$Employee")
-@Listeners("tramservercuba_EmployeeEntityListener")
+//@Listeners("tramservercuba_EmployeeEntityListener")
 public class Employee extends StandardEntity {
     private static final long serialVersionUID = -7053556609021843447L;
 
