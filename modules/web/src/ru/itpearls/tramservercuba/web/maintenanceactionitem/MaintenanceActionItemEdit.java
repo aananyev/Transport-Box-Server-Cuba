@@ -94,7 +94,9 @@ public class MaintenanceActionItemEdit extends AbstractEditor<MaintenanceActionI
     }
 
     private void sortWorks() {
-        getItem().getMaintenanceActionItemWorks().sort(Comparator.comparing(MaintenanceActionItemWork::getOrder));
+        if (getItem().getMaintenanceActionItemWorks() != null)
+            getItem().getMaintenanceActionItemWorks().sort(Comparator.comparing(MaintenanceActionItemWork::getOrder));
+
     }
 
     private void addListeners() {
