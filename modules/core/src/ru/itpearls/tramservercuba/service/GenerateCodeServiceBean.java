@@ -65,57 +65,57 @@ public class GenerateCodeServiceBean implements GenerateCodeService {
 
     @Override
     public String getNextCodeForMaintenanceWorkTemplate() {
-        return MAINTENANCE_ACTION_ITEM_PREFIX + getNextCodeForEntity(Constants.MAINTENANCE_WORK_TEMPLATE_META_CLASS).toString();
+        return MAINTENANCE_ACTION_ITEM_PREFIX + String.format("%05d", getNextCodeForEntity(Constants.MAINTENANCE_WORK_TEMPLATE_META_CLASS));
     }
 
     @Override
     public String getNextCodeForAggregateModel() {
-        return AGGREGATE_MODEL_PREFIX + getNextCodeForEntity(Constants.AGGREGATE_MODEL_META_CLASS).toString();
+        return AGGREGATE_MODEL_PREFIX + String.format("%05d", getNextCodeForEntity(Constants.AGGREGATE_MODEL_META_CLASS));
     }
 
     @Override
     public String getNextCodeForTransportType() {
-        return TRANSPORT_TYPE_PREFIX + getNextCodeForEntity(Constants.TRANSPORT_TYPE_METACLASS).toString();
+        return TRANSPORT_TYPE_PREFIX + String.format("%05d", getNextCodeForEntity(Constants.TRANSPORT_TYPE_METACLASS));
     }
 
     @Override
     public String getNextCodeForTransportModel() {
-        return TRANSPORT_MODEL_PREFIX + getNextCodeForEntity(Constants.TRANSPORT_MODEL_METACLASS).toString();
+        return TRANSPORT_MODEL_PREFIX + String.format("%05d", getNextCodeForEntity(Constants.TRANSPORT_MODEL_METACLASS));
     }
 
     @Override
     public String getNextCodeForRepair() {
-        return REPAIR_PREFIX + getNextCodeForEntity(Constants.REPAIR_METACLASS).toString();
+        return REPAIR_PREFIX + String.format("%05d", getNextCodeForEntity(Constants.REPAIR_METACLASS));
     }
 
     @Override
     public String getNextCodeForRepairItem() {
-        return REPAIR_ITEM_PREFIX + getNextCodeForEntity(Constants.REPAIR_ITEM_METACLASS).toString();
+        return REPAIR_ITEM_PREFIX + String.format("%05d", getNextCodeForEntity(Constants.REPAIR_ITEM_METACLASS));
     }
 
     @Override
     public String getNextCodeForIdentifiedFaults() {
-        return IDENTIFIED_FAULTS_PREFIX + getNextCodeForEntity(Constants.IDENTIFIED_FAULTS_METACLASS).toString();
+        return IDENTIFIED_FAULTS_PREFIX + String.format("%05d", getNextCodeForEntity(Constants.IDENTIFIED_FAULTS_METACLASS));
     }
 
     @Override
     public String getNextCodeForAggregateItemChange() {
-        return AGGREGATE_ITEM_CHANGE_PREFIX + getNextCodeForEntity(Constants.AGGREGATE_ITEM_CHANGE_METACLASS).toString();
+        return AGGREGATE_ITEM_CHANGE_PREFIX + String.format("%05d", getNextCodeForEntity(Constants.AGGREGATE_ITEM_CHANGE_METACLASS));
     }
 
     @Override
     public String getNextCodeForAggregateItem() {
-        return AGGREGATE_ITEM_PREFIX + getNextCodeForEntity(Constants.AGGREGATE_ITEM_METACLASS).toString();
+        return AGGREGATE_ITEM_PREFIX + String.format("%05d", getNextCodeForEntity(Constants.AGGREGATE_ITEM_METACLASS));
 
     }
 
     @Override
     public String getNextCodeForIncident() {
-        return INCIDENT_PREFIX + getNextCodeForEntity(Constants.INCIDENT_METACLASS).toString();
+        return INCIDENT_PREFIX + String.format("%05d", getNextCodeForEntity(Constants.INCIDENT_METACLASS));
     }
 
     @Override
     public String getNextCodeForTypicalFault() {
-        return TYPICAL_FAULT_PREFIX + getNextCodeForEntity(Constants.TYPICAL_FAULT_METACLASS).toString();
+        return TYPICAL_FAULT_PREFIX + String.format("%05d",getNextCodeForEntity(Constants.TYPICAL_FAULT_METACLASS));
     }
 }
