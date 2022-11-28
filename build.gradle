@@ -13,8 +13,8 @@ buildscript {
         maven {
             url 'https://repo.cuba-platform.com/content/groups/premium'
             credentials {
-                username(rootProject.hasProperty('premiumRepoUser') ? rootProject['premiumRepoUser'] : '180829001871')
-                password(rootProject.hasProperty('premiumRepoPass') ? rootProject['premiumRepoPass'] : 'sGpUoY7Y1ITy')
+                username(rootProject.hasProperty('premiumRepoUser') ? rootProject['premiumRepoUser'] : '180829001872')
+                password(rootProject.hasProperty('premiumRepoPass') ? rootProject['premiumRepoPass'] : '0r8BUaTUyeCX')
             }
         }
         
