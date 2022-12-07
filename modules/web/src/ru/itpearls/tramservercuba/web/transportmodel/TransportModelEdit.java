@@ -114,7 +114,7 @@ public class TransportModelEdit extends AbstractEditor<TransportModel> {
         transportEquipmentsTable.addGeneratedColumn(COUNT, entity -> {
             TextField tf = componentsFactory.createComponent(TextField.class);
 
-            tf.setValue(entity.getValue(COUNT));
+            tf.setValue(entity.getValue(COUNT).toString());
             tf.addValueChangeListener(e -> {
                 if (tf.getValue() == null) {
                     showNotification(messages.getMessage(this.getClass(),MESSAGE_KEY_FAIL_POSITIVE_VALIDATION), NotificationType.TRAY);

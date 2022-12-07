@@ -310,8 +310,9 @@
         <property name="depo"
                   view="_local">
             <property name="regionalDepartment"
-                      view="_minimal"/>
-            <property name="depoWithRegion"/>
+                      view="_minimal">
+                <property name="region"/>
+            </property>
         </property>
     </view>
     <view class="ru.itpearls.tramservercuba.entity.MaintenanceRegulation"
