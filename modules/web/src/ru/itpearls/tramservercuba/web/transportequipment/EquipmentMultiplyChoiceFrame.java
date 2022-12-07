@@ -7,11 +7,8 @@ import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.data.CollectionDatasource;
 import com.haulmont.cuba.gui.data.GroupDatasource;
 import com.haulmont.cuba.gui.xml.layout.ComponentsFactory;
-import org.apache.commons.lang.StringUtils;
-import ru.itpearls.tramservercuba.entity.AggregateModel;
-import ru.itpearls.tramservercuba.entity.AggregateTypeBaseEntity;
-import ru.itpearls.tramservercuba.entity.TransportEquipment;
-import ru.itpearls.tramservercuba.entity.TransportModel;
+import org.apache.commons.lang3.StringUtils;
+import ru.itpearls.tramservercuba.entity.*;
 
 import javax.inject.Inject;
 import java.util.HashSet;
@@ -29,8 +26,6 @@ public class EquipmentMultiplyChoiceFrame extends AbstractWindow {
     private Metadata metadata;
     @Inject
     private DataManager dataManager;
-    @Inject
-    private PickerField systemPickerField;
 
     @Inject
     private Button createBtn;
@@ -58,6 +53,8 @@ public class EquipmentMultiplyChoiceFrame extends AbstractWindow {
     private static final String CHECK_COLUMN_NAME = "checkColumn";
 
     private Set<AggregateTypeBaseEntity> checkedItems = new HashSet<>();
+    @Inject
+    private PickerField<TransportModelAggregateSystem> systemPickerField;
 
     @Override
     public void init(Map<String, Object> params) {

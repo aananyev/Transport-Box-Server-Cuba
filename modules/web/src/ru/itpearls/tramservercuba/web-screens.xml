@@ -160,4 +160,6 @@
             template="ru/itpearls/tramservercuba/web/aggregateitem/aggregate-item-browse.xml"/>
     <screen id="tramservercuba$AggregateItem.edit"
             template="ru/itpearls/tramservercuba/web/aggregateitem/aggregate-item-edit.xml"/>
+    <screen id="tramservercuba$IdentifiedFaults.browse"
+            template="ru/itpearls/tramservercuba/web/screens/identifiedfaults/identified-faults-browse.xml"/>
 </screen-config>

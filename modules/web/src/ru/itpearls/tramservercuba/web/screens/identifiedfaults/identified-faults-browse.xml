@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://identifiedFaultsBrowse.caption"
+        class="ru.itpearls.tramservercuba.web.screens.identifiedfaults.IdentifiedFaultsBrowse"
+        focusComponent="identifiedFaultsesTable"
+        lookupComponent="identifiedFaultsesTable"
+        messagesPack="ru.itpearls.tramservercuba.web.screens.identifiedfaults">
+    <dsContext>
+        <collectionDatasource id="identifiedFaultsesDs"
+                              class="ru.itpearls.tramservercuba.entity.IdentifiedFaults"
+                              view="_local">
+            <query>
+                <![CDATA[select e from tramservercuba$IdentifiedFaults e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="identifiedFaultsesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="identifiedFaultsesTable"
+                datasource="identifiedFaultsesDs">
+            <properties include=".*"/>
+        </filter>
+        <table id="identifiedFaultsesTable"
+               width="100%">
+            <actions>
+                <action id="create"
+                        openType="NEW_TAB"/>
+                <action id="edit"
+                        openType="NEW_TAB"/>
+                <action id="remove"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="code"/>
+                <column id="identifiedDate"/>
+                <column id="description"/>
+                <column id="isWarranty"/>
+                <column id="disposalDate"/>
+                <column id="state"/>
+            </columns>
+            <rows datasource="identifiedFaultsesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="identifiedFaultsesTable.create"/>
+                <button id="editBtn" action="identifiedFaultsesTable.edit"/>
+                <button id="removeBtn" action="identifiedFaultsesTable.remove"/>
+                <button id="excelBtn"
+                        icon="icons/excel.png"
+                        invoke="excelImportActionInvoke"
+                        caption="msg://excelAction"/>
+        </buttonsPanel>
+    </table>
+</layout>
+        </window>

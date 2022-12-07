@@ -4,6 +4,7 @@ import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.app.security.group.browse.GroupBrowser;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.components.actions.ExcelAction;
+import com.haulmont.cuba.gui.xml.layout.ComponentsFactory;
 import ru.itpearls.tramservercuba.tools.Constants;
 
 import javax.inject.Inject;
@@ -20,6 +21,8 @@ public class ExtGroupBrowse extends GroupBrowser {
     private static final String WITHOUT_REMOVE = "withoutRemove";
     private static final String EXCEL = "excel";
     private static final String EXPORT_CAPTION = "exportExcelAction";
+    @Inject
+    private ComponentsFactory componentsFactory;
 
 
     @Override

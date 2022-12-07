@@ -1,54 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
-    <item id="transportItemsManagement"
-          insertBefore="reports"
-          screen="tramservercuba$TransportItem.browse"/>
-    <item id="repairs"
-          insertBefore="reports"
-          screen="tramservercuba$Repair.browse"/>
-    <menu id="references"
-          insertBefore="reports">
+
+    <item screen="tramservercuba$TransportItem.browse" id="transportItemsManagement"/>
+    <item screen="tramservercuba$Repair.browse" id="repairs"/>
+    <menu id="references">
         <item screen="tramservercuba$TransportTypeBaseEntity.browse"/>
         <item screen="tramservercuba$AggregateTypeBaseEntity.browse"/>
         <item screen="tramservercuba$Provider.browse"/>
         <item screen="tramservercuba$AggregateItem.browse"/>
     </menu>
-    <item insertBefore="reports"
-          screen="tramservercuba$EquipmentStorageItem.browse"/>
-    <menu id="dispatcher"
-          insertBefore="reports">
+    <item screen="tramservercuba$EquipmentStorageItem.browse"/>
+    <menu id="dispatcher" icon="BULLHORN">
         <item screen="tramservercuba$Incident.browse"/>
+        <item screen="tramservercuba$IdentifiedFaults.browse"
+              caption="mainMsg://menu_config.tramservercuba$IdentifiedFaults.browse"/>
     </menu>
-    <menu id="manufactureStructure"
-          insertBefore="reports">
+    <menu id="manufactureStructure" icon="BUILDING">
+        <item screen="tramservercuba$TypicalFault.browse"/>
         <item screen="tramservercuba$RegionalDepartment.browse"/>
         <item screen="tramservercuba$Depo.browse"/>
         <item screen="tramservercuba$WorkTeam.browse"/>
         <item screen="tramservercuba$Employee.browse"/>
     </menu>
-    <menu id="maintenance"
-          insertBefore="reports">
+    <menu id="maintenance" icon="DEAF">
         <item screen="tramservercuba$MaintenanceKind.browse"/>
         <item screen="tramservercuba$MaintenanceWorkTemplate.browse"/>
         <item screen="tramservercuba$MaintenanceRegulation.browse"/>
-        <item screen="tramservercuba$TypicalFault.browse"/>
+        <item screen="tramservercuba$MaintenanceActionItem.browse"
+              caption="mainMsg://menu_config.tramservercuba$MaintenanceActionItem.browse"/>
     </menu>
-    <menu id="printReports"
-          insertBefore="reports">
-        <item id="generateAllRepairTsReport"
-              bean="MenuReportGenerateAction"
-              beanMethod="generateAllRepairTsReport"/>
+    <menu id="printReports"/>
+    <menu id="users" icon="USERS">
+        <item screen="sec$User.browse" id="usersList"/>
+        <item screen="sec$Group.browse" id="accessGroup"/>
+        <item screen="sec$Role.browse" id="roles"/>
     </menu>
-    <menu id="users"
-          insertBefore="reports">
-        <item id="usersList"
-              screen="sec$User.browse"/>
-        <item id="accessGroup"
-              screen="sec$Group.browse"/>
-        <item id="roles"
-              screen="sec$Role.browse"/>
-    </menu>
-    <item id="generatedCodes"
-          insertBefore="reports"
-          screen="tramservercuba$GeneratedCode.browse"/>
+    <item screen="tramservercuba$GeneratedCode.browse" id="generatedCodes"/>
 </menu-config>

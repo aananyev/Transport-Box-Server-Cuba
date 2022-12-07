@@ -32,24 +32,24 @@ public class EquipmentStorageItemBrowse extends AbstractLookup {
 
       tf.setValue(entity.getValue(COUNT));
       tf.addValueChangeListener(e -> {
-        if (e.getValue() == null) {
+        if (tf.getValue() == null) {
           showNotification(messages.getMessage(this.getClass(),MESSAGE_KEY_FAIL_POSITIVE_VALIDATION), NotificationType.TRAY);
-          tf.setValue(e.getPrevValue());
+          tf.setValue(tf.getValue());
           return;
         }
 
         int intVal;
         try {
-          intVal = Integer.parseInt(((String) e.getValue()));
+          intVal = Integer.parseInt(((String) tf.getValue()));
         } catch (NumberFormatException ex) {
           showNotification(messages.getMessage(this.getClass(),MESSAGE_KEY_FAIL_POSITIVE_VALIDATION), NotificationType.TRAY);
-          tf.setValue(e.getPrevValue());
+          tf.setValue(tf.getValue());
           return;
         }
 
         if (intVal <= 0) {
           showNotification(messages.getMessage(this.getClass(),MESSAGE_KEY_FAIL_POSITIVE_VALIDATION), NotificationType.TRAY);
-          tf.setValue(e.getPrevValue());
+          tf.setValue(tf.getValue());
           return;
         }
 

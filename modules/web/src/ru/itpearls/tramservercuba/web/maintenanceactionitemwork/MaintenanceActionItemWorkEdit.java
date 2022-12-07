@@ -5,7 +5,7 @@ import com.haulmont.cuba.gui.WindowParam;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.data.CollectionDatasource;
 import com.haulmont.cuba.gui.export.ExportDisplay;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import ru.itpearls.tramservercuba.entity.MaintenanceActionItemWork;
 import ru.itpearls.tramservercuba.entity.MaintenanceWorkTemplate;
 
@@ -76,8 +76,8 @@ public class MaintenanceActionItemWorkEdit extends AbstractEditor<MaintenanceAct
 
     private void initListenerForWorkTemplateField() {
         suggestionWorkTemplateField.addValueChangeListener(e -> {
-            if (e.getValue() != null) {
-                MaintenanceWorkTemplate workTemplate = (MaintenanceWorkTemplate) e.getValue();
+            if (suggestionWorkTemplateField.getValue() != null) {
+                MaintenanceWorkTemplate workTemplate = (MaintenanceWorkTemplate) suggestionWorkTemplateField.getValue();
                 aggregateType.setValue(workTemplate.getAggregateType());
                 description.setValue(workTemplate.getDescription());
                 if (workTemplate.getInstruction() != null) {

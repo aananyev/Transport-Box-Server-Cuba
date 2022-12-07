@@ -10,7 +10,7 @@ import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.components.actions.BaseAction;
 import com.haulmont.cuba.gui.data.impl.HierarchicalDatasourceImpl;
 import com.haulmont.cuba.gui.xml.layout.ComponentsFactory;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import ru.itpearls.tramservercuba.entity.AggregateGroup;
 import ru.itpearls.tramservercuba.entity.AggregateModel;
 import ru.itpearls.tramservercuba.entity.AggregateTypeBaseEntity;
@@ -203,12 +203,12 @@ public class AggregateTypeBaseEntityBrowse extends AbstractLookup {
         initSearchExecutorForPickerField();
 
         searchPickerField.addValueChangeListener(e -> {
-            if (e.getValue() != null) {
-                aggregateTypeBaseEntitiesTable.setSelected((AggregateTypeBaseEntity) e.getValue());
-                if (((AggregateTypeBaseEntity) e.getValue()).getParent() != null) {
-                    expandEntityBranch(((AggregateTypeBaseEntity) e.getValue()).getParent());
+            if (searchPickerField.getValue() != null) {
+                aggregateTypeBaseEntitiesTable.setSelected((AggregateTypeBaseEntity) searchPickerField.getValue());
+                if (((AggregateTypeBaseEntity) searchPickerField.getValue()).getParent() != null) {
+                    expandEntityBranch(((AggregateTypeBaseEntity) searchPickerField.getValue()).getParent());
                 }
-                aggregateTypeBaseEntitiesTable.scrollTo((AggregateTypeBaseEntity) e.getValue());
+                aggregateTypeBaseEntitiesTable.scrollTo((AggregateTypeBaseEntity) searchPickerField.getValue());
             } else {
                 rightBox.removeAll();
             }

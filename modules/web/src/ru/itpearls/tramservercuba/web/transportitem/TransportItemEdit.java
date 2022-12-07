@@ -170,7 +170,7 @@ public class TransportItemEdit extends AbstractEditor<TransportItem> {
                 }
 
                 ((LookupPickerField)component).addValueChangeListener(e -> {
-                    AggregateModel newAggregateModel = (AggregateModel) e.getValue();
+                    AggregateModel newAggregateModel = (AggregateModel) ((LookupPickerField)component).getValue();
                     ((TransportItemEquipment)entity).getAggregateItem().setModel(newAggregateModel);
                     resetProvidersForTransportItemEquipment((TransportItemEquipment) entity);
                 });
@@ -224,7 +224,7 @@ public class TransportItemEdit extends AbstractEditor<TransportItem> {
             initProviderOptionList((TransportItemEquipment)entity, lookupField);
 
             lookupField.addValueChangeListener(e -> {
-                ((TransportItemEquipment)entity).getAggregateItem().setProvider((Provider) e.getValue());
+                ((TransportItemEquipment)entity).getAggregateItem().setProvider((Provider) lookupField.getValue());
             });
 
             if (Boolean.TRUE.equals(getItem().getIsEquipmentDone())) {
@@ -251,7 +251,12 @@ public class TransportItemEdit extends AbstractEditor<TransportItem> {
                 TextField tf = componentsFactory.createComponent(TextField.class);
                 tf.setId(NUMBER_FIELD + entity.getId().toString());
                 tf.setValue(((TransportItemEquipment)entity).getAggregateItem().getNumber());
-                tf.addValueChangeListener(e -> ((TransportItemEquipment)entity).getAggregateItem().setNumber(String.valueOf(e.getValue())));
+                tf.addValueChangeListener(e ->
+                        ((TransportItemEquipment)entity)
+                                .getAggregateItem()
+                                .setNumber(String.valueOf(
+                                        tf.getValue())));
+
                 tf.setWidth("100px");
 
                 if (Boolean.TRUE.equals(getItem().getIsEquipmentDone())) {
@@ -278,24 +283,24 @@ public class TransportItemEdit extends AbstractEditor<TransportItem> {
                 tf.setId(COUNT_FIELD + entity.getId().toString());
                 tf.setValue(entity.getValue(COUNT));
                 tf.addValueChangeListener(e -> {
-                    if (e.getValue() == null) {
+                    if (tf.getValue() == null) {
                         showNotification(messages.getMessage(this.getClass(),MESSAGE_KEY_FAIL_POSITIVE_VALIDATION), NotificationType.TRAY);
-                        tf.setValue(e.getPrevValue());
+                        tf.setValue(tf.getValue());
                         return;
                     }
 
                     int intVal;
                     try {
-                        intVal = Integer.parseInt(((String) e.getValue()));
+                        intVal = Integer.parseInt(((String) tf.getValue()));
                     } catch (NumberFormatException ex) {
                         showNotification(messages.getMessage(this.getClass(),MESSAGE_KEY_FAIL_POSITIVE_VALIDATION), NotificationType.TRAY);
-                        tf.setValue(e.getPrevValue());
+                        tf.setValue(tf.getValue());
                         return;
                     }
 
                     if (intVal <= 0) {
                         showNotification(messages.getMessage(this.getClass(),MESSAGE_KEY_FAIL_POSITIVE_VALIDATION), NotificationType.TRAY);
-                        tf.setValue(e.getPrevValue());
+                        tf.setValue(tf.getValue());
                         return;
                     }
 
