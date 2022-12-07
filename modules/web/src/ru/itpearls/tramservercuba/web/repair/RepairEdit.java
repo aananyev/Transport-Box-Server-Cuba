@@ -77,7 +77,7 @@ public class RepairEdit extends AbstractEditor<Repair> {
     private static final String FILTER_START_DATE = "startDate45853";
     private static final String FILTER_FINISH_DATE = "finishDate71651";
 
-    private static final String SELECT_EVERYDAYS_REPAIRS_BASE_QUERY = "select e from tramservercuba$Repair e where e.transportItem.id = :transportItem and ";
+    private static final String SELECT_EVERYDAYS_REPAIRS_BASE_QUERY = "select e from tramservercuba$Repair e where e.transportItem = :transportItem and ";
     private static final String SELECT_EVERYDAYS_REPAIRS_WHERE_START_DATE = "e.startDate >= :startDate and ";
     private static final String SELECT_EVERYDAYS_REPAIRS_WHERE_FINISH_DATE = "e.finishDate <= :finishDate and ";
     private static final String SELECT_EVERYDAYS_REPAIRS_WHERE_FEATURE_OF_USE = "e.maintenanceKind.featureOfUse = 10 order by e.startDate desc";

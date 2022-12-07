@@ -286,9 +286,9 @@
         </property>
         <property name="actionItem"
                   view="_minimal">
-            <property name="name"/>
             <property name="maintenanceRegulation"
-                      view="_minimal"/>
+                      view="_minimal">
+            </property>
         </property>
     </view>
     <view class="ru.itpearls.tramservercuba.entity.Depo"
@@ -401,7 +401,6 @@
                       view="_minimal">
                 <property name="region"/>
             </property>
-            <property name="depoWithRegion"/>
         </property>
         <property name="transportItem"
                   view="_local">
@@ -411,6 +410,7 @@
                       view="_minimal">
                 <property name="baseModel"
                           view="_minimal"/>
+                <property name="modification"/>
             </property>
             <property name="modelWithModification"/>
         </property>
@@ -444,8 +444,11 @@
         <property name="depo"
                   view="_minimal">
             <property name="regionalDepartment"
-                      view="_minimal"/>
+                      view="_minimal">
+                <property name="region"/>
+            </property>
             <property name="depoWithRegion"/>
+            <property name="code"/>
         </property>
         <property name="transportItem"
                   view="_minimal">
@@ -528,6 +531,7 @@
             <property name="repair"
                       view="_minimal">
                 <property name="code"/>
+                <property name="depo" view="_local"/>
             </property>
             <property name="operationDate"/>
             <property name="aggregateItemNew"
@@ -579,9 +583,16 @@
           extends="_local"
           name="browse">
         <property name="repair"
-                  view="_minimal"/>
+                  view="_local">
+            <property name="transportItem" view="_local">
+                <property name="model" view="_local"/>
+            </property>
+        </property>
         <property name="typicalFault"
-                  view="_minimal"/>
+                  view="_minimal">
+            <property name="transportModel" view="_local"/>
+            <property name="aggregateModel" view="_local"/>
+        </property>
     </view>
     <view class="com.haulmont.cuba.security.entity.Role"
           extends="_local"
@@ -619,7 +630,16 @@
           extends="_local"
           name="edit">
         <property name="repair"
-                  view="_minimal"/>
+                  view="_minimal">
+            <property name="transportItem" view="_local">
+                <property name="model" view="_local"/>
+            </property>
+            <property name="incident" view="_minimal">
+                <property name="transportItem" view="_local">
+                    <property name="model" view="_local"/>
+                </property>
+            </property>
+        </property>
     </view>
     <view class="ru.itpearls.tramservercuba.entity.AggregateItemChange"
           extends="_local"

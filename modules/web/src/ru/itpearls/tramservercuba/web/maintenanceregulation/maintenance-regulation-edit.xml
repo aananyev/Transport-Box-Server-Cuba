@@ -14,7 +14,7 @@
                               view="edit">
             <query>
                 <![CDATA[select e from tramservercuba$MaintenanceActionItem e
-                where e.maintenanceRegulation.id = :ds$maintenanceRegulationDs]]>
+                where e.maintenanceRegulation = :ds$maintenanceRegulationDs]]>
             </query>
         </collectionDatasource>
     </dsContext>

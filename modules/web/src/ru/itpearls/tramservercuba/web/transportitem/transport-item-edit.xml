@@ -26,7 +26,7 @@
             <query>
                 <![CDATA[select e from tramservercuba$Provider e where exists
 (select p from tramservercuba$TransportModelProvider p
-where p.provider.id = e.id and p.model.id = :ds$modelsDs)]]>
+where p.provider = e and p.model = :ds$modelsDs)]]>
             </query>
         </collectionDatasource>
         <collectionDatasource id="depoesDs"
@@ -41,7 +41,7 @@ where p.provider.id = e.id and p.model.id = :ds$modelsDs)]]>
                               view="browse">
             <query>
                 <![CDATA[select e from tramservercuba$Repair e
-where e.transportItem.id = :ds$transportItemDs
+where e.transportItem = :ds$transportItemDs
 order by e.startDate desc]]>
             </query>
         </collectionDatasource>
@@ -50,7 +50,7 @@ order by e.startDate desc]]>
                               view="browse">
             <query>
                 <![CDATA[select e from tramservercuba$IdentifiedFaults e
-where e.repair.transportItem.id = :ds$transportItemDs
+where e.repair.transportItem = :ds$transportItemDs
 order by e.identifiedDate desc]]>
             </query>
         </collectionDatasource>
@@ -59,7 +59,7 @@ order by e.identifiedDate desc]]>
                               view="browse">
             <query>
                 <![CDATA[select e from tramservercuba$AggregateItemChange e
-where e.repair.transportItem.id = :ds$transportItemDs
+where e.repair.transportItem = :ds$transportItemDs
 order by e.operationDate desc]]>
             </query>
         </collectionDatasource>

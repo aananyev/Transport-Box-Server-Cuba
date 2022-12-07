@@ -1,8 +1,7 @@
-
 buildscript {
     ext.cubaVersion = '7.2.20'
     repositories {
-        
+
         maven {
             url 'https://repo.cuba-platform.com/content/groups/work'
             credentials {
@@ -87,7 +86,7 @@ configure(globalModule) {
         main { enabled = true }
     }
 
-    
+
 }
 
 configure(coreModule) {
@@ -118,7 +117,7 @@ configure(coreModule) {
 
     task createDb(dependsOn: assembleDbScripts, description: 'Creates local database', type: CubaDbCreation) {
         dbms = 'postgres'
-        host = 'localhost'
+        host = 'agronote.it-pearls.ru'
         dbName = 'transportbox'
         dbUser = 'cuba'
         dbPassword = 'cuba'
@@ -126,13 +125,13 @@ configure(coreModule) {
 
     task updateDb(dependsOn: assembleDbScripts, description: 'Updates local database', type: CubaDbUpdate) {
         dbms = 'postgres'
-        host = 'localhost'
+        host = 'agronote.it-pearls.ru'
         dbName = 'transportbox'
         dbUser = 'cuba'
         dbPassword = 'cuba'
     }
 }
-    
+
 configure(webModule) {
     configurations {
         webcontent

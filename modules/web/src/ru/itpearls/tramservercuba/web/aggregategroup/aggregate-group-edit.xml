@@ -14,7 +14,7 @@
                               view="_minimal">
             <query>
                 <![CDATA[select e from tramservercuba$AggregateGroup e
-where e.id <> :ds$aggregateGroupDs]]>
+where e <> :ds$aggregateGroupDs]]>
             </query>
         </collectionDatasource>
     </dsContext>

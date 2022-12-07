@@ -7,7 +7,7 @@
               name="jdbc/CubaDS"
               password="cuba"
               type="javax.sql.DataSource"
-              url="jdbc:postgresql://localhost/transportbox"
+              url="jdbc:postgresql://agronote.it-pearls.ru/transportbox"
               username="cuba"/>
     <!-- Switch off session serialization -->
     <Manager pathname=""/>

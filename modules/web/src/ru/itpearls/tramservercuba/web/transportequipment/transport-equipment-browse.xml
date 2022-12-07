@@ -13,10 +13,10 @@
                 <![CDATA[select e from tramservercuba$TransportEquipment e]]>
                 <filter>
                     <and>
-                        <c>e.model.id = :param$transportModel</c>
+                        <c>e.model = :param$transportModel</c>
                         <or>
-                            <c>e.mainEquipment.id = :param$mainEquipment</c>
-                            <c>e.id = :param$mainEquipment2</c>
+                            <c>e.mainEquipment = :param$mainEquipment</c>
+                            <c>e = :param$mainEquipment2</c>
                         </or>
                     </and>
                 </filter>

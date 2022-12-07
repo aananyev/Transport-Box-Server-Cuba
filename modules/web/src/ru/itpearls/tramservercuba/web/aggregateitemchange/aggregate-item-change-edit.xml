@@ -14,7 +14,7 @@
                               view="aggregateModel-combo">
             <query>
                 <![CDATA[select e.aggregate from tramservercuba$TransportEquipment e
-where e.mainEquipment.aggregate.id = :ds$aggregateItemChangeDs.aggregateItemOld.model]]>
+where e.mainEquipment.aggregate = :ds$aggregateItemChangeDs.aggregateItemOld.model]]>
             </query>
         </collectionDatasource>
         <collectionDatasource id="providersDs"

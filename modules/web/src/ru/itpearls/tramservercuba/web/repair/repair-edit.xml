@@ -35,7 +35,7 @@
                               view="_minimal">
             <query>
                 <![CDATA[select e from tramservercuba$WorkTeam e
-where e.depo.id = :ds$depoesDs]]>
+where e.depo = :ds$depoesDs]]>
             </query>
         </collectionDatasource>
         <collectionDatasource id="externalPerformersDs"
@@ -49,7 +49,7 @@ where e.deliverServices = true]]>
                               class="ru.itpearls.tramservercuba.entity.Employee">
             <query>
                 <![CDATA[select e from tramservercuba$Employee e
-where e.workTeam.id = :ds$repairDs.workTeam]]>
+where e.workTeam = :ds$repairDs.workTeam]]>
             </query>
         </collectionDatasource>
         <collectionDatasource id="historyRepairsDs"
@@ -57,7 +57,7 @@ where e.workTeam.id = :ds$repairDs.workTeam]]>
                               view="browse">
             <query>
                 <![CDATA[select e from tramservercuba$Repair e
-where e.transportItem.id = :ds$repairDs.transportItem.id
+where e.transportItem = :ds$repairDs.transportItem
 order by e.startDate desc]]>
             </query>
         </collectionDatasource>
@@ -66,7 +66,7 @@ order by e.startDate desc]]>
                          view="edit">
             <query>
                 <![CDATA[select e from tramservercuba$TransportItemEquipment e
-where e.transportItem.id = :ds$repairDs.transportItem.id
+where e.transportItem = :ds$repairDs.transportItem
 and ((e.aggregateItem.model.aggregateKind = 1 and e.count is not null)
 or (e.aggregateItem.model.aggregateKind = 0 and e.aggregateItem.number is not null))]]>
             </query>

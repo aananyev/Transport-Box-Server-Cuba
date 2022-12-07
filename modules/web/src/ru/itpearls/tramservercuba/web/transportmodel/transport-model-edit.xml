@@ -28,7 +28,7 @@
                               view="baseModel-lookup">
             <query>
                 <![CDATA[select e from tramservercuba$TransportModel e
-where e.id <> :ds$transportModelDs and e.type.id = :ds$transportModelDs.type.id]]>
+where e <> :ds$transportModelDs and e.type = :ds$transportModelDs.type]]>
             </query>
         </collectionDatasource>
         <collectionDatasource id="maintenanceRegulationsDs"
@@ -43,7 +43,7 @@ where e.id <> :ds$transportModelDs and e.type.id = :ds$transportModelDs.type.id]
                               view="browse">
             <query>
                 <![CDATA[select e from tramservercuba$MaintenanceActionItem e
-where e.maintenanceRegulation.id = :ds$transportModelDs.maintenanceRegulation.id]]>
+where e.maintenanceRegulation = :ds$transportModelDs.maintenanceRegulation]]>
             </query>
         </collectionDatasource>
     </dsContext>

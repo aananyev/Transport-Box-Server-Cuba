@@ -47,8 +47,10 @@ public class TransportItemEdit extends AbstractEditor<TransportItem> {
     private static final String COLUMN_PROVIDER_CODE = "aggregateItem.provider.code";
     private static final String COLUMN_FACTORY_NUMBER = "aggregateItem.number";
 
-    private static final String SEARCH_AGGREGATE_MODELS_QUERY = "select e from tramservercuba$TransportEquipment e where " +
-            "e.model.id = :transportModelId and (e.mainEquipment.id = :mainEquipmentId or e.id = :equipmentId)";
+    private static final String SEARCH_AGGREGATE_MODELS_QUERY =
+            "select e from tramservercuba$TransportEquipment e " +
+                    "where e.model = :transportModelId " +
+                    "and (e.mainEquipment = :mainEquipmentId or e = :equipmentId)";
 
     private static final String WITHOUT_REMOVE = "withoutRemove";
 
@@ -62,7 +64,8 @@ public class TransportItemEdit extends AbstractEditor<TransportItem> {
     private static final String FILTER_START_DATE = "startDate24467";
     private static final String FILTER_FINISH_DATE = "finishDate04936";
 
-    private static final String SELECT_EVERYDAYS_REPAIRS_BASE_QUERY = "select e from tramservercuba$Repair e where e.transportItem.id = :transportItem and ";
+    private static final String SELECT_EVERYDAYS_REPAIRS_BASE_QUERY
+            = "select e from tramservercuba$Repair e where e.transportItem = :transportItem and ";
     private static final String SELECT_EVERYDAYS_REPAIRS_WHERE_START_DATE = "e.startDate >= :startDate and ";
     private static final String SELECT_EVERYDAYS_REPAIRS_WHERE_FINISH_DATE = "e.finishDate <= :finishDate and ";
     private static final String SELECT_EVERYDAYS_REPAIRS_WHERE_FEATURE_OF_USE = "e.maintenanceKind.featureOfUse = 10 order by e.startDate desc";
