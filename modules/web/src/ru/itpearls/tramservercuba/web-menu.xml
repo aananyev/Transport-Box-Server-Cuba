@@ -7,19 +7,12 @@
     </menu>
     <item screen="tramservercuba$TransportItem.browse" id="transportItemsManagement"/>
     <item screen="tramservercuba$Repair.browse" id="repairs"/>
-    <menu id="references">
-        <item screen="tramservercuba$TransportTypeBaseEntity.browse"/>
-        <item screen="tramservercuba$AggregateTypeBaseEntity.browse"/>
-        <item screen="tramservercuba$TypicalFault.browse"/>
-        <item screen="tramservercuba$Provider.browse"/>
-        <item screen="tramservercuba$AggregateItem.browse"/>
-    </menu>
+
     <menu id="maintenance" icon="DEAF">
         <item screen="tramservercuba$MaintenanceKind.browse"/>
         <item screen="tramservercuba$MaintenanceWorkTemplate.browse"/>
         <item screen="tramservercuba$MaintenanceRegulation.browse"/>
-        <item screen="tramservercuba$MaintenanceActionItem.browse"
-              caption="mainMsg://menu_config.tramservercuba$MaintenanceActionItem.browse"/>
+        <item screen="tramservercuba$MaintenanceActionItem.browse"/>
     </menu>
     <item screen="tramservercuba$EquipmentStorageItem.browse"/>
     <menu id="manufactureStructure" icon="BUILDING">
@@ -27,6 +20,13 @@
         <item screen="tramservercuba$Depo.browse"/>
         <item screen="tramservercuba$WorkTeam.browse"/>
         <item screen="tramservercuba$Employee.browse"/>
+    </menu>
+    <menu id="references">
+        <item screen="tramservercuba$TransportTypeBaseEntity.browse"/>
+        <item screen="tramservercuba$AggregateTypeBaseEntity.browse"/>
+        <item screen="tramservercuba$TypicalFault.browse"/>
+        <item screen="tramservercuba$Provider.browse"/>
+        <item screen="tramservercuba$AggregateItem.browse"/>
     </menu>
     <menu id="printReports"/>
     <menu id="users" icon="USERS">

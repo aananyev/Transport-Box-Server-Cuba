@@ -4,6 +4,7 @@ import com.haulmont.cuba.core.entity.Entity;
 import com.haulmont.cuba.core.global.DataManager;
 import com.haulmont.cuba.core.global.LoadContext;
 import com.haulmont.cuba.core.global.Security;
+import com.haulmont.cuba.gui.UiComponents;
 import com.haulmont.cuba.gui.WindowManager;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.data.CollectionDatasource;
@@ -112,6 +113,8 @@ public class TransportItemEdit extends AbstractEditor<TransportItem> {
 
     @Inject
     private Security security;
+    @Inject
+    private UiComponents uiComponents;
 
     @Override
     public void init(Map<String, Object> params) {
@@ -202,14 +205,18 @@ public class TransportItemEdit extends AbstractEditor<TransportItem> {
         }
     }
 
-    private List<AggregateModel> getAggregateModels(TransportModel transportModel, TransportEquipment transportEquipment) {
+    private List<AggregateModel> getAggregateModels(TransportModel transportModel,
+                                                    TransportEquipment transportEquipment) {
         List<AggregateModel> aggregateModels = new ArrayList<>();
 
         List<TransportEquipment> equipmentList = dataManager.loadList(new LoadContext<>(TransportEquipment.class)
                 .setQuery(new LoadContext.Query(SEARCH_AGGREGATE_MODELS_QUERY)
-                        .setParameter(TRANSPORT_MODEL_ID, transportModel.getId())
-                        .setParameter(MAIN_EQUIPMENT_ID, transportEquipment.getId())
-                        .setParameter(EQUIPMENT_ID, transportEquipment.getId()))
+//                        .setParameter(TRANSPORT_MODEL_ID, transportModel.getId())
+                        .setParameter(TRANSPORT_MODEL_ID, transportModel)
+//                        .setParameter(MAIN_EQUIPMENT_ID, transportEquipment.getId())
+                        .setParameter(MAIN_EQUIPMENT_ID, transportEquipment)
+//                        .setParameter(EQUIPMENT_ID, transportEquipment.getId()))
+                .setParameter(EQUIPMENT_ID, transportEquipment))
                 .setView(Constants.EDIT_VIEW));
 
         equipmentList.forEach(transportEquipment1 -> aggregateModels.add(transportEquipment1.getAggregate()));
@@ -278,13 +285,15 @@ public class TransportItemEdit extends AbstractEditor<TransportItem> {
         transportItemEquipmentsTable.addGeneratedColumn(COUNT, entity -> {
             Component component;
             if (AggregateKind.AGGREGATE == ((TransportItemEquipment)entity).getAggregateItem().getModel().getAggregateKind()) {
-                component = componentsFactory.createComponent(Label.class);
+                component = uiComponents.create(Label.class);
+//                component = componentsFactory.createComponent(Label.class);
                 ((Label) component).setValue(entity.getValue(COUNT));
             } else {
-                TextField tf = componentsFactory.createComponent(TextField.class);
+//                TextField tf = componentsFactory.createComponent(TextField.class);
+                TextField tf = uiComponents.create(TextField.class);
                 component = tf;
                 tf.setId(COUNT_FIELD + entity.getId().toString());
-                tf.setValue(entity.getValue(COUNT));
+                tf.setValue(entity.getValue(COUNT) != null ? entity.getValue(COUNT).toString() : "нет");
                 tf.addValueChangeListener(e -> {
                     if (tf.getValue() == null) {
                         showNotification(messages.getMessage(this.getClass(),MESSAGE_KEY_FAIL_POSITIVE_VALIDATION), NotificationType.TRAY);

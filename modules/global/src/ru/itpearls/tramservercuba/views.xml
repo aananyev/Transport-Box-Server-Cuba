@@ -139,9 +139,8 @@
                       view="_minimal">
                 <property name="region"/>
             </property>
-            <property name="depoWithRegion"/>
         </property>
-        <property name="workState"/>
+        <property name="transportItemEquipments" view="_local"/>
     </view>
     <view class="ru.itpearls.tramservercuba.entity.TransportItem"
           extends="_local"
