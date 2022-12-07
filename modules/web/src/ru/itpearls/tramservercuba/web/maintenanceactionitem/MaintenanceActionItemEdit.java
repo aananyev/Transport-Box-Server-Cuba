@@ -122,7 +122,7 @@ public class MaintenanceActionItemEdit extends AbstractEditor<MaintenanceActionI
         maintenanceActionItemWorksTable.addGeneratedColumn(ORDER, entity -> {
             TextField tf = componentsFactory.createComponent(TextField.class);
 
-            tf.setValue(entity.getValue(ORDER));
+            tf.setValue(entity.getValue(ORDER).toString());
             tf.addValueChangeListener(e -> {
                 if (tf.getValue() == null) {
                     showNotification(messages.getMessage(this.getClass(),MESSAGE_KEY_FAIL_POSITIVE_VALIDATION), NotificationType.TRAY);
