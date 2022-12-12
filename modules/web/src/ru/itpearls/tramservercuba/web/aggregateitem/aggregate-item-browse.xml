@@ -29,6 +29,7 @@
                 <action id="create"/>
                 <action id="edit"/>
                 <action id="remove"/>
+                <action id="excel"/>
             </actions>
             <columns>
                 <column id="model"/>
@@ -46,6 +47,18 @@
                         action="aggregateItemsTable.edit"/>
                 <button id="removeBtn"
                         action="aggregateItemsTable.remove"/>
+                <popupButton id="exceltBtn"
+                             caption="msg://excelAction"
+                             icon="icons/excel.png">
+                    <actions>
+                        <action id="excel"
+                                caption="msg://exportExcelAction"
+                                invoke="excelExportActionInvoke"/>
+                        <action id="importExcel"
+                                caption="msg://importExcelAction"
+                                invoke="excelImportActionInvoke"/>
+                    </actions>
+                </popupButton>
             </buttonsPanel>
         </table>
     </layout>

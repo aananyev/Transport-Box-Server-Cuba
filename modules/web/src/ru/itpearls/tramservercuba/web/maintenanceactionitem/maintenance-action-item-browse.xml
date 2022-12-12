@@ -48,8 +48,18 @@
                         action="maintenanceActionItemsTable.edit"/>
                 <button id="removeBtn"
                         action="maintenanceActionItemsTable.remove"/>
-                <button id="excelBtn"
-                        action="maintenanceActionItemsTable.excel"/>
+                <popupButton id="exceltBtn"
+                             caption="msg://excelAction"
+                             icon="icons/excel.png">
+                    <actions>
+                        <action id="excel"
+                                caption="msg://exportExcelAction"
+                                invoke="excelImportActionInvoke"/>
+                        <action id="importExcel"
+                                caption="msg://importExcelAction"
+                                invoke="excelExportActionInvoke"/>
+                    </actions>
+                </popupButton>
             </buttonsPanel>
         </table>
     </layout>

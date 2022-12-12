@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
         caption="msg://identifiedFaultsBrowse.caption"
-        class="ru.itpearls.tramservercuba.web.screens.identifiedfaults.IdentifiedFaultsBrowse"
+        class="ru.itpearls.tramservercuba.web.identifiedfaults.IdentifiedFaultsBrowse"
         focusComponent="identifiedFaultsesTable"
         lookupComponent="identifiedFaultsesTable"
         messagesPack="ru.itpearls.tramservercuba.web.screens.identifiedfaults">
@@ -48,10 +48,22 @@
                 <button id="createBtn" action="identifiedFaultsesTable.create"/>
                 <button id="editBtn" action="identifiedFaultsesTable.edit"/>
                 <button id="removeBtn" action="identifiedFaultsesTable.remove"/>
-                <button id="excelBtn"
+<!--                <button id="excelBtn"
                         icon="icons/excel.png"
                         invoke="excelImportActionInvoke"
-                        caption="msg://excelAction"/>
+                        caption="msg://excelAction"/> -->
+                <popupButton id="exceltBtn"
+                             caption="msg://excelAction"
+                             icon="icons/excel.png">
+                    <actions>
+                        <action id="excel"
+                                caption="msg://exportExcelAction"
+                                invoke="excelExportActionInvoke"/>
+                        <action id="importExcel"
+                                caption="msg://importExcelAction"
+                                invoke="excelImportActionInvoke"/>
+                    </actions>
+                </popupButton>
         </buttonsPanel>
     </table>
 </layout>

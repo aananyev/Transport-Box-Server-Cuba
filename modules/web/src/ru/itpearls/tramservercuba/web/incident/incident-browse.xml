@@ -30,7 +30,6 @@
                 <action id="edit"/>
                 <action id="remove"/>
                 <action id="excel"/>
-
             </actions>
             <columns>
                 <column id="code"/>
@@ -50,16 +49,17 @@
                         action="incidentsTable.edit"/>
                 <button id="removeBtn"
                         action="incidentsTable.remove"/>
-<!--                <button id="excelBtn"
-                        action="incidentsTable.excel"/> -->
-                <popupButton id="excelBtn"
-                             caption="msg://excelAction">
-                    <action id="importExcel"
-                            caption="msg://importExcelAction"
-                            invoke="excelImportActionInvoke"/>
-                    <action id="excel"
-                            caption="msg://exportExcelAction"
-                            invoke="excelExportActionInvoke"/>
+                <popupButton id="exceltBtn"
+                             caption="msg://excelAction"
+                             icon="icons/excel.png">
+                    <actions>
+                        <action id="excel"
+                                caption="msg://exportExcelAction"
+                                invoke="excelImportActionInvoke"/>
+                        <action id="importExcel"
+                                caption="msg://importExcelAction"
+                                invoke="excelExportActionInvoke"/>
+                    </actions>
                 </popupButton>
             </buttonsPanel>
         </table>

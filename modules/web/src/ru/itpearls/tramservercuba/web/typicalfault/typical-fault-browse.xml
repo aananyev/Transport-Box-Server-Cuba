@@ -49,8 +49,18 @@
                         action="typicalFaultsTable.edit"/>
                 <button id="removeBtn"
                         action="typicalFaultsTable.remove"/>
-                <button id="excelBtn"
-                        action="typicalFaultsTable.excel"/>
+                <popupButton id="exceltBtn"
+                             caption="msg://excelAction"
+                             icon="icons/excel.png">
+                    <actions>
+                        <action id="excel"
+                                caption="msg://exportExcelAction"
+                                invoke="excelExportActionInvoke"/>
+                        <action id="importExcel"
+                                caption="msg://importExcelAction"
+                                invoke="excelImportActionInvoke"/>
+                    </actions>
+                </popupButton>
             </buttonsPanel>
         </table>
     </layout>
