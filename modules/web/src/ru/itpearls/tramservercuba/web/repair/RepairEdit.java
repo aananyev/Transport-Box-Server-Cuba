@@ -463,12 +463,12 @@ public class RepairEdit extends AbstractEditor<Repair> {
     }
 
     private void setEnabledEscapeFromLine() {
-        if (getItem().getMaintenanceKind() != null
+/*        if (getItem().getMaintenanceKind() != null
                 && getItem().getMaintenanceKind().getFeatureOfUse() == MaintenanceKindFeatureOfUse.REPAIR) {
             fieldGroup.getField(ESCAPE_FROM_LINE).setEditable(true);
         } else {
             fieldGroup.getField(ESCAPE_FROM_LINE).setEditable(false);
-        }
+        } */
     }
 
     private void disableControlPanel() {
