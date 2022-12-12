@@ -78,7 +78,7 @@ public class MaintenanceActionItemWorkEdit extends AbstractEditor<MaintenanceAct
         suggestionWorkTemplateField.addValueChangeListener(e -> {
             if (suggestionWorkTemplateField.getValue() != null) {
                 MaintenanceWorkTemplate workTemplate = (MaintenanceWorkTemplate) suggestionWorkTemplateField.getValue();
-                aggregateType.setValue(workTemplate.getAggregateType());
+                aggregateType.setValue(workTemplate.getAggregateType().toString());
                 description.setValue(workTemplate.getDescription());
                 if (workTemplate.getInstruction() != null) {
                     instructionFileLinkBtn.setCaption(workTemplate.getInstruction().getName());
