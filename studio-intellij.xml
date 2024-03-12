@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CubaPluginProjectSettings">
+    <option name="groupUpdateScriptsBy" value="MONTH" />
+    <option name="stateVersion" value="1" />
+    <option name="savedDbProperties">
+      <list>
+        <SavedDbProperties>
+          <option name="databaseName" value="transportbox" />
+          <option name="dbType" value="postgres" />
+          <option name="dbmsVersion" />
+          <option name="host" value="agronote.it-pearls.ru" />
+          <option name="pass" value="cuba" />
+          <option name="systemPassword" value="" />
+          <option name="systemUser" value="" />
+          <option name="url" value="jdbc:postgresql://agronote.it-pearls.ru/transportbox" />
+          <option name="user" value="cuba" />
+          <option name="additionalProperties">
+            <map>
+              <entry key="driverClassName" value="org.postgresql.Driver" />
+              <entry key="maxIdle" value="2" />
+              <entry key="maxTotal" value="20" />
+              <entry key="maxWaitMillis" value="5000" />
+              <entry key="type" value="javax.sql.DataSource" />
+            </map>
+          </option>
+        </SavedDbProperties>
+      </list>
+    </option>
+  </component>
+</project>
