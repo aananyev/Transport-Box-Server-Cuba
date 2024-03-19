@@ -47,7 +47,7 @@ dependencies {
     appComponent('com.haulmont.addon.dashboard:dashboard-global:3.2.3')
 }
 
-def hsql = 'org.hsqldb:hsqldb:2.4.1'
+def postgres = 'org.postgresql:postgresql:42.2.9'
 
 configure([globalModule, coreModule, webModule, webToolkitModule]) {
     apply(plugin: 'java')
@@ -99,8 +99,8 @@ configure(coreModule) {
     dependencies {
         compile(globalModule)
         compileOnly(servletApi)
-        jdbc(hsql)
-        testRuntime(hsql)
+        jdbc(postgres)
+        testRuntime(postgres)
         // https://mvnrepository.com/artifact/org.apache.poi/poi
         compile group: 'org.apache.poi', name: 'poi', version: '4.0.0'
 
@@ -116,19 +116,19 @@ configure(coreModule) {
     }
 
     task createDb(dependsOn: assembleDbScripts, description: 'Creates local database', type: CubaDbCreation) {
-        dbms = 'hsql'
-        host = 'localhost'
-        dbName = 'tramservercuba'
-        dbUser = 'sa'
-        dbPassword = ''
+        dbms = 'postgres'
+        host = 'agronote.it-pearls.ru'
+        dbName = 'transportbox'
+        dbUser = 'cuba'
+        dbPassword = 'cuba'
     }
 
     task updateDb(dependsOn: assembleDbScripts, description: 'Updates local database', type: CubaDbUpdate) {
-        dbms = 'hsql'
-        host = 'localhost'
-        dbName = 'tramservercuba'
-        dbUser = 'sa'
-        dbPassword = ''
+        dbms = 'postgres'
+        host = 'agronote.it-pearls.ru'
+        dbName = 'transportbox'
+        dbUser = 'cuba'
+        dbPassword = 'cuba'
     }
 }
 

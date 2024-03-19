@@ -133,18 +133,24 @@ public class MaintenanceKindMultipleChoise extends AbstractWindow {
         }
 
         if (repair.getTransportItem() != null) {
-            List<MaintenanceActionItem> actionItems = repair.getTransportItem().getModel()
-                    .getMaintenanceRegulation().getMaintenanceActionItems();
+            if (repair.getTransportItem().getModel() != null) {
+                if (repair.getTransportItem().getModel().getMaintenanceRegulation() != null) {
+                    if (repair.getTransportItem().getModel().getMaintenanceRegulation().getMaintenanceActionItems() != null) {
+                        List<MaintenanceActionItem> actionItems = repair.getTransportItem().getModel()
+                                .getMaintenanceRegulation().getMaintenanceActionItems();
 
-            if (actionItems != null) {
-                for (MaintenanceActionItem actionItem : actionItems) {
-                    maintenanceKinds.add(actionItem.getMaintenanceKind());
+                        if (actionItems != null) {
+                            for (MaintenanceActionItem actionItem : actionItems) {
+                                maintenanceKinds.add(actionItem.getMaintenanceKind());
 
-                    if (!actionItemsForMaintenanceKind.containsKey(actionItem.getMaintenanceKind())) {
-                        actionItemsForMaintenanceKind.put(actionItem.getMaintenanceKind(), new ArrayList<>());
+                                if (!actionItemsForMaintenanceKind.containsKey(actionItem.getMaintenanceKind())) {
+                                    actionItemsForMaintenanceKind.put(actionItem.getMaintenanceKind(), new ArrayList<>());
+                                }
+
+                                actionItemsForMaintenanceKind.get(actionItem.getMaintenanceKind()).add(actionItem);
+                            }
+                        }
                     }
-
-                    actionItemsForMaintenanceKind.get(actionItem.getMaintenanceKind()).add(actionItem);
                 }
             }
         }

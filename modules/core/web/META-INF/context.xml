@@ -2,13 +2,13 @@
     <!-- Database connection -->
     <!-- Switch off session serialization -->
     <Manager pathname=""/>
-    <Resource driverClassName="org.hsqldb.jdbc.JDBCDriver"
+    <Resource driverClassName="org.postgresql.Driver"
               maxIdle="2"
               maxTotal="20"
               maxWaitMillis="5000"
               name="jdbc/CubaDS"
-              password=""
+              password="cuba"
               type="javax.sql.DataSource"
-              url="jdbc:hsqldb:hsql://localhost/tramservercuba"
-              username="sa"/>
+              url="jdbc:postgresql://agronote.it-pearls.ru/transportbox"
+              username="cuba"/>
 </Context>

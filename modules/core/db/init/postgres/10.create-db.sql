@@ -535,7 +535,7 @@ create table TRAMSERVERCUBA_IDENTIFIED_FAULTS (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
-    REPAIR_ID uuid not null,
+    REPAIR_ID uuid,
     CODE varchar(50),
     IDENTIFIED_DATE timestamp not null,
     DESCRIPTION varchar(255),

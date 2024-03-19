@@ -11,8 +11,7 @@ import java.util.Date;
 public class IdentifiedFaults extends StandardEntity {
     private static final long serialVersionUID = -7528789364992371621L;
 
-    @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "REPAIR_ID")
     protected Repair repair;
 

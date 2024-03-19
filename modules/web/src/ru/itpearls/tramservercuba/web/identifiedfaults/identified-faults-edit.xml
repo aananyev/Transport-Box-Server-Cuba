@@ -27,9 +27,9 @@
                 <field editable="false"
                        property="code"/>
                 <field property="identifiedDate"/>
-                <field editable="false"
+                <field editable="true"
                        property="repair.maintenanceKind"/>
-                <field editable="false"
+                <field editable="true"
                        property="repair.milage"/>
                 <field property="typicalFault"/>
                 <field property="description"
@@ -37,7 +37,7 @@
                        width="200%"/>
                 <field property="isWarranty"/>
                 <field property="disposalDate"/>
-                <field editable="false"
+                <field editable="true"
                        property="state"/>
             </column>
         </fieldGroup>

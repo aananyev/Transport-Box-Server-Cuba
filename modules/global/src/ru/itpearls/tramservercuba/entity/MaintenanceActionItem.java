@@ -1,17 +1,17 @@
 package ru.itpearls.tramservercuba.entity;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-
 import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.chile.core.annotations.MetaProperty;
+import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.annotation.Lookup;
 import com.haulmont.cuba.core.entity.annotation.LookupType;
-import java.util.List;
-import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.global.AppBeans;
 import com.haulmont.cuba.core.global.Messages;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @NamePattern("%s|name")
 @Table(name = "TRAMSERVERCUBA_MAINTENANCE_ACTION_ITEM")
@@ -20,7 +20,9 @@ public class MaintenanceActionItem extends StandardEntity {
     private static final long serialVersionUID = 2220020383876335786L;
 
     private final static String AT_PRETEXT = "atPretext";
+
     private final static String ONE_PER_TIME = "onePerTimeCaption";
+
     @NotNull
     @Column(name = "NAME", nullable = false, unique = true)
     protected String name;
@@ -51,7 +53,7 @@ public class MaintenanceActionItem extends StandardEntity {
     @Column(name = "DESCRIPTION")
     protected String description;
 
-    @Lookup(type = LookupType.DROPDOWN)
+    @Lookup(type = LookupType.DROPDOWN, actions = {})
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "MAINTENANCE_KIND_ID")
@@ -62,10 +64,11 @@ public class MaintenanceActionItem extends StandardEntity {
     protected MaintenanceRegulation maintenanceRegulation;
 
     private final static String ONE_PER_DISTANCE = "onePerDistanceCaption";
+
     private final static String KM = "km";
+
     private final static String SPACE = " ";
 
-    @Transient
     @MetaProperty
     public String getDateCaption() {
         StringBuilder sb = new StringBuilder();
@@ -79,7 +82,6 @@ public class MaintenanceActionItem extends StandardEntity {
         return sb.toString();
     }
 
-    @Transient
     @MetaProperty
     public String getPeriodCaption() {
         StringBuilder sb = new StringBuilder();

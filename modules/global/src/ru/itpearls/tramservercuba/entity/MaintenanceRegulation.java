@@ -1,14 +1,14 @@
 package ru.itpearls.tramservercuba.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Column;
-import javax.validation.constraints.NotNull;
-
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
-import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @NamePattern("%s|name")
 @Table(name = "TRAMSERVERCUBA_MAINTENANCE_REGULATION")
