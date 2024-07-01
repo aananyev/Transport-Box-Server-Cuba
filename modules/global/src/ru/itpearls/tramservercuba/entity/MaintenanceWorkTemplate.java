@@ -1,12 +1,12 @@
 package ru.itpearls.tramservercuba.entity;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-
 import com.haulmont.chile.core.annotations.MetaProperty;
 import com.haulmont.chile.core.annotations.NamePattern;
-import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.FileDescriptor;
+import com.haulmont.cuba.core.entity.StandardEntity;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @NamePattern("%s|name")
 @Table(name = "TRAMSERVERCUBA_MAINTENANCE_WORK_TEMPLATE")

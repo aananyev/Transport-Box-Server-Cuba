@@ -254,6 +254,7 @@
                   view="_local"/>
         <property name="instruction"
                   view="browse"/>
+        <property name="nameForSearch"/>
     </view>
     <view class="ru.itpearls.tramservercuba.entity.MaintenanceActionItem"
           extends="_local"
@@ -277,17 +278,11 @@
           extends="_local"
           name="edit">
         <property name="workTemplate"
-                  view="_local">
-            <property name="aggregateType"
-                      view="_local"/>
-            <property name="instruction"
-                      view="browse"/>
+                  view="edit">
+            <property name="nameForSearch"/>
         </property>
         <property name="actionItem"
-                  view="_minimal">
-            <property name="maintenanceRegulation"
-                      view="_minimal">
-            </property>
+                  view="_base">
         </property>
     </view>
     <view class="ru.itpearls.tramservercuba.entity.Depo"

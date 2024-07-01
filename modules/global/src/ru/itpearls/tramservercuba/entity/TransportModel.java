@@ -1,15 +1,15 @@
 package ru.itpearls.tramservercuba.entity;
 
-import javax.persistence.*;
-
 import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.chile.core.annotations.MetaProperty;
 import com.haulmont.cuba.core.entity.annotation.Lookup;
 import com.haulmont.cuba.core.entity.annotation.LookupType;
 import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.global.DeletePolicy;
-import java.util.List;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @DiscriminatorValue("model")
 @PrimaryKeyJoinColumn(name = "ID", referencedColumnName = "ID")
@@ -18,7 +18,7 @@ import javax.validation.constraints.NotNull;
 public class TransportModel extends TransportTypeBaseEntity {
     private static final long serialVersionUID = 350835573402794924L;
 
-    @Lookup(type = LookupType.DROPDOWN)
+    @Lookup(type = LookupType.DROPDOWN, actions = {})
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "TYPE_ID")

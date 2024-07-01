@@ -37,8 +37,6 @@ public class MaintenanceActionItemWorkEdit extends AbstractEditor<MaintenanceAct
     @Inject
     private SuggestionPickerField suggestionWorkTemplateField;
     @Inject
-    private TextField aggregateType;
-    @Inject
     private TextArea description;
     @Inject
     private CollectionDatasource workTemplatesDs;
@@ -46,6 +44,8 @@ public class MaintenanceActionItemWorkEdit extends AbstractEditor<MaintenanceAct
     private LinkButton instructionFileLinkBtn;
     @Inject
     private ExportDisplay exportDisplay;
+    @Inject
+    private TextField<String> aggregateType;
 
     @Override
     public void init(Map<String, Object> params) {

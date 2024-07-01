@@ -1,14 +1,12 @@
 package ru.itpearls.tramservercuba.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.InheritanceType;
-import javax.persistence.Inheritance;
-import javax.persistence.Column;
-import javax.validation.constraints.NotNull;
-
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Table(name = "TRAMSERVERCUBA_REGIONAL_DEPARTMENT")
 @Entity(name = "tramservercuba$RegionalDepartment")

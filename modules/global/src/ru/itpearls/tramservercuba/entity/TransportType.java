@@ -1,13 +1,7 @@
 package ru.itpearls.tramservercuba.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
-import javax.persistence.OneToMany;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Column;
-import javax.validation.constraints.NotNull;
 
 @DiscriminatorValue("type")
 @PrimaryKeyJoinColumn(name = "ID", referencedColumnName = "ID")
