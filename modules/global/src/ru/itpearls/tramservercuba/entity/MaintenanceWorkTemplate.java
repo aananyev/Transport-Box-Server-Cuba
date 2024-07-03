@@ -109,7 +109,10 @@ public class MaintenanceWorkTemplate extends StandardEntity {
     public String getNameForSearch() {
         StringBuilder sb = new StringBuilder();
 
-        sb.append(getAggregateType().getName()).append(SEPARATOR)
+        String aggregateTypeName = "";
+        if (getAggregateType() != null)
+            aggregateTypeName = getAggregateType().getName();
+        sb.append(aggregateTypeName).append(SEPARATOR)
                 .append(getCode()).append(SEPARATOR)
                 .append(getName());
 
